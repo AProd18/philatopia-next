@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);

@@ -6,18 +6,25 @@ import Link from "next/link";
 export default function Navbar() {
   const { data: session } = useSession();
 
+  const handleLogout = async () => {
+    await signOut({ callbackUrl: "/" }); // Redirect to the home page after sign out
+  };
+
   return (
-    <nav className="bg-blue-600 text-white p-4">
+    <nav
+      className="text-white p-4"
+      style={{ backgroundColor: "var(--nav-menu)" }}
+    >
       <div className="container mx-auto flex justify-between items-center">
         <div className="text-xl font-bold">
           <Link href="/">Philately</Link>
         </div>
         <div className="space-x-4">
+          <Link href="/philately-gallery" className="hover:underline">
+            Philately Gallery
+          </Link>
           {!session ? (
             <>
-              <Link href="/philately-gallery" className="hover:underline">
-                Philately Gallery
-              </Link>
               <Link href="/login" className="hover:underline">
                 Login
               </Link>
@@ -33,7 +40,7 @@ export default function Navbar() {
               <Link href="/my-collections" className="hover:underline">
                 My Collections
               </Link>
-              <button onClick={() => signOut()} className="hover:underline">
+              <button onClick={handleLogout} className="hover:underline">
                 Logout
               </button>
             </>
