@@ -1,19 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import Pagination from "../../components/Pagination";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     const fetchStamps = async () => {
-      const res = await fetch("/api/collections/all");
+      const res = await fetch(`/api/collections/all?page=${currentPage}`);
       const data = await res.json();
-      setStamps(data);
+      setStamps(data.stamps);
+      setTotalPages(data.totalPages); // Set total number of pages for pagination
     };
     fetchStamps();
-  }, []);
+  }, [currentPage]); // Fetch data when currentPage changes
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="p-4">
@@ -55,6 +62,11 @@ const PhilatelyGallery = () => {
           ))}
         </div>
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };

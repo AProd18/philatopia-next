@@ -2,23 +2,33 @@
 
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
+import Pagination from "../../components/Pagination";
 
 const MyCollections = () => {
   const { data: session } = useSession(); // Retrieve the current user's session
   const [stamps, setStamps] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     // Fetch the user's stamps only if the user is logged in
     if (session?.user?.name) {
       const fetchStamps = async () => {
-        const res = await fetch(`/api/collections?user=${session.user.name}`);
+        const res = await fetch(
+          `/api/collections?user=${session.user.name}&page=${currentPage}`
+        );
         const data = await res.json();
-        setStamps(data); // Update state with the fetched stamps
+        setStamps(data.stamps); // Update state with the fetched stamps
+        setTotalPages(data.totalPages); // Update the total number of pages
       };
 
       fetchStamps();
     }
-  }, [session]);
+  }, [session, currentPage]); // Fetch data when session or currentPage changes
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
 
   return (
     <div className="p-4">
@@ -57,6 +67,11 @@ const MyCollections = () => {
           ))}
         </div>
       )}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={handlePageChange}
+      />
     </div>
   );
 };
