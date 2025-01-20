@@ -44,60 +44,61 @@ export default function Login() {
   };
 
   return (
-    <main className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">Login</h1>
-      {!session ? (
-        <form
-          className="flex flex-col mt-4 space-y-4 w-80"
-          onSubmit={handleLogin}
-        >
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="p-2 border rounded"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="p-2 border rounded"
-            required
-          />
-          {error && <p className="text-red-500">{error}</p>}
-          <button
-            type="submit"
-            className="p-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition duration-200"
-          >
-            Login
-          </button>
-        </form>
-      ) : (
-        <div className="mt-4">
-          <p className="text-green-600">Welcome, {session.user.name}!</p>
-          <button
-            onClick={handleLogout}
-            className="p-2 bg-red-600 text-white rounded hover:bg-red-700 transition duration-200"
-          >
-            Logout
-          </button>
-        </div>
-      )}
+    <main className="flex items-center justify-center min-h-screen opacity-95">
+      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
+          Login
+        </h1>
+        {!session ? (
+          <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
+            {error && <p className="text-red-500 text-sm">{error}</p>}
+            <button
+              type="submit"
+              className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Login
+            </button>
+          </form>
+        ) : (
+          <div className="text-center mt-4">
+            <p className="text-green-600">Welcome, {session.user.name}!</p>
+            <button
+              onClick={handleLogout}
+              className="mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+              Logout
+            </button>
+          </div>
+        )}
 
-      {!session && (
-        <div className="mt-4 text-center">
-          <p className="text-gray-600">or</p>
-          <button
-            onClick={handleGoogleLogin}
-            className="p-2 mt-2 bg-red-600 text-white rounded hover:bg-red-700 transition duration-200"
-          >
-            Login with Google
-          </button>
-        </div>
-      )}
+        {!session && (
+          <div className="mt-4 text-center">
+            <p className="text-gray-600">or</p>
+            <button
+              onClick={handleGoogleLogin}
+              className="w-full mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+            >
+              Login with Google
+            </button>
+          </div>
+        )}
+      </div>
     </main>
   );
 }
