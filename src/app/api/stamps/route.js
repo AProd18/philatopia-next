@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
+import sharp from "sharp"; // Dodaj sharp
 import prisma from "../../../lib/prisma";
 
 // Funkcija za premestanje slike u uploads folder
@@ -27,6 +28,22 @@ export async function POST(request) {
   }
 
   try {
+    // Provera veličine slike
+    if (image.size > 1 * 1024 * 1024) {
+      return NextResponse.json({ success: false, error: "Image is too large" });
+    }
+
+    // Provera dimenzija slike koristeći sharp
+    const imgBuffer = Buffer.from(await image.arrayBuffer());
+    const imageInfo = await sharp(imgBuffer).metadata();
+
+    if (imageInfo.width > 1000 || imageInfo.height > 1000) {
+      return NextResponse.json({
+        success: false,
+        error: "Image dimensions are too large",
+      });
+    }
+
     // Sačuvaj sliku u uploads folder i dobij putanju
     const imagePath = await saveImage(image);
 
