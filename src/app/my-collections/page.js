@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
+import Image from "next/image";
 
 const MyCollections = () => {
   const { data: session } = useSession(); // Retrieve the current user's session
@@ -43,10 +44,12 @@ const MyCollections = () => {
               className="border rounded-lg overflow-hidden shadow-lg bg-white"
             >
               {stamp.image ? (
-                <img
+                <Image
                   src={stamp.image}
                   alt={stamp.name}
-                  className="w-full h-48 object-cover"
+                  width={400}
+                  height={300}
+                  className="object-cover"
                 />
               ) : (
                 <div className="w-full h-48 bg-gray-300 flex justify-center items-center">
