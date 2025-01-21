@@ -19,23 +19,28 @@ export default function ContactUs() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("/api/send-email", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } else {
-      setStatus("Failed to send message. Please try again.");
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("An error occurred while sending the message.");
+      console.error("Error sending message:", error);
     }
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen opacity-95">
-      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
+    <main className="flex items-center justify-center min-h-screen">
+      <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
           Contact Us
         </h1>

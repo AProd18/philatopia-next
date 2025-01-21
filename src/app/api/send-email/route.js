@@ -10,15 +10,15 @@ export async function POST(req) {
       pass: process.env.EMAIL_PASS,
     },
     tls: {
-      rejectUnauthorized: false, // Onemogućava verifikaciju sertifikata
+      rejectUnauthorized: false, // Disables certificate verification
     },
   });
 
   const mailOptions = {
-    from: email, // Email korisnika
-    to: "business@aleksandarprod.com", // Tvoj email na koji šalješ poruku
-    subject: subject, // Naslov poruke
-    text: `From: ${name} <${email}>\n\nMessage: ${message}`, // Telo poruke
+    from: email,
+    to: "business@aleksandarprod.com",
+    subject: subject,
+    text: `From: ${name} <${email}>\n\nMessage: ${message}`,
   };
 
   try {

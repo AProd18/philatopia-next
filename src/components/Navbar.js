@@ -3,7 +3,7 @@
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import { useState } from "react";
-import { HiMenu, HiX } from "react-icons/hi"; // Ikone za meni
+import { HiMenu, HiX } from "react-icons/hi"; // Icons for menu
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -40,7 +40,7 @@ export default function Navbar() {
         <div
           className={`${
             menuOpen ? "block" : "hidden"
-          } absolute md:static top-16 left-0 w-full md:w-auto md:flex flex-col md:flex-row items-center bg-gray-900 md:bg-transparent space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0`}
+          } absolute md:static top-16 left-0 w-full md:w-auto md:flex flex-col md:flex-row items-center bg-gray-900 md:bg-transparent space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0 `}
         >
           <Link
             href="/philately-gallery"

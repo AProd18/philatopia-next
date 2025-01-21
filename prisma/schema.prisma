@@ -44,7 +44,6 @@ model User {
   sessions      Session[]
 }
 
-
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -66,7 +65,6 @@ model Stamp {
   collection  Collection? @relation("PhilatelyGallery", fields: [collectionId], references: [id])
   collectionId Int?
 }
-
 
 model Collection {
   id          Int      @id @default(autoincrement())

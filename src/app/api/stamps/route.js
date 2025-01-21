@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
-import prisma from "../../../lib/prisma"; // Povezivanje sa Prisma clientom
+import prisma from "../../../lib/prisma";
 
 export async function POST(request) {
-  const formData = await request.formData(); // Preuzimanje FormData objekta
+  const formData = await request.formData();
   const name = formData.get("name");
   const description = formData.get("description");
   const yearIssued = formData.get("yearIssued");

@@ -16,7 +16,7 @@ const PhilatelyGallery = () => {
       setTotalPages(data.totalPages); // Set total number of pages for pagination
     };
     fetchStamps();
-  }, [currentPage]); // Fetch data when currentPage changes
+  }, [currentPage]); // Fetch data when currentPage
 
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -25,6 +25,7 @@ const PhilatelyGallery = () => {
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4">Philately Gallery</h1>
+
       {stamps.length === 0 ? (
         <p>No stamps available</p>
       ) : (

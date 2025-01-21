@@ -44,7 +44,7 @@ export default function Login() {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen opacity-95">
+    <main className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
         <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
           Login
