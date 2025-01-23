@@ -20,6 +20,7 @@ export async function POST(request) {
   const name = formData.get("name");
   const description = formData.get("description");
   const yearIssued = formData.get("yearIssued");
+  const country = formData.get("country"); // Get country from form
   const user = formData.get("user");
   const image = formData.get("image");
 
@@ -53,6 +54,7 @@ export async function POST(request) {
         name,
         description,
         yearIssued: parseInt(yearIssued),
+        country, // Add country to database
         user,
         image: imagePath, // Putanja do slike u bazi
       },

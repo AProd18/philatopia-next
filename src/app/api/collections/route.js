@@ -5,7 +5,7 @@ export async function GET(request) {
   const url = new URL(request.url);
   const user = url.searchParams.get("user");
   const page = parseInt(url.searchParams.get("page")) || 1; // Default to page 1 if no page is provided
-  const pageSize = 6; // Number of stamps per page
+  const pageSize = 8; // Number of stamps per page
   const offset = (page - 1) * pageSize; // Calculate the offset for pagination
 
   if (user) {
@@ -22,6 +22,7 @@ export async function GET(request) {
           yearIssued: true,
           image: true,
           createdAt: true,
+          country: true, // Include the "country" field
         },
       }),
       prisma.stamp.count({

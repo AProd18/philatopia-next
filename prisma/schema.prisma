@@ -60,11 +60,12 @@ model Stamp {
   user        String
   image       String?
   createdAt   DateTime @default(now())
+  country     String   @default("Unknown") // Dodata podrazumevana vrednost
 
-  // Relation to the PhilatelyGallery model
   collection  Collection? @relation("PhilatelyGallery", fields: [collectionId], references: [id])
   collectionId Int?
 }
+
 
 model Collection {
   id          Int      @id @default(autoincrement())

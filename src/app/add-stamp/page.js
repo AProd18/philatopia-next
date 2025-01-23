@@ -2,14 +2,17 @@
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
+import Link from "next/link"; // Dodajte import za Link
 
 const AddStamp = () => {
   const { data: session } = useSession();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [yearIssued, setYearIssued] = useState("");
+  const [country, setCountry] = useState(""); // New state for country
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState(""); // Add state for success message
 
   const MAX_SIZE = 5 * 1024 * 1024; // 5MB
   const MAX_WIDTH = 2000; // Max width of image
@@ -40,6 +43,7 @@ const AddStamp = () => {
       formData.append("name", name);
       formData.append("description", description);
       formData.append("yearIssued", yearIssued);
+      formData.append("country", country); // Include country
       formData.append("user", session?.user?.name);
       formData.append("image", image);
 
@@ -52,8 +56,16 @@ const AddStamp = () => {
           if (data.success) {
             console.log("Stamp successfully added:", data);
             setError(""); // Clear any previous errors
+            setSuccessMessage("Stamp successfully added!"); // Set success message
+            // Reset form inputs
+            setName("");
+            setDescription("");
+            setYearIssued("");
+            setCountry("");
+            setImage(null);
           } else {
             setError(data.error);
+            setSuccessMessage(""); // Clear success message on error
           }
         });
     };
@@ -118,6 +130,22 @@ const AddStamp = () => {
         </div>
         <div className="mb-4">
           <label
+            htmlFor="country"
+            className="block text-sm font-medium text-gray-700"
+          >
+            Country:
+          </label>
+          <input
+            type="text"
+            id="country"
+            value={country}
+            onChange={(e) => setCountry(e.target.value)}
+            required
+            className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label
             htmlFor="image"
             className="block text-sm font-medium text-gray-700"
           >
@@ -131,6 +159,21 @@ const AddStamp = () => {
           />
         </div>
         {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
+        {successMessage && (
+          <div className="text-green-500 text-sm mb-4">
+            {successMessage}
+            <p className="mt-2">
+              Check your stamps on the{" "}
+              <Link
+                href="/my-collections"
+                className="text-indigo-600 hover:text-indigo-800"
+              >
+                My Collections
+              </Link>{" "}
+              page.
+            </p>
+          </div>
+        )}
         <button
           type="submit"
           className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
