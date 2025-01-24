@@ -10,7 +10,7 @@ const SearchBar = ({ onSearch }) => {
         type="text"
         onChange={handleInputChange}
         placeholder="Search by name, year, or country..."
-        className="w-full p-2 border border-gray-300 rounded"
+        className="opacity-80 w-[50%] p-2 border border-gray-300 rounded mx-auto"
       />
     </div>
   );
