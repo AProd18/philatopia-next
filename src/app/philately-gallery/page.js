@@ -41,7 +41,7 @@ const PhilatelyGallery = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Philately Gallery</h1>
+      <h1 className="text-2xl font-bold mb-4"></h1>
 
       {/* Search bar */}
       <SearchBar onSearch={handleSearch} />
@@ -49,18 +49,22 @@ const PhilatelyGallery = () => {
       {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
         <button
-          className={`px-4 py-2 rounded ${
-            viewMode === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
           onClick={() => setViewMode("grid")}
+          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
+            viewMode === "grid"
+              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
+              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
+          }`}
         >
           Grid View
         </button>
         <button
-          className={`px-4 py-2 rounded ${
-            viewMode === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
-          }`}
           onClick={() => setViewMode("list")}
+          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
+            viewMode === "list"
+              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
+              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
+          }`}
         >
           List View
         </button>
@@ -74,7 +78,7 @@ const PhilatelyGallery = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="border rounded-lg overflow-hidden shadow-lg bg-white"
+              className="border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
             >
               {stamp.image ? (
                 <Image
@@ -90,18 +94,21 @@ const PhilatelyGallery = () => {
                 </div>
               )}
               <div className="p-4">
-                <h3 className="text-lg font-semibold">{stamp.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-600">
+                  {stamp.name}
+                </h3>
                 <p className="text-sm text-gray-600">{stamp.description}</p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Year Issued: {stamp.yearIssued}
+                  <span className="font-bold">Year Issued:</span>{" "}
+                  {stamp.yearIssued}
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Country: {stamp.country}
+                  <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Owner: {stamp.user}
+                  <span className="font-bold">Owner:</span> {stamp.user}
                 </p>
-                <p className="text-xs text-gray-400 mt-1">
+                <p className="text-xs text-gray-400 mt-1 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>
@@ -114,7 +121,7 @@ const PhilatelyGallery = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex items-center space-x-4 border p-4 rounded bg-white shadow"
+              className="flex items-center space-x-4 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
             >
               {stamp.image ? (
                 <Image
@@ -130,16 +137,21 @@ const PhilatelyGallery = () => {
                 </div>
               )}
               <div className="flex-grow">
-                <h3 className="font-semibold text-lg">{stamp.name}</h3>
+                <h3 className="font-semibold text-lg text-gray-600">
+                  {stamp.name}
+                </h3>
                 <p className="text-sm text-gray-600">{stamp.description}</p>
                 <p className="text-sm text-gray-500">
-                  Year Issued: {stamp.yearIssued}
+                  <span className="font-bold">Year Issued:</span>{" "}
+                  {stamp.yearIssued}
                 </p>
                 <p className="text-sm text-gray-500">
-                  Country: {stamp.country}
+                  <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p className="text-sm text-gray-500">Owner: {stamp.user}</p>
-                <p className="text-xs text-gray-400">
+                <p className="text-sm text-gray-500">
+                  <span className="font-bold">Owner:</span> {stamp.user}
+                </p>
+                <p className="text-xs text-gray-400 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>

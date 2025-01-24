@@ -110,7 +110,7 @@ const MyCollections = () => {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">My Collections</h1>
+      <h1 className="text-2xl font-bold mb-4"></h1>
 
       {/* Search bar */}
       <SearchBar onSearch={handleSearch} />
@@ -119,16 +119,20 @@ const MyCollections = () => {
       <div className="flex justify-end space-x-4 mb-4">
         <button
           onClick={() => setViewMode("grid")}
-          className={`px-4 py-2 rounded ${
-            viewMode === "grid" ? "bg-blue-500 text-white" : "bg-gray-200"
+          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
+            viewMode === "grid"
+              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
+              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
           }`}
         >
           Grid View
         </button>
         <button
           onClick={() => setViewMode("list")}
-          className={`px-4 py-2 rounded ${
-            viewMode === "list" ? "bg-blue-500 text-white" : "bg-gray-200"
+          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
+            viewMode === "list"
+              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
+              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
           }`}
         >
           List View
@@ -143,7 +147,7 @@ const MyCollections = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="border rounded-lg overflow-hidden shadow-lg bg-white flex flex-col justify-between"
+              className="bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 border rounded-lg overflow-hidden shadow-lg flex flex-col justify-between"
             >
               {stamp.image ? (
                 <Image
@@ -159,27 +163,30 @@ const MyCollections = () => {
                 </div>
               )}
               <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold">{stamp.name}</h3>
+                <h3 className="text-lg font-semibold text-gray-600">
+                  {stamp.name}
+                </h3>
                 <p className="text-sm text-gray-600 line-clamp-3">
                   {stamp.description}
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Year Issued: {stamp.yearIssued}
+                  <span className="font-bold">Year Issued:</span>{" "}
+                  {stamp.yearIssued}
                 </p>
                 <p className="text-sm text-gray-500 mt-2">
-                  Country: {stamp.country}
+                  <span className="font-bold">Country:</span> {stamp.country}
                 </p>
               </div>
               <div className="mt-4 flex space-x-2 p-4">
                 <button
                   onClick={() => handleEditClick(stamp)}
-                  className="bg-blue-500 text-white px-2 py-2 rounded flex-1"
+                  className="px-3 py-2 rounded flex-1 shadow-md transition-colors duration-200 bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white text-sm"
                 >
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(stamp.id)}
-                  className="bg-red-500 text-white px-2 py-2 rounded flex-1"
+                  className="flex-1 bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black px-3 py-2 rounded text-sm transition-colors duration-200 shadow-md"
                 >
                   Delete
                 </button>
@@ -193,7 +200,7 @@ const MyCollections = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex items-center space-x-4 border p-4 rounded bg-white shadow"
+              className="flex items-center space-x-4 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
             >
               {stamp.image ? (
                 <Image
@@ -209,23 +216,29 @@ const MyCollections = () => {
                 </div>
               )}
               <div className="flex-grow">
-                <h3 className="font-semibold text-lg">{stamp.name}</h3>
+                <h3 className="font-semibold text-lg text-gray-600">
+                  {stamp.name}
+                </h3>
                 <p className="text-sm text-gray-600">{stamp.description}</p>
                 <p className="text-sm text-gray-500">
-                  Year Issued: {stamp.yearIssued}, Country: {stamp.country}
+                  <span className="font-bold">Year Issued:</span>{" "}
+                  {stamp.yearIssued},{" "}
+                  <span className="font-bold">Country:</span> {stamp.country}
                 </p>
               </div>
               <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => handleEditClick(stamp)}
-                  className="bg-blue-500 text-white px-3 py-1 rounded text-sm"
+                  className="bg-green-400 hover:bg-green-500 text-gray-800 hover:text-white px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
+                  <span className="material-icons-outlined mr-1 text-base"></span>
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(stamp.id)}
-                  className="bg-red-500 text-white px-3 py-1 rounded text-sm"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
+                  <span className="material-icons-outlined mr-1 text-base"></span>
                   Delete
                 </button>
               </div>
