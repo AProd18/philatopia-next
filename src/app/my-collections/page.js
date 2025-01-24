@@ -80,9 +80,12 @@ const MyCollections = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formValues.image) {
-      formValues.image = "default-image-url";
+    if (!formValues.image && editingStamp?.image) {
+      formValues.image = editingStamp.image; // Keep the current image if not changed
     }
+
+    // Ensure yearIssued is a number before sending
+    formValues.yearIssued = parseInt(formValues.yearIssued);
 
     const res = await fetch(`/api/collections/${editingStamp.id}`, {
       method: "PUT",
