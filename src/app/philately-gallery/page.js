@@ -9,7 +9,7 @@ const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [viewMode, setViewMode] = useState("grid"); // "grid" or "list"
+  const [viewMode, setViewMode] = useState("grid");
   const [filteredStamps, setFilteredStamps] = useState([]);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const PhilatelyGallery = () => {
       const data = await res.json();
       setStamps(data.stamps);
       setTotalPages(data.totalPages);
-      setFilteredStamps(data.stamps); // Default prikaz
+      setFilteredStamps(data.stamps);
     };
     fetchStamps();
   }, [currentPage]);

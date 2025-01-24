@@ -2,28 +2,28 @@
 
 import { useSession } from "next-auth/react";
 import { useState } from "react";
-import Link from "next/link"; // Dodajte import za Link
+import Link from "next/link";
 
 const AddStamp = () => {
   const { data: session } = useSession();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [yearIssued, setYearIssued] = useState("");
-  const [country, setCountry] = useState(""); // New state for country
+  const [country, setCountry] = useState("");
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
-  const [successMessage, setSuccessMessage] = useState(""); // Add state for success message
+  const [successMessage, setSuccessMessage] = useState("");
 
-  const MAX_SIZE = 5 * 1024 * 1024; // 5MB
-  const MAX_WIDTH = 2000; // Max width of image
-  const MAX_HEIGHT = 2000; // Max height of image
+  // Set upload limits: max file size and max image dimensions
+  const MAX_SIZE = 1 * 1024 * 1024;
+  const MAX_WIDTH = 1000;
+  const MAX_HEIGHT = 1000;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validacija veličine slike
     if (image.size > MAX_SIZE) {
-      setError("File size is too large. Maximum allowed size is 5MB.");
+      setError("File size is too large. Maximum allowed size is 1MB.");
       return;
     }
 
@@ -31,7 +31,6 @@ const AddStamp = () => {
     img.src = URL.createObjectURL(image);
 
     img.onload = () => {
-      // Validacija dimenzija slike
       if (img.width > MAX_WIDTH || img.height > MAX_HEIGHT) {
         setError(
           `Image dimensions are too large. Maximum allowed dimensions are ${MAX_WIDTH}x${MAX_HEIGHT}.`
@@ -43,7 +42,7 @@ const AddStamp = () => {
       formData.append("name", name);
       formData.append("description", description);
       formData.append("yearIssued", yearIssued);
-      formData.append("country", country); // Include country
+      formData.append("country", country);
       formData.append("user", session?.user?.name);
       formData.append("image", image);
 
@@ -55,8 +54,8 @@ const AddStamp = () => {
         .then((data) => {
           if (data.success) {
             console.log("Stamp successfully added:", data);
-            setError(""); // Clear any previous errors
-            setSuccessMessage("Stamp successfully added!"); // Set success message
+            setError("");
+            setSuccessMessage("Stamp successfully added!");
             // Reset form inputs
             setName("");
             setDescription("");
@@ -65,7 +64,7 @@ const AddStamp = () => {
             setImage(null);
           } else {
             setError(data.error);
-            setSuccessMessage(""); // Clear success message on error
+            setSuccessMessage("");
           }
         });
     };

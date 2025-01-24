@@ -14,19 +14,18 @@ export default function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("/api/auth/register", {
+      const response = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, name, password }), // Sending user credentials
+        // Sending user credentials
+        body: JSON.stringify({ email, name, password }),
       });
 
       if (!response.ok) {
         throw new Error("Error registering user");
       }
-
-      const user = await response.json();
 
       // Automatically log in the user after successful registration
       signIn("credentials", {

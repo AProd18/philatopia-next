@@ -13,7 +13,7 @@ const MyCollections = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [editingStamp, setEditingStamp] = useState(null);
-  const [viewMode, setViewMode] = useState("grid"); // "grid" ili "list"
+  const [viewMode, setViewMode] = useState("grid");
   const [formValues, setFormValues] = useState({
     name: "",
     description: "",
@@ -30,7 +30,7 @@ const MyCollections = () => {
         );
         const data = await res.json();
         setStamps(data.stamps);
-        setFilteredStamps(data.stamps); // Default prikaz
+        setFilteredStamps(data.stamps);
         setTotalPages(data.totalPages);
       };
 
@@ -96,11 +96,9 @@ const MyCollections = () => {
         stamp.id === editingStamp.id ? updatedStamp.stamp : stamp
       );
 
-      // Ažuriranje oba stanja
       setStamps(updatedStamps);
       setFilteredStamps(updatedStamps);
 
-      // Zatvaranje modalnog okvira
       setEditingStamp(null);
     } else {
       alert("Failed to update stamp.");
@@ -233,7 +231,6 @@ const MyCollections = () => {
         </div>
       )}
 
-      {/* Paginacija */}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

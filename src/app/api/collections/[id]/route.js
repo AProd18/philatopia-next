@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import prisma from "../../../../lib/prisma";
 
 export async function DELETE(request, { params }) {
-  const { id } = params; // ID markice iz URL-a
+  const { id } = params; // Stamp ID from the URL
 
   try {
     await prisma.stamp.delete({
-      where: { id: parseInt(id) }, // Konvertujemo id u broj
+      where: { id: parseInt(id) },
     });
     return NextResponse.json({
       success: true,
@@ -22,10 +22,10 @@ export async function DELETE(request, { params }) {
 }
 
 export async function PUT(request, { params }) {
-  // Ažuriramo pristup params
-  const { id } = await params; // Dodali smo await
+  // Updating access params
+  const { id } = await params;
 
-  const body = await request.json(); // Podaci za ažuriranje
+  const body = await request.json();
 
   try {
     const updatedStamp = await prisma.stamp.update({
@@ -34,7 +34,7 @@ export async function PUT(request, { params }) {
         name: body.name,
         description: body.description,
         yearIssued: body.yearIssued,
-        image: body.image || "", // Dodali default vrednost za image
+        image: body.image || "", // Default value for image
         country: body.country,
       },
     });

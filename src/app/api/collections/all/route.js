@@ -4,7 +4,7 @@ export async function GET(request) {
   try {
     const url = new URL(request.url);
     const page = parseInt(url.searchParams.get("page")) || 1; // Default to page 1 if no page parameter is provided
-    const pageSize = 6; // Number of stamps per page
+    const pageSize = 8; // Number of stamps per page
     const skip = (page - 1) * pageSize; // Calculate the offset for pagination
 
     const stamps = await prisma.stamp.findMany({

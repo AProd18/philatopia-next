@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const SearchBar = ({ onSearch }) => {
   const handleInputChange = (e) => {
     const query = e.target.value;

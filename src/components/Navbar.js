@@ -36,7 +36,6 @@ export default function Navbar() {
           {menuOpen ? <HiX /> : <HiMenu />}
         </button>
 
-        {/* Menu Items */}
         <div
           className={`${
             menuOpen ? "block" : "hidden"
@@ -82,7 +81,6 @@ export default function Navbar() {
               </button>
             </>
           )}
-          {/* Contact Us */}
           <Link
             href="/contact-us"
             className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-0"

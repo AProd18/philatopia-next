@@ -6,9 +6,6 @@ import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Login() {
   const { data: session, status } = useSession(); // Retrieve the current session data and authentication status
-  console.log("Session data:", session);
-  console.log("Session status:", status);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -22,8 +19,6 @@ export default function Login() {
       email,
       password,
     });
-
-    console.log("Sign-in response:", res);
 
     if (res?.error) {
       console.log("Login error:", res.error);

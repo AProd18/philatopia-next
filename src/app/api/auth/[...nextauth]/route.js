@@ -9,7 +9,6 @@ import bcrypt from "bcryptjs";
 export const authOptions = {
   adapter: PrismaAdapter(prisma),
 
-  // Configure authentication providers
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -52,5 +51,4 @@ export const authOptions = {
 
 const handler = NextAuth(authOptions);
 
-// Export handler for GET and POST requests to handle authentication
 export { handler as GET, handler as POST };

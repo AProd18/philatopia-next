@@ -22,7 +22,7 @@ export async function GET(request) {
           yearIssued: true,
           image: true,
           createdAt: true,
-          country: true, // Include the "country" field
+          country: true,
         },
       }),
       prisma.stamp.count({

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: "url('/background.jpg')",
-                filter: "brightness(0.8) blur(2px)", // Smanjuje osvetljenje i dodaje blur
+                filter: "brightness(0.8) blur(2px)", // Reduces brightness and adds blur
               }}
             ></div>
 
