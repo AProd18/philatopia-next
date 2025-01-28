@@ -2,6 +2,7 @@
 
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { HiMenu, HiX } from "react-icons/hi"; // Icons for menu
 
@@ -79,14 +80,29 @@ export default function Navbar() {
               >
                 Logout
               </button>
+              <Link
+                href="/contact-us"
+                className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-0"
+              >
+                Contact Us
+              </Link>
+              <Link href="/profile">
+                {session.user.image ? (
+                  <Image
+                    src={session.user.image}
+                    alt="Profile"
+                    width={40}
+                    height={40}
+                    className="rounded-full border border-gray-300"
+                  />
+                ) : (
+                  <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-white">
+                    ?
+                  </div>
+                )}
+              </Link>
             </>
           )}
-          <Link
-            href="/contact-us"
-            className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-0"
-          >
-            Contact Us
-          </Link>
         </div>
       </div>
     </nav>
