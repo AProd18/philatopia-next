@@ -1,39 +1,72 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 export default function Profile() {
-  const [profileImage, setProfileImage] = useState(null); // Store image URL
-  const [aboutMe, setAboutMe] = useState("This is my bio"); // Example initial bio
-  const [password, setPassword] = useState(""); // New password
-  const [confirmPassword, setConfirmPassword] = useState(""); // Confirm new password
+  const { data: session } = useSession();
+  const [profileImage, setProfileImage] = useState(null);
+  const [aboutMe, setAboutMe] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  useEffect(() => {
+    if (session?.user?.email) {
+      fetch(`/api/profile`) // Now we call the GET API that we added
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success) {
+            setProfileImage(data.user.profileImage || "");
+            setAboutMe(data.user.aboutMe || "");
+          } else {
+            console.error("Failed to fetch profile:", data.error);
+          }
+        })
+        .catch((error) => console.error("Error fetching profile:", error));
+    }
+  }, [session]);
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setProfileImage(imageUrl); // Temporary display of image
-      // TODO: Save image to server later
+      setSelectedFile(file);
+      setProfileImage(URL.createObjectURL(file));
     }
   };
 
-  const handleSaveChanges = () => {
-    // TODO: Handle saving profile image, about me, and password to server
+  const handleSaveChanges = async () => {
     if (password && password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    alert("Changes saved successfully!");
+
+    const formData = new FormData();
+    formData.append("aboutMe", aboutMe);
+    if (selectedFile) {
+      formData.append("image", selectedFile);
+    }
+
+    const response = await fetch("/api/profile", {
+      method: "POST",
+      body: formData,
+    });
+
+    const result = await response.json();
+    if (result.success) {
+      alert("Profile updated successfully!");
+    } else {
+      alert("Error updating profile");
+    }
   };
 
   return (
-    <div className="container mx-auto p-6">
+    <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
       <h1 className="text-2xl font-bold mb-6">Profile</h1>
 
-      {/* Profile Image Section */}
-      <div className="mb-6">
-        <div className="relative w-32 h-32">
+      <div className="mb-6 text-center">
+        <div className="relative w-32 h-32 mx-auto">
           {profileImage ? (
             <Image
               src={profileImage}
@@ -63,7 +96,6 @@ export default function Profile() {
         />
       </div>
 
-      {/* About Me Section */}
       <div className="mb-6">
         <label htmlFor="aboutMe" className="block text-lg font-medium mb-2">
           About Me
@@ -78,41 +110,9 @@ export default function Profile() {
         />
       </div>
 
-      {/* Change Password Section */}
-      <div className="mb-6">
-        <label htmlFor="password" className="block text-lg font-medium mb-2">
-          New Password
-        </label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="w-full p-2 border rounded-lg"
-          placeholder="Enter new password"
-        />
-      </div>
-      <div className="mb-6">
-        <label
-          htmlFor="confirmPassword"
-          className="block text-lg font-medium mb-2"
-        >
-          Confirm Password
-        </label>
-        <input
-          type="password"
-          id="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          className="w-full p-2 border rounded-lg"
-          placeholder="Confirm new password"
-        />
-      </div>
-
-      {/* Save Button */}
       <button
         onClick={handleSaveChanges}
-        className="px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+        className="w-full px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
       >
         Save Changes
       </button>

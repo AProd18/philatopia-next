@@ -3,12 +3,21 @@
 import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi"; // Icons for menu
 
 export default function Navbar() {
   const { data: session } = useSession();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
+
+  useEffect(() => {
+    // Učitavanje profilne slike iz localStorage
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+  }, []);
 
   const handleLogout = async () => {
     await signOut({ callbackUrl: "/" });
@@ -87,9 +96,9 @@ export default function Navbar() {
                 Contact Us
               </Link>
               <Link href="/profile">
-                {session.user.image ? (
+                {profileImage || session.user.image ? (
                   <Image
-                    src={session.user.image}
+                    src={profileImage || session.user.image}
                     alt="Profile"
                     width={40}
                     height={40}
