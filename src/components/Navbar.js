@@ -4,7 +4,7 @@ import { useSession, signOut } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { HiMenu, HiX } from "react-icons/hi"; // Icons for menu
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -12,12 +12,19 @@ export default function Navbar() {
   const [profileImage, setProfileImage] = useState(null);
 
   useEffect(() => {
-    // Učitavanje profilne slike iz localStorage
-    const savedImage = localStorage.getItem("profileImage");
-    if (savedImage) {
-      setProfileImage(savedImage);
+    if (session?.user?.email) {
+      fetch(`/api/profile`)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.success && data.user.profileImage) {
+            setProfileImage(data.user.profileImage);
+          }
+        })
+        .catch((error) =>
+          console.error("Error fetching profile image:", error)
+        );
     }
-  }, []);
+  }, [session]); // When the session changes, refresh the profile picture.
 
   const handleLogout = async () => {
     await signOut({ callbackUrl: "/" });
@@ -51,54 +58,30 @@ export default function Navbar() {
             menuOpen ? "block" : "hidden"
           } absolute md:static top-16 left-0 w-full md:w-auto md:flex flex-col md:flex-row items-center bg-gray-900 md:bg-transparent space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0 `}
         >
-          <Link
-            href="/philately-gallery"
-            className="hover:underline block md:inline"
-          >
+          <Link href="/philately-gallery" className="hover:underline block">
             Philately Gallery
           </Link>
-          {!session ? (
+
+          {session ? (
             <>
-              <Link href="/login" className="hover:underline block md:inline">
-                Login
-              </Link>
-              <Link
-                href="/register"
-                className="hover:underline block md:inline"
-              >
-                Register
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link
-                href="/add-stamp"
-                className="hover:underline block md:inline"
-              >
+              <Link href="/add-stamp" className="hover:underline block">
                 Add Stamp
               </Link>
-              <Link
-                href="/my-collections"
-                className="hover:underline block md:inline"
-              >
+              <Link href="/my-collections" className="hover:underline block">
                 My Collections
               </Link>
               <button
                 onClick={handleLogout}
-                className="hover:underline block md:inline"
+                className="hover:underline block text-red-400"
               >
                 Logout
               </button>
-              <Link
-                href="/contact-us"
-                className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-0"
-              >
-                Contact Us
-              </Link>
-              <Link href="/profile">
-                {profileImage || session.user.image ? (
+
+              {/* Profil image as icon */}
+              <Link href="/profile" className="ml-4">
+                {profileImage ? (
                   <Image
-                    src={profileImage || session.user.image}
+                    src={profileImage}
                     alt="Profile"
                     width={40}
                     height={40}
@@ -109,6 +92,15 @@ export default function Navbar() {
                     ?
                   </div>
                 )}
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/login" className="hover:underline block">
+                Login
+              </Link>
+              <Link href="/register" className="hover:underline block">
+                Register
               </Link>
             </>
           )}
