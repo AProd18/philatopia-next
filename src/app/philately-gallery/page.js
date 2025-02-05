@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
+import Button from "@/components/ui/Button";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -48,26 +49,20 @@ const PhilatelyGallery = () => {
 
       {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
-        <button
+        <Button
           onClick={() => setViewMode("grid")}
-          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
-            viewMode === "grid"
-              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
-              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
-          }`}
+          viewMode={viewMode}
+          mode="grid"
         >
           Grid View
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={() => setViewMode("list")}
-          className={`px-4 py-2 rounded shadow-md transition-colors duration-200 ${
-            viewMode === "list"
-              ? "bg-green-400 text-gray-800 hover:bg-green-500 hover:text-white"
-              : "bg-gray-300 text-gray-800 hover:bg-gray-400 hover:text-black"
-          }`}
+          viewMode={viewMode}
+          mode="list"
         >
           List View
-        </button>
+        </Button>
       </div>
 
       {/* Displaying stamps */}
