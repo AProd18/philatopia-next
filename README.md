@@ -28,27 +28,6 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (v16 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) for managing dependencies
 
-### Steps to Run Locally
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/stampfolio.git
-   cd stampfolio
-2. Install dependencies:
-   npm install
-   # or
-   yarn install
-3. Set up environment variables:
-   Create a .env file in the root of the project and configure the following variables:
-   DATABASE_URL="file:./dev.db" # for SQLite (for local development)
-   NEXTAUTH_URL=http://localhost:3000
-   NEXTAUTH_SECRET=your-secret-key
-4. Set up the Prisma database:
-   npx prisma migrate dev
-5. Run the development server:
-   npm run dev
-   # or
-   yarn dev
-6. Open your browser and go to http://localhost:3000 to see the app in action.
 
 
