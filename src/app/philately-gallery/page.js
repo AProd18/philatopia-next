@@ -5,6 +5,7 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Profile from "../profile/page";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
