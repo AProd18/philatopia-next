@@ -19,7 +19,7 @@ Stampfolio is a web application designed for philatelists to collect, showcase, 
 - **NextAuth**: Authentication solution for implementing login with Google and email.
 - **TailwindCSS**: A utility-first CSS framework for building responsive and modern designs.
 
-## Installation
+## Getting Started
 
 ### Prerequisites
 
@@ -28,6 +28,16 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (v16 or higher)
 - [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) for managing dependencies
 
+### Installation
 
-
-
+1. Clone the repository:
+```bash
+   git clone https://github.com/yourusername/stampfolio.git
+   cd stampfolio
+```
+2. Install dependencies:
+```bash
+   npm install
+   # or
+   yarn install
+```
