@@ -41,3 +41,29 @@ Make sure you have the following installed:
    # or
    yarn install
 ```
+3.Set up environment variables:
+Create a .env file in the root of the project and configure the following variables:
+```env
+DATABASE_URL="file:./dev.db" # for SQLite (for local development)
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your-secret-key
+```
+4. Set up the Prisma database:
+```bash
+   npx prisma migrate dev
+```
+5. Run the development server:
+```bash
+   npm run dev
+   # or
+   yarn dev
+```
+6. Open your browser and go to http://localhost:3000 to see the app in action.
+
+## Usage
+
+- **Register a new account or log in using Google or email.**
+- **Upload stamps to your collection, with information like name, description, and year.**
+- **View your personal collection on the "My Collection" page, where you can edit or delete your stamps.**
+- **View the Philately Gallery, showcasing all stamps uploaded by users.**
+- **Customize your profile on the Profile page, adding a profile picture and an "About Me" section.**
