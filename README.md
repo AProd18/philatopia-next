@@ -41,7 +41,7 @@ Make sure you have the following installed:
    # or
    yarn install
 ```
-3.Set up environment variables:
+3. Set up environment variables:
 Create a .env file in the root of the project and configure the following variables:
 ```env
 DATABASE_URL="file:./dev.db" # for SQLite (for local development)
