@@ -5,7 +5,6 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import Profile from "../profile/page";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -18,6 +17,7 @@ const PhilatelyGallery = () => {
     const fetchStamps = async () => {
       const res = await fetch(`/api/collections/all?page=${currentPage}`);
       const data = await res.json();
+      console.log(data);
       setStamps(data.stamps);
       setTotalPages(data.totalPages);
       setFilteredStamps(data.stamps);
