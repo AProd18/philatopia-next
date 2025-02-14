@@ -12,7 +12,7 @@ export async function GET(request) {
     // Query the database for stamps associated with the specified user with pagination
     const [userStamps, totalCount] = await Promise.all([
       prisma.stamp.findMany({
-        where: { userId: userId }, // Filter by the "user" field
+        where: { userId: userId }, // Filter by the "userId" field
         skip: offset,
         take: pageSize,
         select: {

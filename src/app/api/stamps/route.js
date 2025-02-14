@@ -21,7 +21,7 @@ export async function POST(request) {
   const description = formData.get("description");
   const yearIssued = formData.get("yearIssued");
   const country = formData.get("country");
-  const user = formData.get("user");
+  const userId = formData.get("userId");
   const image = formData.get("image");
 
   if (!image) {
@@ -55,7 +55,7 @@ export async function POST(request) {
         description,
         yearIssued: parseInt(yearIssued),
         country,
-        user,
+        userId,
         image: imagePath, // Path to the image in the database
       },
     });

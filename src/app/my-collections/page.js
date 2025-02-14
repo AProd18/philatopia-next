@@ -24,10 +24,10 @@ const MyCollections = () => {
   });
 
   useEffect(() => {
-    if (session?.user?.name) {
+    if (session?.user?.id) {
       const fetchStamps = async () => {
         const res = await fetch(
-          `/api/collections?user=${session.user.name}&page=${currentPage}`
+          `/api/collections?userId=${session.user.id}&page=${currentPage}`
         );
         const data = await res.json();
         setStamps(data.stamps);

@@ -43,7 +43,8 @@ const AddStamp = () => {
       formData.append("description", description);
       formData.append("yearIssued", yearIssued);
       formData.append("country", country);
-      formData.append("user", session?.user?.name);
+      formData.append("userId", session?.user?.id);
+      // formData.append('user', session?.user?.name) // try it
       formData.append("image", image);
 
       fetch("/api/stamps", {
