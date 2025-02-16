@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["hqrdrajjaxxelgdbbgob.supabase.co"], // Dodaj domen iz greške
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "hqrdrajjaxxelgdbbgob.supabase.co",
+        pathname: "/storage/v1/object/public/profile_images/**",
+      },
+    ],
   },
 };
 
