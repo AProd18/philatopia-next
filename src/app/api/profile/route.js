@@ -4,8 +4,11 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 import { supabaseAdmin } from "../../../lib/supabase";
 
+// Handle GET request to fetch user profile details
 export async function GET(request) {
   const session = await getServerSession(authOptions);
+
+  // Check if the user is authenticated
   if (!session || !session.user) {
     return NextResponse.json(
       { success: false, error: "Unauthorized" },
@@ -14,6 +17,7 @@ export async function GET(request) {
   }
 
   try {
+    // Fetch user profile data from the database
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
       select: { profileImage: true, aboutMe: true },
@@ -36,8 +40,11 @@ export async function GET(request) {
   }
 }
 
+// Handle POST request to update user profile (profile image & aboutMe)
 export async function POST(request) {
   const session = await getServerSession(authOptions);
+
+  // Check if the user is authenticated
   if (!session || !session.user) {
     return NextResponse.json(
       { success: false, error: "Unauthorized" },
@@ -53,6 +60,7 @@ export async function POST(request) {
   try {
     let imageUrl = null;
 
+    // If a new profile image is provided, upload it to Supabase storage
     if (image) {
       const fileExt = image.name.split(".").pop();
       const fileName = `${userEmail}-${Date.now()}.${fileExt}`;
@@ -70,6 +78,7 @@ export async function POST(request) {
         );
       }
 
+      // Retrieve the public URL of the uploaded image
       const { data: publicUrlData } = supabaseAdmin.storage
         .from(process.env.SUPABASE_BUCKET_NAME)
         .getPublicUrl(filePath);
@@ -77,6 +86,7 @@ export async function POST(request) {
       imageUrl = publicUrlData.publicUrl;
     }
 
+    // Update user profile in the database (aboutMe & profile image if available)
     const updatedUser = await prisma.user.update({
       where: { email: userEmail },
       data: { aboutMe, ...(imageUrl && { profileImage: imageUrl }) },
