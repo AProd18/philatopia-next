@@ -1,9 +1,8 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
-import path from "path";
 import prisma from "../../../lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
+import { supabaseAdmin } from "../../../lib/supabase";
 
 export async function GET(request) {
   const session = await getServerSession(authOptions);
@@ -17,10 +16,7 @@ export async function GET(request) {
   try {
     const user = await prisma.user.findUnique({
       where: { email: session.user.email },
-      select: {
-        profileImage: true,
-        aboutMe: true,
-      },
+      select: { profileImage: true, aboutMe: true },
     });
 
     if (!user) {
@@ -55,47 +51,35 @@ export async function POST(request) {
   const userEmail = session.user.email;
 
   try {
-    let imagePath = null;
+    let imageUrl = null;
 
-    // Fetch the current user from the database
-    const user = await prisma.user.findUnique({
-      where: { email: userEmail },
-    });
-
-    // If the user uploads a new image, delete the old one and save the new one
     if (image) {
-      const uploadDir = path.join(process.cwd(), "public", "profile_images");
-      if (!fs.existsSync(uploadDir)) {
-        fs.mkdirSync(uploadDir, { recursive: true });
-      }
+      const fileExt = image.name.split(".").pop();
+      const fileName = `${userEmail}-${Date.now()}.${fileExt}`;
+      const filePath = `profile_images/${fileName}`;
 
-      // Delete the old image if it exists
-      if (user.profileImage) {
-        const oldImagePath = path.join(
-          process.cwd(),
-          "public",
-          user.profileImage
+      const { data, error } = await supabaseAdmin.storage
+        .from(process.env.SUPABASE_BUCKET_NAME)
+        .upload(filePath, image, { contentType: image.type });
+
+      if (error) {
+        console.error("Error uploading to Supabase:", error);
+        return NextResponse.json(
+          { success: false, error: "Image upload failed" },
+          { status: 500 }
         );
-        if (fs.existsSync(oldImagePath)) {
-          fs.unlinkSync(oldImagePath);
-        }
       }
 
-      // Save the new image
-      const filePath = path.join(uploadDir, image.name);
-      const fileBuffer = Buffer.from(await image.arrayBuffer());
-      fs.writeFileSync(filePath, fileBuffer);
+      const { data: publicUrlData } = supabaseAdmin.storage
+        .from(process.env.SUPABASE_BUCKET_NAME)
+        .getPublicUrl(filePath);
 
-      imagePath = `/profile_images/${image.name}`;
+      imageUrl = publicUrlData.publicUrl;
     }
 
-    // Update the user in the database
     const updatedUser = await prisma.user.update({
       where: { email: userEmail },
-      data: {
-        aboutMe,
-        ...(imagePath && { profileImage: imagePath }),
-      },
+      data: { aboutMe, ...(imageUrl && { profileImage: imageUrl }) },
     });
 
     return NextResponse.json({ success: true, data: updatedUser });

@@ -8,13 +8,11 @@ export default function Profile() {
   const { data: session } = useSession();
   const [profileImage, setProfileImage] = useState(null);
   const [aboutMe, setAboutMe] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
   useEffect(() => {
     if (session?.user?.email) {
-      fetch(`/api/profile`) // Now we call the GET API that we added
+      fetch(`/api/profile`)
         .then((res) => res.json())
         .then((data) => {
           if (data.success) {
@@ -37,16 +35,13 @@ export default function Profile() {
   };
 
   const handleSaveChanges = async () => {
-    if (password && password !== confirmPassword) {
-      alert("Passwords do not match!");
-      return;
-    }
-
     const formData = new FormData();
     formData.append("aboutMe", aboutMe);
     if (selectedFile) {
       formData.append("image", selectedFile);
     }
+
+    console.log("Uploading file:", selectedFile);
 
     const response = await fetch("/api/profile", {
       method: "POST",
@@ -56,6 +51,7 @@ export default function Profile() {
     const result = await response.json();
     if (result.success) {
       alert("Profile updated successfully!");
+      setProfileImage(result.data.profileImage);
     } else {
       alert("Error updating profile");
     }
