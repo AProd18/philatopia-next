@@ -10,6 +10,7 @@ export default function Profile() {
   const [aboutMe, setAboutMe] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
+  // Fetch user profile data when session is available
   useEffect(() => {
     if (session?.user?.email) {
       fetch(`/api/profile`)
@@ -26,14 +27,16 @@ export default function Profile() {
     }
   }, [session]);
 
+  // Handle file sleection for profile image upload
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
-      setProfileImage(URL.createObjectURL(file));
+      setProfileImage(URL.createObjectURL(file)); // Preview the selected image
     }
   };
 
+  // Handle saving profile changes (image and about me section)
   const handleSaveChanges = async () => {
     const formData = new FormData();
     formData.append("aboutMe", aboutMe);
