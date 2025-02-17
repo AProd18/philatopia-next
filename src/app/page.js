@@ -20,6 +20,20 @@ export default function Home() {
           </p>
         </div>
       </div>
+
+      {/* New Announcement Section */}
+      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
+        <div className="h-60 flex flex-col items-center justify-center p-6">
+          <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-red-700 text-center">
+            Application Under Development
+          </h2>
+          <p className="text-base sm:text-lg md:text-sm mt-2 text-red-600 text-center">
+            This app is currently under development and has been released for
+            testing purposes. We will be rolling out exciting new features and
+            updates very soon! Stay tuned for more news and improvements!
+          </p>
+        </div>
+      </div>
     </main>
   );
 }
