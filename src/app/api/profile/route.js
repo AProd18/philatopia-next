@@ -87,7 +87,7 @@ export async function POST(request) {
         .toBuffer();
 
       const { data, error } = await supabaseAdmin.storage
-        .from(process.env.SUPABASE_BUCKET_NAME)
+        .from(process.env.SUPABASE_BUCKET_PROFILE_IMAGES)
         .upload(filePath, optimizedImage, { contentType: "image/webp" });
 
       if (error) {
@@ -100,7 +100,7 @@ export async function POST(request) {
 
       // Retrieve the public URL of the uploaded image
       const { data: publicUrlData } = supabaseAdmin.storage
-        .from(process.env.SUPABASE_BUCKET_NAME)
+        .from(process.env.SUPABASE_BUCKET_PROFILE_IMAGES)
         .getPublicUrl(filePath);
 
       imageUrl = publicUrlData.publicUrl;
@@ -108,7 +108,7 @@ export async function POST(request) {
       // Delete old image from SUpabase Storage (if exist)
       if (oldImagePath) {
         await supabaseAdmin.storage
-          .from(process.env.SUPABASE_BUCKET_NAME)
+          .from(process.env.SUPABASE_BUCKET_PROFILE_IMAGES)
           .remove([oldImagePath]);
       }
     }

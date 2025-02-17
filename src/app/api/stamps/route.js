@@ -1,19 +1,8 @@
 import { NextResponse } from "next/server";
-import fs from "fs";
+import { supabase } from "../../../lib/supabase";
 import path from "path";
 import sharp from "sharp";
 import prisma from "../../../lib/prisma";
-
-// Function to move the image to the uploads folder
-const saveImage = async (file) => {
-  const uploadPath = path.join(process.cwd(), "public", "uploads", file.name);
-  const fileBuffer = Buffer.from(await file.arrayBuffer());
-
-  // Writing the file to the uploads folder
-  fs.writeFileSync(uploadPath, fileBuffer);
-
-  return `/uploads/${file.name}`; // The path of the image that we store in the database
-};
 
 export async function POST(request) {
   const formData = await request.formData();
@@ -29,26 +18,24 @@ export async function POST(request) {
   }
 
   try {
-    // Checking the image size
-    if (image.size > 1 * 1024 * 1024) {
-      return NextResponse.json({ success: false, error: "Image is too large" });
-    }
-
-    // Checking the image dimensions using sharp
     const imgBuffer = Buffer.from(await image.arrayBuffer());
-    const imageInfo = await sharp(imgBuffer).metadata();
 
-    if (imageInfo.width > 1000 || imageInfo.height > 1000) {
-      return NextResponse.json({
-        success: false,
-        error: "Image dimensions are too large",
+    // Upload to Supabase Storage
+    const filePath = `stamps/${Date.now()}_${image.name}`;
+    const { data, error } = await supabase.storage
+      .from("stamp_images") // Bucket name
+      .upload(filePath, imgBuffer, {
+        contentType: image.type,
       });
-    }
 
-    // Save the image to the uploads folder and get the path
-    const imagePath = await saveImage(image);
+    if (error) throw error;
 
-    // Create a new stamp in the database with the image path
+    // Get public URL of the uploaded image
+    const { data: publicUrlData } = supabase.storage
+      .from("stamp_images")
+      .getPublicUrl(filePath);
+
+    // Save stamp details to the database
     const newStamp = await prisma.stamp.create({
       data: {
         name,
@@ -56,7 +43,7 @@ export async function POST(request) {
         yearIssued: parseInt(yearIssued),
         country,
         userId,
-        image: imagePath, // Path to the image in the database
+        image: publicUrlData.publicUrl, // Store public URL in the database
       },
     });
 

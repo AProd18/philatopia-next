@@ -19,56 +19,69 @@ const AddStamp = () => {
   const MAX_WIDTH = 1000;
   const MAX_HEIGHT = 1000;
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (image.size > MAX_SIZE) {
-      setError("File size is too large. Maximum allowed size is 1MB.");
-      return;
-    }
-
-    const img = new Image();
-    img.src = URL.createObjectURL(image);
-
-    img.onload = () => {
-      if (img.width > MAX_WIDTH || img.height > MAX_HEIGHT) {
-        setError(
-          `Image dimensions are too large. Maximum allowed dimensions are ${MAX_WIDTH}x${MAX_HEIGHT}.`
-        );
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > MAX_SIZE) {
+        setError("File size is too large. Maximum allowed size is 1MB.");
+        setImage(null);
         return;
       }
 
-      const formData = new FormData();
-      formData.append("name", name);
-      formData.append("description", description);
-      formData.append("yearIssued", yearIssued);
-      formData.append("country", country);
-      formData.append("userId", session?.user?.id);
-      // formData.append('user', session?.user?.name) // try it
-      formData.append("image", image);
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+      img.onload = () => {
+        if (img.width > MAX_WIDTH || img.height > MAX_HEIGHT) {
+          setError(
+            `Image dimensions are too large. Max allowed: ${MAX_WIDTH}x${MAX_HEIGHT}.`
+          );
+          setImage(null);
+        } else {
+          setError("");
+          setImage(file);
+        }
+      };
+    }
+  };
 
-      fetch("/api/stamps", {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!image) {
+      setError("Please select a valid image.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("name", name);
+    formData.append("description", description);
+    formData.append("yearIssued", yearIssued);
+    formData.append("country", country);
+    formData.append("userId", session?.user?.id);
+    formData.append("image", image);
+
+    try {
+      const res = await fetch("/api/stamps", {
         method: "POST",
         body: formData,
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.success) {
-            console.log("Stamp successfully added:", data);
-            setError("");
-            setSuccessMessage("Stamp successfully added!");
-            // Reset form inputs
-            setName("");
-            setDescription("");
-            setYearIssued("");
-            setCountry("");
-            setImage(null);
-          } else {
-            setError(data.error);
-            setSuccessMessage("");
-          }
-        });
-    };
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setSuccessMessage("Stamp successfully added!");
+        setError("");
+        setName("");
+        setDescription("");
+        setYearIssued("");
+        setCountry("");
+        setImage(null);
+      } else {
+        setError(data.error);
+        setSuccessMessage("");
+      }
+    } catch (err) {
+      setError("An error occurred. Please try again.");
+    }
   };
 
   return (
