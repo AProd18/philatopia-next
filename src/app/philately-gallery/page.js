@@ -117,22 +117,22 @@ const PhilatelyGallery = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex items-center space-x-4 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
+              className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
             >
               {stamp.image ? (
                 <Image
                   src={stamp.image}
                   alt={stamp.name}
-                  width={150}
-                  height={150}
-                  className="rounded object-cover"
+                  width={128}
+                  height={128}
+                  className="w-24 h-24 md:w-32 md:h-32 object-contain"
                 />
               ) : (
-                <div className="w-20 h-16 bg-gray-300 flex justify-center items-center text-gray-700 rounded">
+                <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-300 flex justify-center items-center text-gray-700 rounded">
                   No Image
                 </div>
               )}
-              <div className="flex-grow">
+              <div className="flex-grow text-center md:text-left">
                 <h3 className="font-semibold text-lg text-gray-600">
                   {stamp.name}
                 </h3>
