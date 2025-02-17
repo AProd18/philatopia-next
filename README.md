@@ -1,6 +1,6 @@
 # Stampfolio - Digital Stamp Collection Platform
 
-Stampfolio is a web application designed for philatelists to collect, showcase, and manage their stamp collections. Built with Next.js 15, Prisma, and SQLite, this app allows users to register, log in, upload their stamps, and manage their profiles. It features a gallery where users can view all stamps, as well as personalized collections for logged-in users.
+Stampfolio is a web application designed for philatelists to collect, showcase, and manage their stamp collections. Built with Next.js 15, Prisma, and Neon for the database, and Supabase for storing images, this app allows users to register, log in, upload their stamps, and manage their profiles. It features a gallery where users can view all stamps, as well as personalized collections for logged-in users.
 
 ## Features
 
@@ -15,7 +15,8 @@ Stampfolio is a web application designed for philatelists to collect, showcase, 
 
 - **Next.js 15**: React framework for building the web application with server-side rendering (SSR) and client-side rendering (CSR).
 - **Prisma ORM**: Database ORM for managing SQLite for local development.
-- **SQLite**: Lightweight database for storing user and stamp data.
+- **Neon**: Cloud-native database for storing user and stamp data.
+- **Supabase**:  Backend-as-a-Service for storing images and managing user data.
 - **NextAuth**: Authentication solution for implementing login with Google and email.
 - **TailwindCSS**: A utility-first CSS framework for building responsive and modern designs.
 
