@@ -1,7 +1,6 @@
+// api/stamps/route.js
 import { NextResponse } from "next/server";
-import { supabase } from "../../../lib/supabase";
-import path from "path";
-import sharp from "sharp";
+import { supabaseAdmin } from "../../../lib/supabase";
 import prisma from "../../../lib/prisma";
 
 export async function POST(request) {
@@ -20,10 +19,10 @@ export async function POST(request) {
   try {
     const imgBuffer = Buffer.from(await image.arrayBuffer());
 
-    // Upload to Supabase Storage
+    // Upload to Supabase Storage using the Service Role Key
     const filePath = `stamps/${Date.now()}_${image.name}`;
-    const { data, error } = await supabase.storage
-      .from("stamp_images") // Bucket name
+    const { data, error } = await supabaseAdmin.storage
+      .from(process.env.SUPABASE_BUCKET_STAMP_IMAGES)
       .upload(filePath, imgBuffer, {
         contentType: image.type,
       });
@@ -31,8 +30,8 @@ export async function POST(request) {
     if (error) throw error;
 
     // Get public URL of the uploaded image
-    const { data: publicUrlData } = supabase.storage
-      .from("stamp_images")
+    const { data: publicUrlData } = supabaseAdmin.storage
+      .from(process.env.SUPABASE_BUCKET_STAMP_IMAGES)
       .getPublicUrl(filePath);
 
     // Save stamp details to the database

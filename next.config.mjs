@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "hqrdrajjaxxelgdbbgob.supabase.co",
         pathname: "/storage/v1/object/public/profile_images/**",
       },
+      {
+        protocol: "https",
+        hostname: "hqrdrajjaxxelgdbbgob.supabase.co",
+        pathname: "/storage/v1/object/public/stamp_images/**",
+      },
     ],
   },
 };
