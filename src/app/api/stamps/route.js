@@ -1,7 +1,7 @@
-// api/stamps/route.js
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "../../../lib/supabase";
 import prisma from "../../../lib/prisma";
+import sharp from "sharp";
 
 export async function POST(request) {
   const formData = await request.formData();
@@ -17,14 +17,24 @@ export async function POST(request) {
   }
 
   try {
+    // Convert image to buffer and process it with sharp
     const imgBuffer = Buffer.from(await image.arrayBuffer());
 
+    // Resize and convert to WebP using sharp
+    const processedImage = await sharp(imgBuffer)
+      .resize({ width: 1000, height: 1000, fit: sharp.fit.inside }) // Limit dimensions to 1000x1000
+      .webp({ quality: 80 }) // Convert to WebP with 80% quality
+      .toBuffer();
+
     // Upload to Supabase Storage using the Service Role Key
-    const filePath = `stamps/${Date.now()}_${image.name}`;
+    const filePath = `stamps/${Date.now()}_${image.name.replace(
+      /\.[^/.]+$/,
+      ""
+    )}.webp`;
     const { data, error } = await supabaseAdmin.storage
       .from(process.env.SUPABASE_BUCKET_STAMP_IMAGES)
-      .upload(filePath, imgBuffer, {
-        contentType: image.type,
+      .upload(filePath, processedImage, {
+        contentType: "image/webp",
       });
 
     if (error) throw error;
