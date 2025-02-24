@@ -74,7 +74,7 @@ const PhilatelyGallery = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
+              className="border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 flex flex-col h-full"
             >
               {stamp.image ? (
                 <Image
@@ -89,7 +89,7 @@ const PhilatelyGallery = () => {
                   <span className="text-white">No Image</span>
                 </div>
               )}
-              <div className="p-4">
+              <div className="p-4 flex flex-col flex-grow">
                 <h3 className="text-lg font-semibold text-gray-600">
                   {stamp.name}
                 </h3>
@@ -104,7 +104,7 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
-                <p className="text-xs text-gray-400 mt-1 italic">
+                <p className="text-xs text-gray-400 mt-auto italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>
