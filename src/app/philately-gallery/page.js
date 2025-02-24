@@ -101,10 +101,10 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 mt-auto">
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
-                <p className="text-xs text-gray-400 mt-auto italic">
+                <p className="text-xs text-gray-400 mt-1 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>
