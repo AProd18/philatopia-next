@@ -5,6 +5,7 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import Modal from "@/components/Modal";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -12,11 +13,13 @@ const PhilatelyGallery = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [viewMode, setViewMode] = useState("grid");
   const [filteredStamps, setFilteredStamps] = useState([]);
+  const [selectedOwner, setSelectedOwner] = useState(null);
 
   useEffect(() => {
     const fetchStamps = async () => {
       const res = await fetch(`/api/collections/all?page=${currentPage}`);
       const data = await res.json();
+
       setStamps(data.stamps);
       setTotalPages(data.totalPages);
       setFilteredStamps(data.stamps);
@@ -100,7 +103,10 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p className="text-sm text-gray-500 mt-auto">
+                <p
+                  className="text-sm text-gray-500 mt-auto cursor-pointer text-blue-600 hover:underline"
+                  onClick={() => setSelectedOwner(stamp.userId)}
+                >
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
                 <p className="text-xs text-gray-400 mt-1 italic">
@@ -159,6 +165,9 @@ const PhilatelyGallery = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+      {selectedOwner && (
+        <Modal ownerId={selectedOwner} onClose={() => setSelectedOwner(null)} />
+      )}
     </div>
   );
 };
