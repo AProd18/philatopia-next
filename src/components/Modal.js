@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 
 const Modal = ({ isOpen, onClose, profileImage, aboutMe }) => {
@@ -13,10 +14,12 @@ const Modal = ({ isOpen, onClose, profileImage, aboutMe }) => {
           ✕
         </button>
         <div className="flex flex-col items-center">
-          <img
-            src={profileImage || "/default-profile.png"}
-            alt="Profile"
-            className="w-24 h-24 rounded-full mb-4 border border-gray-300"
+          <Image
+            src={stamp.image}
+            alt={stamp.name}
+            width={128}
+            height={128}
+            className="w-24 h-24 md:w-32 md:h-32 object-contain"
           />
           <p className="text-gray-700 text-center">
             {aboutMe || "No bio available"}
