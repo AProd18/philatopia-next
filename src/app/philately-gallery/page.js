@@ -17,7 +17,6 @@ const PhilatelyGallery = () => {
     const fetchStamps = async () => {
       const res = await fetch(`/api/collections/all?page=${currentPage}`);
       const data = await res.json();
-      console.log(data);
       setStamps(data.stamps);
       setTotalPages(data.totalPages);
       setFilteredStamps(data.stamps);

@@ -62,7 +62,7 @@ export default function Profile() {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded-lg shadow-md">
-      <h1 className="text-2xl font-bold mb-6">Profile</h1>
+      <h1 className="text-2xl font-bold mb-6 text-gray-500">Profile</h1>
 
       <div className="mb-6 text-center">
         <div className="relative w-32 h-32 mx-auto">
@@ -96,7 +96,10 @@ export default function Profile() {
       </div>
 
       <div className="mb-6">
-        <label htmlFor="aboutMe" className="block text-lg font-medium mb-2">
+        <label
+          htmlFor="aboutMe"
+          className="block text-lg font-medium mb-2 text-gray-500"
+        >
           About Me
         </label>
         <textarea
