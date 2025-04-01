@@ -104,7 +104,7 @@ const PhilatelyGallery = () => {
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p
-                  className="text-sm text-gray-500 mt-auto cursor-pointer text-blue-600 hover:underline"
+                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
                   onClick={() => setSelectedOwner(stamp.userId)}
                 >
                   <span className="font-bold">Owner:</span> {stamp.userId}
@@ -149,7 +149,10 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p
+                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
+                  onClick={() => setSelectedOwner(stamp.userId)}
+                >
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
                 <p className="text-xs text-gray-400 italic">
