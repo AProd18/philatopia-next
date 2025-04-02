@@ -162,7 +162,7 @@ const PhilatelyGallery = () => {
                 </p>
                 <p
                   className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
-                  onClick={() => handleOwnerClick(stamp.userId)}
+                  onClick={() => setSelectedOwner(stamp.userId)}
                 >
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
