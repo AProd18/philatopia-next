@@ -14,6 +14,7 @@ const PhilatelyGallery = () => {
   const [viewMode, setViewMode] = useState("grid");
   const [filteredStamps, setFilteredStamps] = useState([]);
   const [selectedOwner, setSelectedOwner] = useState(null);
+  const [selectedStamp, setSelectedStamp] = useState(null);
 
   useEffect(() => {
     const fetchStamps = async () => {
@@ -41,6 +42,10 @@ const PhilatelyGallery = () => {
       );
     });
     setFilteredStamps(filtered);
+  };
+
+  const handleStampClick = (stamp) => {
+    setSelectedStamp(stamp);
   };
 
   const handleOwnerClick = async (userId) => {
@@ -95,7 +100,8 @@ const PhilatelyGallery = () => {
                   alt={stamp.name}
                   width={400}
                   height={300}
-                  className="object-cover"
+                  className="object-cover cursor-pointer"
+                  onClick={() => handleStampClick(stamp)}
                 />
               ) : (
                 <div className="w-full h-48 bg-gray-300 flex justify-center items-center">
@@ -141,7 +147,8 @@ const PhilatelyGallery = () => {
                   alt={stamp.name}
                   width={128}
                   height={128}
-                  className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                  className="w-24 h-24 md:w-32 md:h-32 object-contain cursor-pointer"
+                  onClick={() => handleStampClick(stamp)}
                 />
               ) : (
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-gray-300 flex justify-center items-center text-gray-700 rounded">
@@ -184,6 +191,39 @@ const PhilatelyGallery = () => {
           isOpen={!!selectedOwner}
           onClose={() => setSelectedOwner(null)}
         />
+      )}
+      {selectedStamp && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Blur samo na pozadinu */}
+          <div className="absolute inset-0 bg-black bg-opacity-50 backdrop-blur-md"></div>
+
+          {/* Modal ostaje jasan */}
+          <div className="relative bg-white p-6 rounded-lg shadow-lg max-w-lg w-full z-10">
+            <button
+              className="absolute top-2 right-2 text-gray-500 hover:text-gray-800"
+              onClick={() => setSelectedStamp(null)}
+            >
+              ✖
+            </button>
+            <Image
+              src={selectedStamp.image}
+              alt={selectedStamp.name}
+              width={300}
+              height={200}
+              className="object-contain w-full h-auto rounded"
+            />
+            <h2 className="text-xl font-bold mt-4">{selectedStamp.name}</h2>
+            <p className="text-gray-600">{selectedStamp.description}</p>
+            <p className="text-sm text-gray-500">
+              <span className="font-bold">Year Issued:</span>{" "}
+              {selectedStamp.yearIssued}
+            </p>
+            <p className="text-sm text-gray-500">
+              <span className="font-bold">Country:</span>{" "}
+              {selectedStamp.country}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
