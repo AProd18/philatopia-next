@@ -43,6 +43,17 @@ const PhilatelyGallery = () => {
     setFilteredStamps(filtered);
   };
 
+  const handleOwnerClick = async (userId) => {
+    const res = await fetch(`/api/users/${userId}`);
+    const userData = await res.json();
+
+    setSelectedOwner({
+      id: userId,
+      profileImage: userData.profileImage,
+      aboutMe: userData.aboutMe,
+    });
+  };
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4"></h1>
@@ -151,7 +162,7 @@ const PhilatelyGallery = () => {
                 </p>
                 <p
                   className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
-                  onClick={() => setSelectedOwner(stamp.userId)}
+                  onClick={() => handleOwnerClick(stamp.userId)}
                 >
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
@@ -169,7 +180,10 @@ const PhilatelyGallery = () => {
         onPageChange={handlePageChange}
       />
       {selectedOwner && (
-        <Modal ownerId={selectedOwner} onClose={() => setSelectedOwner(null)} />
+        <Modal
+          isOpen={!!selectedOwner}
+          onClose={() => setSelectedOwner(null)}
+        />
       )}
     </div>
   );
