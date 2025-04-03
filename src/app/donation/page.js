@@ -23,10 +23,17 @@ export default function DonationPage() {
         Support Stampfolio
       </h1>
       <p className="text-gray-600 mb-4">
-        If you love Stampfolio and want to support its growth, consider making a
-        small donation. Your contribution helps us maintain and improve the
-        platform, ensuring a better experience for all philately enthusiasts.
-        Thank you for your support!
+        Stampfolio is a passion project built for philately enthusiasts
+        worldwide. If you enjoy using our platform and want to support its
+        growth, consider making a small donation. Your contribution helps us
+        maintain and improve the platform, ensuring a better experience for all
+        collectors.
+      </p>
+
+      <p className="text-gray-600 mb-6">
+        Every donation, no matter the amount, makes a difference. It helps us
+        cover server costs, develop new features, and keep Stampfolio free for
+        everyone. Thank you for being a part of our growing community!
       </p>
 
       <div className="mb-4">
