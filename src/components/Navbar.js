@@ -109,6 +109,7 @@ export default function Navbar() {
                 </Link>
               </>
             )}
+
             <Link
               href="/contact-us"
               className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-5"

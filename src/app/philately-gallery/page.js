@@ -212,16 +212,6 @@ const PhilatelyGallery = () => {
               height={200}
               className="object-contain w-full h-auto rounded"
             />
-            <h2 className="text-xl font-bold mt-4">{selectedStamp.name}</h2>
-            <p className="text-gray-600">{selectedStamp.description}</p>
-            <p className="text-sm text-gray-500">
-              <span className="font-bold">Year Issued:</span>{" "}
-              {selectedStamp.yearIssued}
-            </p>
-            <p className="text-sm text-gray-500">
-              <span className="font-bold">Country:</span>{" "}
-              {selectedStamp.country}
-            </p>
           </div>
         </div>
       )}
