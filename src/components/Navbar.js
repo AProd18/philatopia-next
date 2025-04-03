@@ -118,7 +118,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/donation"
-              className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0"
+              className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-5"
             >
               Donation
             </Link>
