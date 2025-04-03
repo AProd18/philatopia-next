@@ -73,6 +73,16 @@ export default function Login() {
         ) : (
           <div className="text-center mt-4">
             <p className="text-green-600">Welcome, {session.user.name}!</p>
+            <p className="text-gray-600">
+              Check out your{" "}
+              <a
+                href="/my-collections"
+                className="text-blue-500 underline hover:text-blue-700"
+              >
+                collection
+              </a>
+              !
+            </p>
             <button
               onClick={handleLogout}
               className="mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
