@@ -116,6 +116,12 @@ export default function Navbar() {
             >
               Contact Us
             </Link>
+            <Link
+              href="/donation"
+              className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0"
+            >
+              Donation
+            </Link>
           </div>
         </div>
       </nav>
