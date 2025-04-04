@@ -53,6 +53,24 @@ export default async function Home() {
           </p>
         </div>
       </div>
+
+      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] bg-blue-100 bg-opacity-90 shadow-lg rounded-md">
+        <div className="h-60 flex flex-col items-center justify-center p-6">
+          <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-blue-700 text-center">
+            Explore the Philately Gallery
+          </h2>
+          <p className="text-base sm:text-lg md:text-sm mt-2 text-blue-600 text-center">
+            Browse a wide variety of stamps uploaded by our community. No
+            account needed!
+          </p>
+          <Link
+            href="/philately-gallery"
+            className="mt-4 bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition"
+          >
+            View Gallery
+          </Link>
+        </div>
+      </div>
     </main>
   );
 }
