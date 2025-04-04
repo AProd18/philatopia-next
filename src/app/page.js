@@ -1,4 +1,3 @@
-// app/page.js
 import Link from "next/link";
 import prisma from "@/lib/prisma";
 
@@ -7,9 +6,9 @@ export default async function Home() {
   const totalStamps = await prisma.stamp.count();
 
   return (
-    <main className="flex flex-col items-center justify-center py-10">
+    <main className="flex flex-col items-center justify-center py-10 px-4">
       {/* Welcome Section */}
-      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-lg rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-lg rounded-md">
         <div className="h-80 flex flex-col items-center justify-center p-6">
           <h1 className="text-2xl sm:text-3xl md:text-3xl font-bold text-gray-700 text-center">
             Welcome to Stampfolio
@@ -28,7 +27,7 @@ export default async function Home() {
       </div>
 
       {/* Announcement Section */}
-      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
         <div className="h-60 flex flex-col items-center justify-center p-6">
           <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-red-700 text-center">
             Application Under Development
@@ -42,7 +41,7 @@ export default async function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-md rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-md rounded-md">
         <div className="p-6 flex flex-col items-center">
           <h3 className="text-xl font-semibold text-gray-700 mb-2">
             📊 Stampfolio Stats
@@ -54,7 +53,7 @@ export default async function Home() {
         </div>
       </div>
 
-      <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] bg-blue-100 bg-opacity-90 shadow-lg rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-blue-100 bg-opacity-90 shadow-lg rounded-md">
         <div className="h-60 flex flex-col items-center justify-center p-6">
           <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-blue-700 text-center">
             Explore the Philately Gallery
