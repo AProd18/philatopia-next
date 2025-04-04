@@ -3,7 +3,9 @@
 import { useState } from "react";
 
 export default function DonationPage() {
+  const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
+  const [note, setNote] = useState("");
   const [message, setMessage] = useState("");
 
   const handleDonation = async () => {
@@ -12,37 +14,72 @@ export default function DonationPage() {
       return;
     }
 
-    // Ovdje možeš dodati backend poziv za obradu donacije (npr. PayPal/Stripe)
-    alert(`Thank you for your donation of $${amount}!`);
+    alert(
+      `Thank you${name ? `, ${name}` : ""}, for your donation of $${amount}!`
+    );
     setAmount("");
+    setName("");
+    setNote("");
+    setMessage("Your support means a lot to us. Thank you!");
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
-      <div className="max-w-2xl mx-auto p-6 opacity-90 bg-white rounded-lg shadow-md">
-        <h1 className="text-2xl font-bold mb-6 text-gray-500">
-          Support Stampfolio
+      <div className="max-w-2xl mx-auto p-6 opacity-95 bg-white rounded-lg shadow-md">
+        <h1 className="text-3xl font-bold mb-6 text-gray-700">
+          Support the Future of{" "}
+          <span className="text-green-600">Stampfolio</span>
         </h1>
+
         <p className="text-gray-600 mb-4">
-          Stampfolio is a passion project built for philately enthusiasts
-          worldwide. If you enjoy using our platform and want to support its
-          growth, consider making a small donation. Your contribution helps us
-          maintain and improve the platform, ensuring a better experience for
-          all collectors.
+          <strong>Stampfolio</strong> is a <em>community-driven platform</em>{" "}
+          created with love for philately. If you&apos;ve found value in our
+          work, consider making a contribution to help us grow and continue
+          delivering meaningful features.
         </p>
 
+        <div className="text-gray-600 mb-4">
+          <p>Your donation directly supports:</p>
+          <ul className="list-disc list-inside ml-4 mt-2 text-sm text-gray-700">
+            <li>
+              <strong>Server maintenance</strong>
+            </li>
+            <li>
+              <strong>Feature development</strong>
+            </li>
+            <li>
+              <strong>Keeping the platform free</strong> for all collectors
+            </li>
+          </ul>
+        </div>
+
         <p className="text-gray-600 mb-6">
-          Every donation, no matter the amount, makes a difference. It helps us
-          cover server costs, develop new features, and keep Stampfolio free for
-          everyone. Thank you for being a part of our growing community!
+          <em>Every contribution, big or small, truly makes a difference.</em>
         </p>
 
         <div className="mb-4">
           <label
-            htmlFor="amount"
-            className="block text-lg font-medium mb-2 text-gray-500"
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-600 mb-1"
           >
-            Donation Amount ($)
+            Your Name <span className="text-gray-400">(optional)</span>
+          </label>
+          <input
+            id="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full p-2 border rounded-lg"
+            placeholder="Enter your name"
+          />
+        </div>
+
+        <div className="mb-4">
+          <label
+            htmlFor="amount"
+            className="block text-sm font-medium text-gray-600 mb-1"
+          >
+            Donation Amount <span className="text-gray-400">($)</span>
           </label>
           <input
             id="amount"
@@ -54,14 +91,35 @@ export default function DonationPage() {
           />
         </div>
 
+        <div className="mb-6">
+          <label
+            htmlFor="note"
+            className="block text-sm font-medium text-gray-600 mb-1"
+          >
+            Message <span className="text-gray-400">(optional)</span>
+          </label>
+          <textarea
+            id="note"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            className="w-full p-2 border rounded-lg resize-none"
+            rows={3}
+            placeholder="Leave a short message or comment"
+          />
+        </div>
+
         <button
           onClick={handleDonation}
-          className="w-full px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+          className="w-full px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold"
         >
           Donate Now
         </button>
 
-        {message && <p className="mt-4 text-center text-gray-700">{message}</p>}
+        {message && (
+          <p className="mt-4 text-center text-green-700 font-medium italic">
+            {message}
+          </p>
+        )}
       </div>
     </div>
   );
