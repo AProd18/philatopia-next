@@ -1,9 +1,19 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
+import Image from "next/image";
 
 export default async function Home() {
   const totalUsers = await prisma.user.count();
   const totalStamps = await prisma.stamp.count();
+
+  const lastStamp = await prisma.stamp.findFirst({
+    orderBy: {
+      createdAt: "desc",
+    },
+    include: {
+      user: true, // ako želiš i ime korisnika
+    },
+  });
 
   return (
     <main className="flex flex-col items-center justify-center py-10 px-4">
@@ -34,6 +44,31 @@ export default async function Home() {
           </p>
         </div>
       </div>
+
+      {lastStamp && (
+        <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-green-100 bg-opacity-90 shadow-md rounded-md">
+          <div className="p-4 flex flex-col sm:flex-row items-center gap-4">
+            <Image
+              src={lastStamp.image}
+              alt={lastStamp.title || "Recently added stamp"}
+              width={128}
+              height={128}
+              className="rounded-md shadow object-cover"
+            />
+
+            <div>
+              <h3 className="text-xl font-semibold text-green-700">
+                🆕 Last Added Stamp
+              </h3>
+              <p className="text-gray-700 font-bold">{lastStamp.title}</p>
+              <p className="text-gray-600">{lastStamp.description}</p>
+              {/* <p className="text-sm text-gray-500 mt-1">
+                Year: {lastStamp.year} | By: {lastStamp.user.username}
+              </p> */}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Stats Section */}
       <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-md rounded-md">
