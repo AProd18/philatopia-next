@@ -7,6 +7,15 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center py-10 px-4">
+      {/* Announcement Section */}
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
+        <div className="h-60 flex flex-col items-center justify-center p-6">
+          <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-red-700 text-center">
+            Application Under Development
+          </h2>
+        </div>
+      </div>
+
       {/* Welcome Section */}
       <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-lg rounded-md">
         <div className="h-80 flex flex-col items-center justify-center p-6">
@@ -26,20 +35,6 @@ export default async function Home() {
         </div>
       </div>
 
-      {/* Announcement Section */}
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
-        <div className="h-60 flex flex-col items-center justify-center p-6">
-          <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-red-700 text-center">
-            Application Under Development
-          </h2>
-          <p className="text-base sm:text-lg md:text-sm mt-2 text-red-600 text-center">
-            This app is currently under development and has been released for
-            testing purposes. We will be rolling out exciting new features and
-            updates very soon! Stay tuned for more news and improvements!
-          </p>
-        </div>
-      </div>
-
       {/* Stats Section */}
       <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-md rounded-md">
         <div className="p-6 flex flex-col items-center">
@@ -50,24 +45,6 @@ export default async function Home() {
             Total Users: <span className="font-bold">{totalUsers}</span> | Total
             Stamps: <span className="font-bold">{totalStamps}</span>
           </p>
-        </div>
-      </div>
-
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-blue-100 bg-opacity-90 shadow-lg rounded-md">
-        <div className="h-60 flex flex-col items-center justify-center p-6">
-          <h2 className="text-2xl sm:text-3xl md:text-2xl font-bold text-blue-700 text-center">
-            Explore the Philately Gallery
-          </h2>
-          <p className="text-base sm:text-lg md:text-sm mt-2 text-blue-600 text-center">
-            Browse a wide variety of stamps uploaded by our community. No
-            account needed!
-          </p>
-          <Link
-            href="/philately-gallery"
-            className="mt-4 bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-800 transition"
-          >
-            View Gallery
-          </Link>
         </div>
       </div>
     </main>
