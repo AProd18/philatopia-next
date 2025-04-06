@@ -23,6 +23,8 @@ const MyCollections = () => {
     image: "",
   });
 
+  const [stampToDelete, setStampToDelete] = useState(null); // For confirmation popup
+
   useEffect(() => {
     if (session?.user?.id) {
       const fetchStamps = async () => {
@@ -55,13 +57,28 @@ const MyCollections = () => {
     setFilteredStamps(filtered);
   };
 
-  const handleDelete = async (id) => {
-    const res = await fetch(`/api/collections/${id}`, { method: "DELETE" });
+  const confirmDelete = (stamp) => {
+    setStampToDelete(stamp);
+  };
+
+  const cancelDelete = () => {
+    setStampToDelete(null);
+  };
+
+  const handleDeleteConfirmed = async () => {
+    if (!stampToDelete) return;
+
+    const res = await fetch(`/api/collections/${stampToDelete.id}`, {
+      method: "DELETE",
+    });
 
     if (res.ok) {
-      const updatedStamps = stamps.filter((stamp) => stamp.id !== id);
+      const updatedStamps = stamps.filter(
+        (stamp) => stamp.id !== stampToDelete.id
+      );
       setStamps(updatedStamps);
       setFilteredStamps(updatedStamps);
+      setStampToDelete(null);
     } else {
       alert("Failed to delete stamp.");
     }
@@ -82,10 +99,9 @@ const MyCollections = () => {
     e.preventDefault();
 
     if (!formValues.image && editingStamp?.image) {
-      formValues.image = editingStamp.image; // Keep the current image if not changed
+      formValues.image = editingStamp.image;
     }
 
-    // Ensure yearIssued is a number before sending
     formValues.yearIssued = parseInt(formValues.yearIssued);
 
     const res = await fetch(`/api/collections/${editingStamp.id}`, {
@@ -102,7 +118,6 @@ const MyCollections = () => {
 
       setStamps(updatedStamps);
       setFilteredStamps(updatedStamps);
-
       setEditingStamp(null);
     } else {
       alert("Failed to update stamp.");
@@ -111,12 +126,8 @@ const MyCollections = () => {
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4"></h1>
-
-      {/* Search bar */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
         <Button
           onClick={() => setViewMode("grid")}
@@ -134,7 +145,6 @@ const MyCollections = () => {
         </Button>
       </div>
 
-      {/* Displaying stamps */}
       {filteredStamps.length === 0 ? (
         <p>No stamps found</p>
       ) : viewMode === "grid" ? (
@@ -180,7 +190,7 @@ const MyCollections = () => {
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(stamp.id)}
+                  onClick={() => confirmDelete(stamp)}
                   className="flex-1 bg-red-100 hover:bg-red-200 text-red-800 hover:text-red-900 px-3 py-0.5 rounded text-sm transition-colors duration-200 shadow-md"
                 >
                   Delete
@@ -190,7 +200,6 @@ const MyCollections = () => {
           ))}
         </div>
       ) : (
-        // List View
         <div className="flex flex-col space-y-4">
           {filteredStamps.map((stamp) => (
             <div
@@ -226,14 +235,12 @@ const MyCollections = () => {
                   onClick={() => handleEditClick(stamp)}
                   className="bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
-                  <span className="material-icons-outlined mr-1 text-base"></span>
                   Edit
                 </button>
                 <button
-                  onClick={() => handleDelete(stamp.id)}
+                  onClick={() => confirmDelete(stamp)}
                   className="bg-red-100 hover:bg-red-200 text-red-800 hover:text-red-900 px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
-                  <span className="material-icons-outlined mr-1 text-base"></span>
                   Delete
                 </button>
               </div>
@@ -247,113 +254,29 @@ const MyCollections = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {editingStamp && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-          <form
-            onSubmit={handleFormSubmit}
-            className="bg-white p-6 rounded shadow-lg"
-          >
-            <h2 className="text-xl font-bold mb-4 text-gray-600">Edit Stamp</h2>
 
-            <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
-              htmlFor="name"
-            >
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              value={formValues.name}
-              onChange={(e) =>
-                setFormValues({ ...formValues, name: e.target.value })
-              }
-              className="border p-2 w-full mb-4"
-            />
-
-            <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
-              htmlFor="description"
-            >
-              Description
-            </label>
-            <textarea
-              id="description"
-              value={formValues.description}
-              onChange={(e) =>
-                setFormValues({ ...formValues, description: e.target.value })
-              }
-              className="border p-2 w-full mb-4"
-            />
-
-            <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
-              htmlFor="yearIssued"
-            >
-              Year Issued
-            </label>
-            <input
-              id="yearIssued"
-              type="number"
-              value={formValues.yearIssued}
-              onChange={(e) =>
-                setFormValues({ ...formValues, yearIssued: e.target.value })
-              }
-              className="border p-2 w-full mb-4"
-            />
-
-            <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
-              htmlFor="country"
-            >
-              Country
-            </label>
-            <input
-              id="country"
-              type="text"
-              value={formValues.country}
-              onChange={(e) =>
-                setFormValues({ ...formValues, country: e.target.value })
-              }
-              className="border p-2 w-full mb-4"
-            />
-
-            <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
-              htmlFor="image"
-            >
-              Image:
-            </label>
-            <div className="flex items-center mb-4">
-              <input
-                id="image"
-                type="file"
-                onChange={(e) =>
-                  setFormValues({ ...formValues, image: e.target.files[0] })
-                }
-                className="border p-2 w-full"
-              />
-              <span className="ml-4 text-sm text-gray-500">
-                {formValues.image?.name || "No file chosen"}
-              </span>
-            </div>
-
-            <div className="flex space-x-2">
+      {/* Delete Confirmation Popup */}
+      {stampToDelete && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-sm w-full">
+            <h2 className="text-lg font-semibold text-gray-800 mb-4">
+              Are you sure you want to delete this stamp?
+            </h2>
+            <div className="flex justify-end space-x-4">
               <button
-                type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded"
-              >
-                Save
-              </button>
-              <button
-                type="button"
-                onClick={() => setEditingStamp(null)}
-                className="bg-gray-500 text-white px-4 py-2 rounded"
+                onClick={cancelDelete}
+                className="px-4 py-2 bg-gray-200 text-gray-800 rounded hover:bg-gray-300 transition"
               >
                 Cancel
               </button>
+              <button
+                onClick={handleDeleteConfirmed}
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+              >
+                Delete
+              </button>
             </div>
-          </form>
+          </div>
         </div>
       )}
     </div>
