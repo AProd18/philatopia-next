@@ -187,7 +187,7 @@ const AddStamp = () => {
         )}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black py-2 px-4 rounded-md  focus:outline-none focus:ring-2 f"
         >
           Add Stamp
         </button>
