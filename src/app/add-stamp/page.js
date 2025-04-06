@@ -90,9 +90,7 @@ const AddStamp = () => {
         onSubmit={handleSubmit}
         className="bg-white opacity-90 shadow-lg rounded-lg p-8 w-full max-w-lg"
       >
-        <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center">
-          Add New Stamp
-        </h2>
+        {/* <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center"></h2> */}
         <div className="mb-4">
           <label
             htmlFor="name"
