@@ -175,7 +175,7 @@ const MyCollections = () => {
               <div className="mt-4 flex space-x-2 p-4">
                 <button
                   onClick={() => handleEditClick(stamp)}
-                  className="px-3 py-0.5 rounded flex-1 shadow-md transition-colors duration-200 bg-[#b8a88a] text-white hover:bg-[#a8977b] text-sm"
+                  className="px-3 py-0.5 rounded flex-1 shadow-md transition-colors duration-200 bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black text-sm"
                 >
                   Edit
                 </button>
@@ -224,14 +224,14 @@ const MyCollections = () => {
               <div className="flex flex-col space-y-2">
                 <button
                   onClick={() => handleEditClick(stamp)}
-                  className="bg-green-400 hover:bg-green-500 text-gray-800 hover:text-white px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
+                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
                   <span className="material-icons-outlined mr-1 text-base"></span>
                   Edit
                 </button>
                 <button
                   onClick={() => handleDelete(stamp.id)}
-                  className="bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
+                  className="bg-red-100 hover:bg-red-200 text-red-800 hover:text-red-900 px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
                   <span className="material-icons-outlined mr-1 text-base"></span>
                   Delete

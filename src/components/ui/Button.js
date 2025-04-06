@@ -11,10 +11,8 @@ export default function Button({
   let styleMap = {
     view:
       viewMode === mode
-        ? "bg-[#b8a88a] text-white hover:bg-[#a8977b]"
-        : "bg-[#e0d6c6] text-gray-800 hover:bg-[#cfc3b1]",
-    edit: "bg-[#b8a88a] text-white hover:bg-[#a8977b]",
-    delete: "bg-[#e6b8b8] text-gray-800 hover:bg-[#d89c9c]",
+        ? "bg-gray-400 text-gray-800 hover:bg-gray-400"
+        : "bg-gray-300 text-gray-800 hover:bg-gray-400",
   };
 
   return (
@@ -23,3 +21,5 @@ export default function Button({
     </button>
   );
 }
+
+// "bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black
