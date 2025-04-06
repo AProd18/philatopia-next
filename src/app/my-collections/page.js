@@ -183,7 +183,7 @@ const MyCollections = () => {
                 </button>
                 <button
                   onClick={() => setStampToDelete(stamp.id)}
-                  className="flex-1 bg-red-100 hover:bg-red-200 text-red-800 hover:text-red-900 px-3 py-0.5 rounded text-sm transition-colors duration-200 shadow-md"
+                  className="flex-1 bg-red-200 hover:bg-red-100 text-red-800 hover:text-red-900 px-3 py-0.5 rounded text-sm transition-colors duration-200 shadow-md"
                 >
                   Delete
                 </button>
@@ -233,7 +233,7 @@ const MyCollections = () => {
                 </button>
                 <button
                   onClick={() => setStampToDelete(stamp.id)}
-                  className="bg-red-100 hover:bg-red-200 text-red-800 hover:text-red-900 px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
+                  className="bg-red-200 hover:bg-red-100 text-red-800 hover:text-red-900 px-3 py-1 rounded text-sm transition-colors duration-200 shadow-md flex items-center justify-center"
                 >
                   <span className="material-icons-outlined mr-1 text-base"></span>
                   Delete
