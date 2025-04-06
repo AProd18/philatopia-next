@@ -97,7 +97,7 @@ export default function ContactUs() {
           </div>
           <button
             type="submit"
-            className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black rounded-md  focus:outline-none focus:ring-2"
           >
             Send Message
           </button>
