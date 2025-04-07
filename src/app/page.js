@@ -46,7 +46,7 @@ export default async function Home() {
       </div>
 
       {lastStamp && (
-        <div className="w-full sm:w-[80%] md:w-[70%] lg:w-[60%] xl:w-[50%] mb-5 bg-green-100 bg-opacity-90 shadow-md rounded-md">
+        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white shadow-lg  bg-opacity-90  rounded-md">
           <div className="p-4 flex flex-col sm:flex-row items-center gap-4">
             <Image
               src={lastStamp.image}
