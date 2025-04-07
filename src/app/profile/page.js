@@ -112,7 +112,7 @@ export default function Profile() {
 
       <button
         onClick={handleSaveChanges}
-        className="w-full px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600"
+        className="w-full px-6 py-2  rounded-lg  bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black"
       >
         Save Changes
       </button>

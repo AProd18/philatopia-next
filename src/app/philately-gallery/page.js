@@ -43,6 +43,13 @@ const PhilatelyGallery = () => {
     }));
   };
 
+  function getTruncatedText(text, maxLength = 60) {
+    if (text.length <= maxLength) return text;
+    const trimmed = text.slice(0, maxLength);
+    const lastSpace = trimmed.lastIndexOf(" ");
+    return trimmed.slice(0, lastSpace) + "...";
+  }
+
   const handleSearch = (query) => {
     const lowerQuery = query.toLowerCase();
     const filtered = stamps.filter((stamp) => {
