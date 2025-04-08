@@ -58,8 +58,8 @@ export default async function Home() {
               className="rounded-md shadow object-cover"
             />
             <div>
-              <h3 className="text-l font-semibold text-green-700">
-                🆕 Last Added Stamp
+              <h3 className="text-l font-semibold text-gray-700">
+                Last Added Stamp
               </h3>
               <p className="text-gray-700 font-bold">{lastStamp.title}</p>
               <p className="text-sm text-gray-500 mt-1">
