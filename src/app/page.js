@@ -1,6 +1,7 @@
 import Link from "next/link";
 import prisma from "@/lib/prisma";
 import Image from "next/image";
+import { formatDistanceToNow } from "date-fns";
 
 export default async function Home() {
   const totalUsers = await prisma.user.count();
@@ -11,7 +12,7 @@ export default async function Home() {
       createdAt: "desc",
     },
     include: {
-      user: true, // ako želiš i ime korisnika
+      user: true,
     },
   });
 
@@ -61,12 +62,12 @@ export default async function Home() {
                 🆕 Last Added Stamp
               </h3>
               <p className="text-gray-700 font-bold">{lastStamp.title}</p>
-              <p className="text-gray-600 text-sm sm:text-base md:text-base">
-                {/* {lastStamp.description} */}
+              <p className="text-sm text-gray-500 mt-1">
+                Posted{" "}
+                {formatDistanceToNow(new Date(lastStamp.createdAt), {
+                  addSuffix: true,
+                })}
               </p>
-              {/* <p className="text-sm text-gray-500 mt-1">
-          Year: {lastStamp.year} | By: {lastStamp.user.username}
-        </p> */}
             </div>
           </div>
 
