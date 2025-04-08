@@ -80,7 +80,7 @@ export default function Profile() {
         </div>
         <label
           htmlFor="profileImage"
-          className="mt-4 inline-block px-4 py-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600"
+          className="mt-4 inline-block px-4 py-2  rounded-lg cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black"
         >
           Upload Image
         </label>
