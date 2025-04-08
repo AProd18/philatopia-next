@@ -46,8 +46,9 @@ export default async function Home() {
       </div>
 
       {lastStamp && (
-        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white shadow-lg  bg-opacity-90  rounded-md">
-          <div className="p-4 flex flex-col sm:flex-row items-center gap-4">
+        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col sm:flex-row gap-4">
+          {/* Last Stamp */}
+          <div className="flex-1 bg-white shadow-lg bg-opacity-90 rounded-md p-4 flex flex-col sm:flex-row items-center gap-4">
             <Image
               src={lastStamp.image}
               alt={lastStamp.title || "Recently added stamp"}
@@ -55,35 +56,32 @@ export default async function Home() {
               height={128}
               className="rounded-md shadow object-cover"
             />
-
             <div>
               <h3 className="text-l font-semibold text-green-700">
                 🆕 Last Added Stamp
               </h3>
               <p className="text-gray-700 font-bold">{lastStamp.title}</p>
               <p className="text-gray-600 text-sm sm:text-base md:text-base">
-                {lastStamp.description}
+                {/* {lastStamp.description} */}
               </p>
               {/* <p className="text-sm text-gray-500 mt-1">
-                Year: {lastStamp.year} | By: {lastStamp.user.username}
-              </p> */}
+          Year: {lastStamp.year} | By: {lastStamp.user.username}
+        </p> */}
             </div>
+          </div>
+
+          {/* Stats */}
+          <div className="flex-1 bg-white shadow-md bg-opacity-90 rounded-md p-6 flex flex-col items-center justify-center">
+            <h3 className="text-xl sm:text-3xl md:text-xl font-semibold text-gray-700 mb-2">
+              Stats
+            </h3>
+            <p className="text-gray-600 text-center">
+              Total Users: <span className="font-bold">{totalUsers}</span> |
+              Total Stamps: <span className="font-bold">{totalStamps}</span>
+            </p>
           </div>
         </div>
       )}
-
-      {/* Stats Section */}
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-md rounded-md">
-        <div className="p-6 flex flex-col items-center">
-          <h3 className="text-xl sm:text-3xl md:text-xl font-semibold text-gray-700 mb-2">
-            Stats
-          </h3>
-          <p className="text-gray-600 text-center">
-            Total Users: <span className="font-bold">{totalUsers}</span> | Total
-            Stamps: <span className="font-bold">{totalStamps}</span>
-          </p>
-        </div>
-      </div>
     </main>
   );
 }
