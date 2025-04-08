@@ -47,7 +47,7 @@ export default async function Home() {
       </div>
 
       {lastStamp && (
-        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col sm:flex-row gap-4">
+        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4 space-y-4 xl:space-y-0">
           {/* Last Stamp */}
           <div className="flex-1 bg-white shadow-lg bg-opacity-90 rounded-md p-4 flex flex-col sm:flex-row items-center gap-4">
             <Image
