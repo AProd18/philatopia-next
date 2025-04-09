@@ -6,7 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Modal from "@/components/Modal";
-import { useRef } from "react";
+// import { useRef } from "react";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -17,8 +17,8 @@ const PhilatelyGallery = () => {
   const [selectedOwner, setSelectedOwner] = useState(null);
   const [selectedStamp, setSelectedStamp] = useState(null);
 
-  const [expandedDescriptions, setExpandedDescriptions] = useState({});
-  const descriptionRefs = useRef({});
+  // const [expandedDescriptions, setExpandedDescriptions] = useState({});
+  // const descriptionRefs = useRef({});
 
   useEffect(() => {
     const fetchStamps = async () => {
@@ -36,12 +36,12 @@ const PhilatelyGallery = () => {
     setCurrentPage(pageNumber);
   };
 
-  const toggleDescription = (id) => {
-    setExpandedDescriptions((prev) => ({
-      ...prev,
-      [id]: !prev[id],
-    }));
-  };
+  // const toggleDescription = (id) => {
+  //   setExpandedDescriptions((prev) => ({
+  //     ...prev,
+  //     [id]: !prev[id],
+  //   }));
+  // };
 
   function getTruncatedText(text, maxLength = 60) {
     if (text.length <= maxLength) return text;
@@ -130,29 +130,8 @@ const PhilatelyGallery = () => {
                 <h3 className="text-lg font-semibold text-gray-600">
                   {stamp.name}
                 </h3>
-                <div
-                  className="relative overflow-hidden transition-all duration-500 ease-in-out"
-                  style={{
-                    maxHeight: expandedDescriptions[stamp.id]
-                      ? descriptionRefs.current[stamp.id]?.scrollHeight + "px"
-                      : "4.5rem", // otprilike 3 linije teksta (~60 karaktera)
-                  }}
-                >
-                  <p
-                    ref={(el) => (descriptionRefs.current[stamp.id] = el)}
-                    className="text-sm text-gray-600"
-                  >
-                    {stamp.description}
-                  </p>
-                </div>
-                {stamp.description.length > 60 && (
-                  <span
-                    onClick={() => toggleDescription(stamp.id)}
-                    className="text-blue-500 text-sm cursor-pointer hover:underline"
-                  >
-                    {expandedDescriptions[stamp.id] ? "read less" : "read more"}
-                  </span>
-                )}
+
+                <p className="text-sm text-gray-600">{stamp.description}</p>
 
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Year Issued:</span>{" "}
