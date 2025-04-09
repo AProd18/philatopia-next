@@ -18,6 +18,14 @@ const AddStamp = () => {
   const MAX_SIZE = 1 * 1024 * 1024;
   const MAX_WIDTH = 1000;
   const MAX_HEIGHT = 1000;
+  const MAX_DESCRIPTION_LENGTH = 125;
+
+  const handleDescriptionChange = (e) => {
+    const value = e.target.value;
+    if (value.length <= MAX_DESCRIPTION_LENGTH) {
+      setDescription(value);
+    }
+  };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -117,11 +125,16 @@ const AddStamp = () => {
           <textarea
             id="description"
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={handleDescriptionChange}
             required
             rows={4}
+            maxLength={MAX_DESCRIPTION_LENGTH}
             className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
           />
+
+          <div className="text-right text-sm text-gray-500">
+            {description.length}/{MAX_DESCRIPTION_LENGTH} characters
+          </div>
         </div>
         <div className="mb-4">
           <label
