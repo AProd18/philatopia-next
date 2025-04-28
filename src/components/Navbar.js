@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className="container mx-auto flex justify-between items-center h-full">
           {/* Logo */}
           <div className="text-xl font-bold">
-            <Link href="/">Stampfolio</Link>
+            <Link href="/">Philatopia</Link>
           </div>
 
           {/* Hamburger Icon */}

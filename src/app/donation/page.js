@@ -28,11 +28,11 @@ export default function DonationPage() {
       <div className="max-w-2xl mx-auto p-6 opacity-95 bg-white rounded-lg shadow-md">
         <h1 className="text-3xl font-bold mb-6 text-gray-700">
           Support the Future of{" "}
-          <span className="text-green-600">Stampfolio</span>
+          <span className="text-green-600">Philatopia</span>
         </h1>
 
         <p className="text-gray-600 mb-4">
-          <strong>Stampfolio</strong> is a <em>community-driven platform</em>{" "}
+          <strong>Philatopia</strong> is a <em>community-driven platform</em>{" "}
           created with love for philately. If you&apos;ve found value in our
           work, consider making a contribution to help us grow and continue
           delivering meaningful features.

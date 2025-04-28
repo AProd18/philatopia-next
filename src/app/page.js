@@ -31,10 +31,10 @@ export default async function Home() {
       <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-lg rounded-md">
         <div className="h-80 flex flex-col items-center justify-center p-6">
           <h1 className="text-xl sm:text-3xl md:text-xl font-bold text-gray-700 text-center">
-            Welcome to Stampfolio
+            Welcome to Philatopia
           </h1>
           <p className="text-sm sm:text-base md:text-base mt-2 text-gray-600 text-center">
-            <strong>Stampfolio</strong> is a platform for stamp collectors to
+            <strong>Philatopia</strong> is a platform for stamp collectors to
             share, organize, and explore beautiful stamps from around the world.
             Whether you&apos;re a passionate philatelist or just starting your
             collection,{" "}
