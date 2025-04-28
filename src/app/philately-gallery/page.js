@@ -43,11 +43,12 @@ const PhilatelyGallery = () => {
   //   }));
   // };
 
-  function getTruncatedText(text, maxLength = 60) {
+  function getTruncatedText(text, maxLength = 125) {
+    if (!text) return "";
     if (text.length <= maxLength) return text;
     const trimmed = text.slice(0, maxLength);
     const lastSpace = trimmed.lastIndexOf(" ");
-    return trimmed.slice(0, lastSpace) + "...";
+    return trimmed.slice(0, lastSpace > 0 ? lastSpace : maxLength) + "...";
   }
 
   const handleSearch = (query) => {
@@ -131,7 +132,9 @@ const PhilatelyGallery = () => {
                   {stamp.name}
                 </h3>
 
-                <p className="text-sm text-gray-600">{stamp.description}</p>
+                <p className="text-sm text-gray-600">
+                  {getTruncatedText(stamp.description)}
+                </p>
 
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Year Issued:</span>{" "}
@@ -179,7 +182,9 @@ const PhilatelyGallery = () => {
                 <h3 className="font-semibold text-lg text-gray-600">
                   {stamp.name}
                 </h3>
-                <p className="text-sm text-gray-600">{stamp.description}</p>
+                <p className="text-sm text-gray-600">
+                  {getTruncatedText(stamp.description)}
+                </p>
                 <p className="text-sm text-gray-500">
                   <span className="font-bold">Year Issued:</span>{" "}
                   {stamp.yearIssued}
