@@ -313,8 +313,11 @@ const MyCollections = () => {
                 setFormValues({ ...formValues, description: e.target.value })
               }
               className="border p-2 w-full mb-4"
+              maxLength={125}
             />
-
+            <div className="text-right text-sm text-gray-500">
+              {formValues.description.length}/125
+            </div>
             <label
               className="block text-sm font-semibold mb-2 text-gray-600"
               htmlFor="yearIssued"
