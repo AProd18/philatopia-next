@@ -41,8 +41,8 @@ export default function Login() {
   return (
     <main className="flex items-center justify-center min-h-screen opacity-90">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
-          Login
+        <h1 className="text-xl font-semibold text-center text-gray-700 mb-6">
+          Sign in with your email and password
         </h1>
         {!session ? (
           <form className="flex flex-col space-y-4" onSubmit={handleLogin}>
@@ -67,7 +67,7 @@ export default function Login() {
               type="submit"
               className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Login
+              Sign in
             </button>
           </form>
         ) : (
@@ -87,7 +87,7 @@ export default function Login() {
               onClick={handleLogout}
               className="mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
             >
-              Logout
+              Sign out
             </button>
           </div>
         )}
@@ -99,7 +99,7 @@ export default function Login() {
               onClick={handleGoogleLogin}
               className="w-full mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
             >
-              Login with Google
+              Sing in with Google
             </button>
           </div>
         )}
