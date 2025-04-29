@@ -79,7 +79,7 @@ export default function Navbar() {
                   onClick={handleLogout}
                   className="hover:underline block text-red-400"
                 >
-                  Logout
+                  Sign Out
                 </button>
 
                 {/* Profil image as icon */}
@@ -102,10 +102,10 @@ export default function Navbar() {
             ) : (
               <>
                 <Link href="/login" className="hover:underline block">
-                  Login
+                  Sign In
                 </Link>
                 <Link href="/register" className="hover:underline block">
-                  Register
+                  Create An Account
                 </Link>
               </>
             )}
