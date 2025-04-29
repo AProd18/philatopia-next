@@ -122,11 +122,13 @@ const PhilatelyGallery = () => {
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p
-                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
+                  className="text-sm text-gray-500 mt-auto"
                   onClick={() => setSelectedUser(stamp.user)}
                 >
                   <span className="font-bold">Owner:</span>{" "}
-                  {stamp.user?.name || "Unknown"}
+                  <span className="cursor-pointer hover:underline">
+                    {stamp.user?.name || "Unknown"}
+                  </span>
                 </p>
 
                 <p className="text-xs text-gray-400 mt-1 italic">
@@ -173,11 +175,13 @@ const PhilatelyGallery = () => {
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p
-                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
+                  className="text-sm text-gray-500 mt-auto"
                   onClick={() => setSelectedUser(stamp.user)}
                 >
                   <span className="font-bold">Owner:</span>{" "}
-                  {stamp.user?.name || "Unknown"}
+                  <span className="cursor-pointer hover:underline">
+                    {stamp.user?.name || "Unknown"}
+                  </span>
                 </p>
                 <p className="text-xs text-gray-400 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}

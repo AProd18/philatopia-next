@@ -5,6 +5,7 @@ import sharp from "sharp";
 
 export async function POST(request) {
   const formData = await request.formData();
+
   const name = formData.get("name");
   const description = formData.get("description");
   const yearIssued = formData.get("yearIssued");
