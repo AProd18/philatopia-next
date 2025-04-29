@@ -103,11 +103,14 @@ export default function Profile() {
         <textarea
           id="aboutMe"
           value={aboutMe}
-          onChange={(e) => setAboutMe(e.target.value)}
+          onChange={(e) => setAboutMe(e.target.value.slice(0, 254))}
           className="w-full p-2 border rounded-lg"
           rows={4}
           placeholder="Write something about yourself..."
         />
+        <p className="text-sm text-right text-gray-400 mt-1">
+          {aboutMe.length}/254 characters
+        </p>
       </div>
 
       <button

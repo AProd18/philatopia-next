@@ -33,7 +33,9 @@ const UserProfileModal = ({ user, onClose }) => {
             No Image
           </div>
         )}
-        <h2 className="text-lg font-semibold">{user.name || "Unknown User"}</h2>
+        <h2 className="text-lg font-semibold text-gray-600">
+          {user.name || "Unknown User"}
+        </h2>
         <p className="text-sm text-gray-600 mt-2 whitespace-pre-line">
           {user.aboutMe || "No bio available."}
         </p>
