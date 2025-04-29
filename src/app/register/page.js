@@ -45,10 +45,10 @@ export default function Register() {
   };
 
   return (
-    <main className="flex items-center justify-center min-h-screen">
+    <main className="flex items-center justify-center min-h-screen opacity-90">
       <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6">
-          Register
+        <h1 className="text-xl font-semibold text-center text-gray-700 mb-6">
+          Sign up with a new account
         </h1>
         <form onSubmit={handleRegister} className="flex flex-col space-y-4">
           <div>
@@ -64,6 +64,7 @@ export default function Register() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
+              placeholder="Username"
               className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -80,6 +81,7 @@ export default function Register() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
+              placeholder="you@example.com"
               className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -96,6 +98,7 @@ export default function Register() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
+              placeholder="Password"
               className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
@@ -103,7 +106,7 @@ export default function Register() {
             type="submit"
             className="mt-4 p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Register
+            Sign Up
           </button>
           {error && <p className="mt-4 text-red-500 text-sm">{error}</p>}
         </form>
