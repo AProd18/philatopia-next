@@ -5,6 +5,7 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
+import UserProfileModal from "@/components/UserProfileModal";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -12,7 +13,7 @@ const PhilatelyGallery = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [viewMode, setViewMode] = useState("grid");
   const [filteredStamps, setFilteredStamps] = useState([]);
-
+  const [selectedUser, setSelectedUser] = useState(null);
   const [selectedStamp, setSelectedStamp] = useState(null);
 
   useEffect(() => {
@@ -120,9 +121,14 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline">
-                  <span className="font-bold">Owner:</span> {stamp.userId}
+                <p
+                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
+                  onClick={() => setSelectedUser(stamp.user)}
+                >
+                  <span className="font-bold">Owner:</span>{" "}
+                  {stamp.user?.name || "Unknown"}
                 </p>
+
                 <p className="text-xs text-gray-400 mt-1 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
@@ -182,6 +188,12 @@ const PhilatelyGallery = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+      {selectedUser && (
+        <UserProfileModal
+          user={selectedUser}
+          onClose={() => setSelectedUser(null)}
+        />
+      )}
 
       {selectedStamp && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
