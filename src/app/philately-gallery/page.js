@@ -5,8 +5,6 @@ import Pagination from "../../components/Pagination";
 import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import Modal from "@/components/Modal";
-// import { useRef } from "react";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -14,11 +12,8 @@ const PhilatelyGallery = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [viewMode, setViewMode] = useState("grid");
   const [filteredStamps, setFilteredStamps] = useState([]);
-  const [selectedOwner, setSelectedOwner] = useState(null);
-  const [selectedStamp, setSelectedStamp] = useState(null);
 
-  // const [expandedDescriptions, setExpandedDescriptions] = useState({});
-  // const descriptionRefs = useRef({});
+  const [selectedStamp, setSelectedStamp] = useState(null);
 
   useEffect(() => {
     const fetchStamps = async () => {
@@ -35,13 +30,6 @@ const PhilatelyGallery = () => {
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
-
-  // const toggleDescription = (id) => {
-  //   setExpandedDescriptions((prev) => ({
-  //     ...prev,
-  //     [id]: !prev[id],
-  //   }));
-  // };
 
   function getTruncatedText(text, maxLength = 125) {
     if (!text) return "";
@@ -65,17 +53,6 @@ const PhilatelyGallery = () => {
 
   const handleStampClick = (stamp) => {
     setSelectedStamp(stamp);
-  };
-
-  const handleOwnerClick = async (userId) => {
-    const res = await fetch(`/api/users/${userId}`);
-    const userData = await res.json();
-
-    setSelectedOwner({
-      id: userId,
-      profileImage: userData.profileImage,
-      aboutMe: userData.aboutMe,
-    });
   };
 
   return (
@@ -143,10 +120,7 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p
-                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
-                  onClick={() => setSelectedOwner(stamp.userId)}
-                >
+                <p className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline">
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
                 <p className="text-xs text-gray-400 mt-1 italic">
@@ -192,10 +166,7 @@ const PhilatelyGallery = () => {
                 <p className="text-sm text-gray-500">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
-                <p
-                  className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline"
-                  onClick={() => setSelectedOwner(stamp.userId)}
-                >
+                <p className="text-sm text-gray-500 mt-auto cursor-pointer hover:underline">
                   <span className="font-bold">Owner:</span> {stamp.userId}
                 </p>
                 <p className="text-xs text-gray-400 italic">
@@ -211,12 +182,7 @@ const PhilatelyGallery = () => {
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
-      {selectedOwner && (
-        <Modal
-          isOpen={!!selectedOwner}
-          onClose={() => setSelectedOwner(null)}
-        />
-      )}
+
       {selectedStamp && (
         <div className="fixed inset-0 z-50 flex items-center justify-center">
           {/* Blur samo na pozadinu */}
