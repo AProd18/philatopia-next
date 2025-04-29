@@ -10,6 +10,7 @@ export async function GET(request) {
     const stamps = await prisma.stamp.findMany({
       include: {
         collection: true, // Include the collection, if it exists
+        user: true, // Dodaj user ovde
       },
       take: pageSize, // Limit the number of results to 6 per page
       skip, // Skip the appropriate number of results based on the current page
