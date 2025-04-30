@@ -21,10 +21,10 @@ const CountryFilter = ({ stamps, onFilter }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="bg-white w-full md:w-[50%] shadow-md rounded-xl p-4 mb-6 border border-gray-300 opacity-80">
       <label
         htmlFor="country"
-        className="block text-sm font-medium text-gray-700"
+        className="block text-sm font-semibold text-gray-800 mb-2"
       >
         Filter by Country
       </label>
@@ -32,7 +32,7 @@ const CountryFilter = ({ stamps, onFilter }) => {
         id="country"
         value={selectedCountry}
         onChange={handleChange}
-        className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+        className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
       >
         <option value="">All Countries ({stamps.length})</option>
         {uniqueCountries.map((country) => (
