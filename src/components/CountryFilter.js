@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 const CountryFilter = ({ stamps, onFilter }) => {
   const [selectedCountry, setSelectedCountry] = useState("");
 
-  // Izvuci sve unikatne države iz markica
   const uniqueCountries = Array.from(
     new Set(stamps.map((stamp) => stamp.country))
   ).sort();

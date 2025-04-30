@@ -6,6 +6,7 @@ import SearchBar from "@/components/SearchBar";
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import UserProfileModal from "@/components/UserProfileModal";
+import CountryFilter from "@/components/CountryFilter";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -62,6 +63,21 @@ const PhilatelyGallery = () => {
 
       {/* Search bar */}
       <SearchBar onSearch={handleSearch} />
+
+      {/* Filter bar */}
+      <CountryFilter
+        stamps={stamps}
+        onFilter={(country) => {
+          if (!country) {
+            setFilteredStamps(stamps); // reset filter
+          } else {
+            const filtered = stamps.filter(
+              (stamp) => stamp.country.toLowerCase() === country.toLowerCase()
+            );
+            setFilteredStamps(filtered);
+          }
+        }}
+      />
 
       {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
