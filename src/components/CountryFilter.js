@@ -21,7 +21,7 @@ const CountryFilter = ({ stamps, onFilter }) => {
   };
 
   return (
-    <div className="bg-white w-full md:w-[50%] shadow-md rounded-xl p-4 mb-6 border border-gray-300 opacity-80">
+    <div className="bg-white w-full md:w-[50%] shadow-md rounded p-4 mb-6 border border-gray-300 opacity-80">
       <label
         htmlFor="country"
         className="block text-sm font-semibold text-gray-800 mb-2"
