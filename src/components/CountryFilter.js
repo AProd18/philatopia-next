@@ -34,7 +34,7 @@ const CountryFilter = ({ stamps, onFilter }) => {
         onChange={handleChange}
         className="block w-full px-3 py-2 text-sm border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
       >
-        <option value="">All Countries ({stamps.length})</option>
+        <option value="">All Countries</option>
         {uniqueCountries.map((country) => (
           <option key={country} value={country}>
             {country} ({countryCounts[country]})
