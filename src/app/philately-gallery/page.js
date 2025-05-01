@@ -125,7 +125,7 @@ const PhilatelyGallery = () => {
         <p>No stamps found</p>
       ) : viewMode === "grid" ? (
         <div className="grid justify-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {filteredStamps.map((stamp) => (
+          {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
               className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 flex flex-col h-full"
@@ -180,7 +180,7 @@ const PhilatelyGallery = () => {
       ) : (
         // List View
         <div className="flex flex-col space-y-4">
-          {filteredStamps.map((stamp) => (
+          {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
               className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
