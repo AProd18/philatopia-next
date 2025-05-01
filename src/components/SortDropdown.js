@@ -2,7 +2,7 @@
 
 export default function SortDropdown({ value, onChange }) {
   return (
-    <div className="bg-white w-full md:w-[50%] shadow-md rounded p-4 mb-6 border border-gray-300 opacity-80">
+    <div className="bg-white w-full  shadow-md rounded p-4 mb-6 border border-gray-300 opacity-80">
       <label htmlFor="sort" className="mr-2 font-medium text-gray-700">
         Sort by:
       </label>

@@ -85,22 +85,22 @@ const PhilatelyGallery = () => {
       {/* Search bar */}
       <SearchBar onSearch={handleSearch} />
 
-      {/* Filter bar */}
-      <CountryFilter
-        stamps={stamps}
-        onFilter={(country) => {
-          if (!country) {
-            setFilteredStamps(stamps); // reset filter
-          } else {
-            const filtered = stamps.filter(
-              (stamp) => stamp.country.toLowerCase() === country.toLowerCase()
-            );
-            setFilteredStamps(filtered);
-          }
-        }}
-      />
-
-      <SortDropdown value={sortOption} onChange={setSortOption} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 w-full">
+        <CountryFilter
+          stamps={stamps}
+          onFilter={(country) => {
+            if (!country) {
+              setFilteredStamps(stamps); // reset filter
+            } else {
+              const filtered = stamps.filter(
+                (stamp) => stamp.country.toLowerCase() === country.toLowerCase()
+              );
+              setFilteredStamps(filtered);
+            }
+          }}
+        />
+        <SortDropdown value={sortOption} onChange={setSortOption} />
+      </div>
 
       {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
