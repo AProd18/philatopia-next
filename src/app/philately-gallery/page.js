@@ -7,6 +7,7 @@ import Image from "next/image";
 import Button from "@/components/ui/Button";
 import UserProfileModal from "@/components/UserProfileModal";
 import CountryFilter from "@/components/CountryFilter";
+import SortDropdown from "@/components/SortDropdown";
 
 const PhilatelyGallery = () => {
   const [stamps, setStamps] = useState([]);
@@ -16,6 +17,7 @@ const PhilatelyGallery = () => {
   const [filteredStamps, setFilteredStamps] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [selectedStamp, setSelectedStamp] = useState(null);
+  const [sortOption, setSortOption] = useState("date-newest");
 
   useEffect(() => {
     const fetchStamps = async () => {
@@ -40,6 +42,25 @@ const PhilatelyGallery = () => {
     const lastSpace = trimmed.lastIndexOf(" ");
     return trimmed.slice(0, lastSpace > 0 ? lastSpace : maxLength) + "...";
   }
+
+  const sortedStamps = [...filteredStamps].sort((a, b) => {
+    switch (sortOption) {
+      case "date-newest":
+        return new Date(b.createdAt) - new Date(a.createdAt);
+      case "date-oldest":
+        return new Date(a.createdAt) - new Date(b.createdAt);
+      case "year-asc":
+        return a.yearIssued - b.yearIssued;
+      case "year-desc":
+        return b.yearIssued - a.yearIssued;
+      case "name-asc":
+        return a.name.localeCompare(b.name);
+      case "name-desc":
+        return b.name.localeCompare(a.name);
+      default:
+        return 0;
+    }
+  });
 
   const handleSearch = (query) => {
     const lowerQuery = query.toLowerCase();
@@ -78,6 +99,8 @@ const PhilatelyGallery = () => {
           }
         }}
       />
+
+      <SortDropdown value={sortOption} onChange={setSortOption} />
 
       {/* Toggle View Mode */}
       <div className="flex justify-end space-x-4 mb-4">
