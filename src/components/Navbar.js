@@ -64,7 +64,7 @@ export default function Navbar() {
             }`}
           >
             {/* Getting Into Stamps – Desktop Dropdown */}
-            <div className="relative group hidden md:block">
+            <div className="relative group hidden md:block md:mr-6">
               <span className="hover:underline cursor-pointer">
                 Getting Into Stamps
               </span>
