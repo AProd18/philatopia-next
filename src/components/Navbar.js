@@ -24,7 +24,7 @@ export default function Navbar() {
           console.error("Error fetching profile image:", error)
         );
     }
-  }, [session]); // When the session changes, refresh the profile picture.
+  }, [session]);
 
   const handleLogout = async () => {
     await signOut({ callbackUrl: "/" });
@@ -34,16 +34,11 @@ export default function Navbar() {
     <>
       {/* Navbar */}
       <nav
-        className={`text-white p-4 shadow-lg fixed w-full z-50 transition-all ${
-          menuOpen ? "h-auto" : "h-16"
-        }`}
-        style={{
-          backgroundColor: "#343a40",
-          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-          opacity: "80%",
-        }}
+        className={`fixed top-0 left-0 w-full z-50 ${
+          menuOpen ? "bg-[#343a40]" : "bg-[#343a40]/80"
+        } text-white shadow-lg transition-colors duration-300`}
       >
-        <div className="container mx-auto flex justify-between items-center h-full">
+        <div className="container mx-auto flex justify-between items-center p-4 h-16">
           {/* Logo */}
           <div className="text-xl font-bold">
             <Link href="/">Philatopia</Link>
@@ -57,18 +52,12 @@ export default function Navbar() {
             {menuOpen ? <HiX /> : <HiMenu />}
           </button>
 
-          {/* Navigation Menu */}
-          <div
-            className={`absolute md:static top-16 left-0 w-full md:w-auto md:flex flex-col md:flex-row items-center bg-gray-900 md:bg-transparent space-y-4 md:space-y-0 md:space-x-4 p-4 md:p-0 transition-all ${
-              menuOpen ? "block" : "hidden"
-            }`}
-          >
-            {/* Getting Into Stamps – Desktop Dropdown */}
-            <div className="relative group hidden md:block md:mr-6">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex space-x-4 items-center">
+            <div className="relative group">
               <span className="hover:underline cursor-pointer">
                 Getting Into Stamps
               </span>
-
               <div className="absolute left-0 top-full w-48 bg-gray-800 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
                 <Link
                   href="/getting-into-stamps/start-here"
@@ -91,27 +80,25 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/stamps" className="hover:underline block">
+            <Link href="/stamps" className="hover:underline">
               Stamps
             </Link>
 
             {session ? (
               <>
-                <Link href="/add-stamp" className="hover:underline block">
+                <Link href="/add-stamp" className="hover:underline">
                   Add Stamp
                 </Link>
-                <Link href="/my-collections" className="hover:underline block">
+                <Link href="/my-collections" className="hover:underline">
                   My Collections
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="hover:underline block text-red-400"
+                  className="hover:underline text-red-400"
                 >
                   Sign Out
                 </button>
-
-                {/* Profil image as icon */}
-                <Link href="/profile" className="ml-4">
+                <Link href="/profile" className="ml-2">
                   {profileImage ? (
                     <Image
                       src={profileImage}
@@ -129,58 +116,132 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="hover:underline block">
+                <Link href="/login" className="hover:underline">
                   Sign In
                 </Link>
-                <Link href="/register" className="hover:underline block">
+                <Link href="/register" className="hover:underline">
                   Create An Account
                 </Link>
               </>
             )}
 
-            <Link
-              href="/contact-us"
-              className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-5"
-            >
+            <Link href="/contact-us" className="hover:underline">
               Contact Us
             </Link>
-            <Link
-              href="/donation"
-              className="hover:underline block md:inline md:ml-4 border-l-2 md:border-l-0 pl-4 md:pl-5"
-            >
+            <Link href="/donation" className="hover:underline">
               Donation
             </Link>
-
-            {/* Getting Into Stamps – Mobile Version */}
-            <div className="block md:hidden">
-              <span className="font-semibold text-white">
-                Getting Into Stamps
-              </span>
-              <Link
-                href="/getting-into-stamps/start-here"
-                className="block hover:underline pl-4"
-              >
-                Start Here
-              </Link>
-              <Link
-                href="/getting-into-stamps/how-to-spot-value"
-                className="block hover:underline pl-4"
-              >
-                How to Spot Value
-              </Link>
-              <Link
-                href="/getting-into-stamps/storing-and-tools"
-                className="block hover:underline pl-4"
-              >
-                Storage & Tools
-              </Link>
-            </div>
           </div>
         </div>
       </nav>
 
-      {/* Push content down when menu is open */}
-      <div className={`${menuOpen ? "mt-80" : "mt-16"} transition-all`}></div>
+      {/* Mobile Fullscreen Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#343a40] text-white flex flex-col items-center justify-center space-y-6 md:hidden">
+          <Link
+            href="/stamps"
+            className="text-xl hover:underline"
+            onClick={() => setMenuOpen(false)}
+          >
+            Stamps
+          </Link>
+          <div className="text-center">
+            <div className="text-xl font-semibold mb-2">
+              Getting Into Stamps
+            </div>
+            <Link
+              href="/getting-into-stamps/start-here"
+              className="block hover:underline"
+              onClick={() => setMenuOpen(false)}
+            >
+              Start Here
+            </Link>
+            <Link
+              href="/getting-into-stamps/how-to-spot-value"
+              className="block hover:underline"
+              onClick={() => setMenuOpen(false)}
+            >
+              How to Spot Value
+            </Link>
+            <Link
+              href="/getting-into-stamps/storing-and-tools"
+              className="block hover:underline"
+              onClick={() => setMenuOpen(false)}
+            >
+              Storage & Tools
+            </Link>
+          </div>
+
+          {session ? (
+            <>
+              <Link
+                href="/add-stamp"
+                className="text-xl hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Add Stamp
+              </Link>
+              <Link
+                href="/my-collections"
+                className="text-xl hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                My Collections
+              </Link>
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="text-red-400 hover:underline text-xl"
+              >
+                Sign Out
+              </button>
+              <Link
+                href="/profile"
+                onClick={() => setMenuOpen(false)}
+                className="text-xl hover:underline"
+              >
+                Profile
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="text-xl hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign In
+              </Link>
+              <Link
+                href="/register"
+                className="text-xl hover:underline"
+                onClick={() => setMenuOpen(false)}
+              >
+                Create An Account
+              </Link>
+            </>
+          )}
+          <Link
+            href="/contact-us"
+            className="text-xl hover:underline"
+            onClick={() => setMenuOpen(false)}
+          >
+            Contact Us
+          </Link>
+          <Link
+            href="/donation"
+            className="text-xl hover:underline"
+            onClick={() => setMenuOpen(false)}
+          >
+            Donation
+          </Link>
+        </div>
+      )}
+
+      {/* Push content down on desktop */}
+      <div className="mt-16"></div>
     </>
   );
 }
