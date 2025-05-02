@@ -63,7 +63,7 @@ export default function Navbar() {
               menuOpen ? "block" : "hidden"
             }`}
           >
-            <Link href="/philately-gallery" className="hover:underline block">
+            <Link href="/stamps" className="hover:underline block">
               Stamps
             </Link>
 
