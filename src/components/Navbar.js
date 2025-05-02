@@ -63,6 +63,34 @@ export default function Navbar() {
               menuOpen ? "block" : "hidden"
             }`}
           >
+            {/* Getting Into Stamps – Desktop Dropdown */}
+            <div className="relative group hidden md:block">
+              <span className="hover:underline cursor-pointer">
+                Getting Into Stamps
+              </span>
+
+              <div className="absolute left-0 top-full w-48 bg-gray-800 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
+                <Link
+                  href="/getting-into-stamps/start-here"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Start Here
+                </Link>
+                <Link
+                  href="/getting-into-stamps/how-to-spot-value"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  How to Spot Value
+                </Link>
+                <Link
+                  href="/getting-into-stamps/storing-and-tools"
+                  className="block px-4 py-2 hover:bg-gray-700"
+                >
+                  Storage & Tools
+                </Link>
+              </div>
+            </div>
+
             <Link href="/stamps" className="hover:underline block">
               Stamps
             </Link>
@@ -122,6 +150,31 @@ export default function Navbar() {
             >
               Donation
             </Link>
+
+            {/* Getting Into Stamps – Mobile Version */}
+            <div className="block md:hidden">
+              <span className="font-semibold text-white">
+                Getting Into Stamps
+              </span>
+              <Link
+                href="/getting-into-stamps/start-here"
+                className="block hover:underline pl-4"
+              >
+                Start Here
+              </Link>
+              <Link
+                href="/getting-into-stamps/how-to-spot-value"
+                className="block hover:underline pl-4"
+              >
+                How to Spot Value
+              </Link>
+              <Link
+                href="/getting-into-stamps/storing-and-tools"
+                className="block hover:underline pl-4"
+              >
+                Storage & Tools
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
