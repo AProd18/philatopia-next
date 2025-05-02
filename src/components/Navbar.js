@@ -137,10 +137,10 @@ export default function Navbar() {
 
       {/* Mobile Fullscreen Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#343a40]/80 backdrop-blur-sm text-white flex flex-col items-center justify-center space-y-6 md:hidden animate-fade-in border-t border-white/10 px-4 pt-6 pb-10">
+        <div className="fixed inset-0 z-40 bg-[#343a40]/80 backdrop-blur-sm text-white flex flex-col items-center justify-center space-y-6 md:hidden animate-fade-in border-t border-white/10 px-4 pt-10 ">
           <Link
             href="/stamps"
-            className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+            className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
             onClick={() => setMenuOpen(false)}
           >
             Stamps
@@ -149,26 +149,24 @@ export default function Navbar() {
           <hr className="border-white/10 w-full max-w-xs mx-auto" />
 
           <div className="text-center">
-            <div className="text-xl font-semibold mb-2">
-              Getting Into Stamps
-            </div>
+            <div className="text-l font-semibold mb-2">Getting Into Stamps</div>
             <Link
               href="/getting-into-stamps/start-here"
-              className="block hover:bg-gray-700/50 px-4 py-2 rounded transition"
+              className="block text-sm hover:bg-gray-700/50 px-4 py-2 rounded transition"
               onClick={() => setMenuOpen(false)}
             >
               Start Here
             </Link>
             <Link
               href="/getting-into-stamps/how-to-spot-value"
-              className="block hover:bg-gray-700/50 px-4 py-2 rounded transition"
+              className="block text-sm hover:bg-gray-700/50 px-4 py-2 rounded transition"
               onClick={() => setMenuOpen(false)}
             >
               How to Spot Value
             </Link>
             <Link
               href="/getting-into-stamps/storing-and-tools"
-              className="block hover:bg-gray-700/50 px-4 py-2 rounded transition"
+              className="block text-sm hover:bg-gray-700/50 px-4 py-2 rounded transition"
               onClick={() => setMenuOpen(false)}
             >
               Storage & Tools
@@ -181,7 +179,7 @@ export default function Navbar() {
             <>
               <Link
                 href="/add-stamp"
-                className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+                className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Add Stamp
@@ -191,7 +189,7 @@ export default function Navbar() {
 
               <Link
                 href="/my-collections"
-                className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+                className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
                 onClick={() => setMenuOpen(false)}
               >
                 My Collections
@@ -204,7 +202,7 @@ export default function Navbar() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="text-red-400 hover:bg-gray-700/50 px-4 py-2 rounded transition text-xl"
+                className="text-red-400 hover:bg-gray-700/50 px-4 py-2 rounded transition text-l"
               >
                 Sign Out
               </button>
@@ -235,7 +233,7 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+                className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Sign In
@@ -244,7 +242,7 @@ export default function Navbar() {
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
               <Link
                 href="/register"
-                className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+                className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
                 onClick={() => setMenuOpen(false)}
               >
                 Create An Account
@@ -254,7 +252,7 @@ export default function Navbar() {
           )}
           <Link
             href="/contact-us"
-            className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+            className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
             onClick={() => setMenuOpen(false)}
           >
             Contact Us
@@ -262,7 +260,7 @@ export default function Navbar() {
           <hr className="border-white/10 w-full max-w-xs mx-auto" />
           <Link
             href="/donation"
-            className="text-xl hover:bg-gray-700/50 px-4 py-2 rounded transition"
+            className="text-l hover:bg-gray-700/50 px-4 py-2 rounded transition"
             onClick={() => setMenuOpen(false)}
           >
             Donation
