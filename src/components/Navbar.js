@@ -200,9 +200,21 @@ export default function Navbar() {
               <Link
                 href="/profile"
                 onClick={() => setMenuOpen(false)}
-                className="text-xl hover:underline"
+                className="hover:underline"
               >
-                Profile
+                {profileImage ? (
+                  <Image
+                    src={profileImage}
+                    alt="Profile"
+                    width={60}
+                    height={60}
+                    className="rounded-full border border-gray-300"
+                  />
+                ) : (
+                  <div className="w-14 h-14 bg-gray-300 rounded-full flex items-center justify-center text-white text-xl">
+                    ?
+                  </div>
+                )}
               </Link>
             </>
           ) : (
