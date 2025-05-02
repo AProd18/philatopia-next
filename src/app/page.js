@@ -17,7 +17,7 @@ export default async function Home() {
   });
 
   return (
-    <main className="flex flex-col items-center justify-center pt-40 pb-10 px-4">
+    <main className="flex flex-col items-center justify-center pt-10 md:pt-40 pb-10 px-4">
       {/* Announcement Section */}
       <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
         <div className="h-60 flex flex-col items-center justify-center p-6">

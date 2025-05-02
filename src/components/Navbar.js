@@ -55,7 +55,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-4 items-center">
             <div className="relative group">
-              <span className="hover:underline cursor-pointer">
+              <span className="hover:underline cursor-pointer md:mr-6">
                 Getting Into Stamps
               </span>
               <div className="absolute left-0 top-full w-48 bg-gray-800 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
