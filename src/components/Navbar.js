@@ -137,7 +137,7 @@ export default function Navbar() {
 
       {/* Mobile Fullscreen Menu */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#343a40] text-white flex flex-col items-center justify-center space-y-6 md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#343a40]/80 backdrop-blur-sm text-white flex flex-col items-center justify-center space-y-6 md:hidden animate-fade-in border-t border-white/10 px-4 pt-6 pb-10">
           <Link
             href="/stamps"
             className="text-xl hover:underline"
