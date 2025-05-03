@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
+import { LogOut } from "lucide-react";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -94,10 +95,12 @@ export default function Navbar() {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="relative inline-block  after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full text-red-400"
+                  className="relative inline-flex items-center gap-1 text-red-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 >
+                  <LogOut size={18} strokeWidth={1.5} />
                   Sign Out
                 </button>
+
                 <Link href="/profile" className="ml-2">
                   {profileImage ? (
                     <Image
@@ -184,9 +187,7 @@ export default function Navbar() {
               >
                 Add Stamp
               </Link>
-
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
-
               <Link
                 href="/my-collections"
                 className="text-l hover:bg-gray-700/50 px-4 rounded transition"
@@ -194,7 +195,6 @@ export default function Navbar() {
               >
                 My Collections
               </Link>
-
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
 
               <button
@@ -202,11 +202,11 @@ export default function Navbar() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="text-red-400 hover:bg-gray-700/50 px-4  rounded transition text-l"
+                className="flex items-center gap-2 text-red-400 hover:bg-gray-700/50 px-4 py-2 rounded transition text-lg"
               >
+                <LogOut size={18} strokeWidth={1.5} />
                 Sign Out
               </button>
-
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
               <Link
                 href="/profile"
