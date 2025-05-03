@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { LogOut } from "lucide-react";
+import { FiArrowRightCircle, FiUserPlus } from "react-icons/fi";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -119,11 +120,20 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="nav-underline">
-                  Sign In
+                <Link
+                  href="/login"
+                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  <FiArrowRightCircle className="text-base" />
+                  <span>Sign In</span>
                 </Link>
-                <Link href="/register" className="nav-underline">
-                  Create An Account
+
+                <Link
+                  href="/register"
+                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                >
+                  <FiUserPlus className="text-base" />
+                  <span>Create An Account</span>
                 </Link>
               </>
             )}
@@ -233,19 +243,19 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="text-l hover:bg-gray-700/50 px-4  rounded transition"
-                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
               >
-                Sign In
+                <FiArrowRightCircle className="text-base" />
+                <span>Sign In</span>
               </Link>
 
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
               <Link
                 href="/register"
-                className="text-l hover:bg-gray-700/50 px-4 rounded transition"
-                onClick={() => setMenuOpen(false)}
+                className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
               >
-                Create An Account
+                <FiUserPlus className="text-base" />
+                <span>Create An Account</span>
               </Link>
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
             </>
