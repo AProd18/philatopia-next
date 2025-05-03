@@ -122,7 +122,7 @@ export default function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 >
                   <FiArrowRightCircle className="text-base" />
                   <span>Sign In</span>
@@ -130,7 +130,7 @@ export default function Navbar() {
 
                 <Link
                   href="/register"
-                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 >
                   <FiUserPlus className="text-base" />
                   <span>Create An Account</span>
@@ -243,20 +243,24 @@ export default function Navbar() {
             <>
               <Link
                 href="/login"
-                className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                className="flex items-center gap-2 text-m"
+                onClick={() => setMenuOpen(false)} // Zatvara meni nakon klika
               >
                 <FiArrowRightCircle className="text-base" />
                 <span>Sign In</span>
               </Link>
 
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
+
               <Link
                 href="/register"
-                className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                className="flex items-center gap-2 text-m"
+                onClick={() => setMenuOpen(false)} // Zatvara meni nakon klika
               >
                 <FiUserPlus className="text-base" />
                 <span>Create An Account</span>
               </Link>
+
               <hr className="border-white/10 w-full max-w-xs mx-auto" />
             </>
           )}
