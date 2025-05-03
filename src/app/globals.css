@@ -42,3 +42,22 @@ select {
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
+
+.nav-underline {
+  @apply relative inline-block text-gray-300;
+}
+
+.nav-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.nav-underline:hover::after {
+  width: 100%;
+}

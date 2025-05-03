@@ -36,7 +36,7 @@ export default function Navbar() {
       <nav
         className={`fixed top-0 left-0 w-full z-50 ${
           menuOpen ? "bg-[#343a40]" : "bg-[#343a40]/80"
-        } text-white shadow-lg transition-colors duration-300`}
+        } text-gray-300 shadow-lg transition-colors duration-300`}
       >
         <div className="container mx-auto flex justify-between items-center p-4 h-16">
           {/* Logo */}
@@ -55,7 +55,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-4 items-center">
             <div className="relative group">
-              <span className="hover:underline cursor-pointer md:mr-6">
+              <span className="nav-underline cursor-pointer md:mr-6">
                 Getting Into Stamps
               </span>
               <div className="absolute left-0 top-full w-48 bg-gray-800 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
@@ -80,21 +80,21 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/stamps" className="hover:underline">
+            <Link href="/stamps" className="nav-underline">
               Stamps
             </Link>
 
             {session ? (
               <>
-                <Link href="/add-stamp" className="hover:underline">
+                <Link href="/add-stamp" className="nav-underline">
                   Add Stamp
                 </Link>
-                <Link href="/my-collections" className="hover:underline">
+                <Link href="/my-collections" className="nav-underline">
                   My Collections
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="hover:underline text-red-400"
+                  className="relative inline-block  after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full text-red-400"
                 >
                   Sign Out
                 </button>
@@ -116,19 +116,19 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" className="hover:underline">
+                <Link href="/login" className="nav-underline">
                   Sign In
                 </Link>
-                <Link href="/register" className="hover:underline">
+                <Link href="/register" className="nav-underline">
                   Create An Account
                 </Link>
               </>
             )}
 
-            <Link href="/contact-us" className="hover:underline">
+            <Link href="/contact-us" className="nav-underline">
               Contact Us
             </Link>
-            <Link href="/donation" className="hover:underline">
+            <Link href="/donation" className="nav-underline">
               Donation
             </Link>
           </div>
