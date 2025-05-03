@@ -96,7 +96,7 @@ export default function Navbar() {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="relative inline-flex items-center gap-1 text-red-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="relative inline-flex items-center gap-1 text-red-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
                 >
                   <LogOut size={18} strokeWidth={1.5} />
                   Sign Out
@@ -212,7 +212,7 @@ export default function Navbar() {
                   handleLogout();
                   setMenuOpen(false);
                 }}
-                className="flex items-center gap-2 text-red-400 hover:bg-gray-700/50 px-4 py-2 rounded transition text-lg"
+                className="flex items-center gap-2 text-red-400 hover:bg-gray-700/50 px-4 py-2 rounded transition text-l"
               >
                 <LogOut size={18} strokeWidth={1.5} />
                 Sign Out
@@ -244,7 +244,7 @@ export default function Navbar() {
               <Link
                 href="/login"
                 className="flex items-center gap-2 text-m"
-                onClick={() => setMenuOpen(false)} // Zatvara meni nakon klika
+                onClick={() => setMenuOpen(false)}
               >
                 <FiArrowRightCircle className="text-base" />
                 <span>Sign In</span>
@@ -255,7 +255,7 @@ export default function Navbar() {
               <Link
                 href="/register"
                 className="flex items-center gap-2 text-m"
-                onClick={() => setMenuOpen(false)} // Zatvara meni nakon klika
+                onClick={() => setMenuOpen(false)}
               >
                 <FiUserPlus className="text-base" />
                 <span>Create An Account</span>
