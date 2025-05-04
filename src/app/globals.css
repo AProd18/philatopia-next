@@ -43,21 +43,10 @@ select {
   animation: fade-in 0.3s ease-out;
 }
 
-.nav-underline {
-  @apply relative inline-block text-gray-300;
+.nav-link {
+  @apply text-gray-300 transition-colors duration-200 hover:text-white;
 }
 
-.nav-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  height: 1px;
-  width: 0;
-  background-color: white;
-  transition: all 0.3s ease;
-}
-
-.nav-underline:hover::after {
-  width: 100%;
+.nav-link-red {
+  @apply text-red-400 transition-colors duration-200 hover:text-white;
 }

@@ -57,7 +57,7 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-4 items-center">
             <div className="relative group">
-              <span className="nav-underline cursor-pointer md:mr-6">
+              <span className="nav-link cursor-pointer md:mr-6">
                 Getting Into Stamps
               </span>
               <div className="absolute left-0 top-full w-48 bg-gray-800 text-white rounded shadow-lg opacity-0 group-hover:opacity-100 invisible group-hover:visible transition-all duration-200 z-50">
@@ -82,23 +82,23 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Link href="/stamps" className="nav-underline">
+            <Link href="/stamps" className="nav-link">
               Stamps
             </Link>
 
             {session ? (
               <>
-                <Link href="/add-stamp" className="nav-underline">
+                <Link href="/add-stamp" className="nav-link">
                   Add Stamp
                 </Link>
-                <Link href="/my-collections" className="nav-underline">
+                <Link href="/my-collections" className="nav-link">
                   My Collections
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="relative inline-flex items-center gap-1 text-red-400 after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="nav-link-red inline-flex items-center gap-1"
                 >
-                  <LogOut size={18} strokeWidth={1.5} />
+                  <LogOut size={16} strokeWidth={1.5} />
                   Sign Out
                 </button>
 
@@ -122,7 +122,7 @@ export default function Navbar() {
               <>
                 <Link
                   href="/login"
-                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="nav-link flex items-center gap-2 text-m"
                 >
                   <FiArrowRightCircle className="text-base" />
                   <span>Sign In</span>
@@ -130,7 +130,7 @@ export default function Navbar() {
 
                 <Link
                   href="/register"
-                  className="flex items-center gap-2 text-m relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-full"
+                  className="nav-link flex items-center gap-2 text-m"
                 >
                   <FiUserPlus className="text-base" />
                   <span>Create An Account</span>
@@ -138,10 +138,10 @@ export default function Navbar() {
               </>
             )}
 
-            <Link href="/contact-us" className="nav-underline">
+            <Link href="/contact-us" className="nav-link">
               Contact Us
             </Link>
-            <Link href="/donation" className="nav-underline">
+            <Link href="/donation" className="nav-link">
               Donation
             </Link>
           </div>
