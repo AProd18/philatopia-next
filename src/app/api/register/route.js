@@ -27,6 +27,17 @@ export async function POST(request) {
       });
     }
 
+    // Check if a user with the same name already exists
+    const existingName = await prisma.user.findUnique({
+      where: { name },
+    });
+
+    if (existingName) {
+      return new Response(JSON.stringify({ message: "Name already taken" }), {
+        status: 400,
+      });
+    }
+
     // Hash the user's password using bcrypt with a salt round of 10
     const hashedPassword = await bcrypt.hash(password, 10);
 
