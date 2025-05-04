@@ -6,6 +6,8 @@ import { formatDistanceToNow } from "date-fns";
 export default async function Home() {
   const totalUsers = await prisma.user.count();
   const totalStamps = await prisma.stamp.count();
+  console.log("Total users:", totalUsers);
+  console.log("Total stamps:", totalStamps);
 
   const lastStamp = await prisma.stamp.findFirst({
     orderBy: {
