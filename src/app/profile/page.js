@@ -61,6 +61,11 @@ export default function Profile() {
       setMessage(result.error || "Error updating profile");
       setIsSuccess(false);
     }
+
+    setTimeout(() => {
+      setMessage("");
+      setIsSuccess(null);
+    }, 3000);
   };
 
   return (
