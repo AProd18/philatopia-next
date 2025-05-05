@@ -10,6 +10,9 @@ export default function Profile() {
   const [aboutMe, setAboutMe] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
 
+  const [message, setMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(null); // null, true, false
+
   // Fetch user profile data when session is available
   useEffect(() => {
     if (session?.user?.email) {
@@ -44,8 +47,6 @@ export default function Profile() {
       formData.append("image", selectedFile);
     }
 
-    console.log("Uploading file:", selectedFile);
-
     const response = await fetch("/api/profile", {
       method: "POST",
       body: formData,
@@ -53,10 +54,12 @@ export default function Profile() {
 
     const result = await response.json();
     if (result.success) {
-      alert("Profile updated successfully!");
       setProfileImage(result.data.profileImage);
+      setMessage("Profile updated successfully!");
+      setIsSuccess(true);
     } else {
-      alert("Error updating profile");
+      setMessage(result.error || "Error updating profile");
+      setIsSuccess(false);
     }
   };
 
@@ -111,6 +114,15 @@ export default function Profile() {
         <p className="text-sm text-right text-gray-400 mt-1">
           {aboutMe.length}/254 characters
         </p>
+        {message && (
+          <p
+            className={`mt-2 text-sm ${
+              isSuccess ? "text-green-600" : "text-red-600"
+            }`}
+          >
+            {message}
+          </p>
+        )}
       </div>
 
       <button
