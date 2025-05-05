@@ -1,7 +1,7 @@
 "use client";
 
 import { useSession } from "next-auth/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 const AddStamp = () => {
@@ -19,6 +19,17 @@ const AddStamp = () => {
   const MAX_WIDTH = 1000;
   const MAX_HEIGHT = 1000;
   const MAX_DESCRIPTION_LENGTH = 125;
+
+  useEffect(() => {
+    if (error || successMessage) {
+      const timeout = setTimeout(() => {
+        setError("");
+        setSuccessMessage("");
+      }, 3000);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [error, successMessage]);
 
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
