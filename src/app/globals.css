@@ -50,3 +50,7 @@ select {
 .nav-link-red {
   @apply text-red-400 transition-colors duration-200 hover:text-white;
 }
+
+html {
+  scroll-behavior: smooth;
+}
