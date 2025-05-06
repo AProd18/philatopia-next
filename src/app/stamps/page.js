@@ -31,18 +31,6 @@ const PhilatelyGallery = () => {
     fetchStamps();
   }, [currentPage]);
 
-  const handlePageChange = (pageNumber) => {
-    setCurrentPage(pageNumber);
-  };
-
-  function getTruncatedText(text, maxLength = 125) {
-    if (!text) return "";
-    if (text.length <= maxLength) return text;
-    const trimmed = text.slice(0, maxLength);
-    const lastSpace = trimmed.lastIndexOf(" ");
-    return trimmed.slice(0, lastSpace > 0 ? lastSpace : maxLength) + "...";
-  }
-
   const sortedStamps = [...filteredStamps].sort((a, b) => {
     switch (sortOption) {
       case "date-newest":
@@ -74,9 +62,21 @@ const PhilatelyGallery = () => {
     setFilteredStamps(filtered);
   };
 
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   const handleStampClick = (stamp) => {
     setSelectedStamp(stamp);
   };
+
+  function getTruncatedText(text, maxLength = 125) {
+    if (!text) return "";
+    if (text.length <= maxLength) return text;
+    const trimmed = text.slice(0, maxLength);
+    const lastSpace = trimmed.lastIndexOf(" ");
+    return trimmed.slice(0, lastSpace > 0 ? lastSpace : maxLength) + "...";
+  }
 
   return (
     <div className="p-4 max-w-4xl mx-auto">
@@ -86,11 +86,12 @@ const PhilatelyGallery = () => {
       <SearchBar onSearch={handleSearch} />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4 w-full">
+        {/* Filter bar */}
         <CountryFilter
           stamps={stamps}
           onFilter={(country) => {
             if (!country) {
-              setFilteredStamps(stamps); // reset filter
+              setFilteredStamps(stamps);
             } else {
               const filtered = stamps.filter(
                 (stamp) => stamp.country.toLowerCase() === country.toLowerCase()
@@ -99,6 +100,8 @@ const PhilatelyGallery = () => {
             }
           }}
         />
+
+        {/* Sort bar */}
         <SortDropdown value={sortOption} onChange={setSortOption} />
       </div>
 
