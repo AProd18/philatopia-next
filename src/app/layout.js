@@ -17,7 +17,7 @@ export default function RootLayout({ children }) {
       <html lang="en" className={inter.className} suppressHydrationWarning>
         <body>
           <ThemeProvider
-            attribute="class" // koristi Tailwind 'class' strategiju
+            attribute="class" // use Tailwind 'class' strategy
             defaultTheme="light"
             enableSystem={true}
           >
