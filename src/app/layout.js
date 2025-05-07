@@ -14,7 +14,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
   return (
     <SessionProvider>
-      <html lang="en" className={inter.className}>
+      <html lang="en" className={inter.className} suppressHydrationWarning>
         <body>
           <ThemeProvider
             attribute="class" // koristi Tailwind 'class' strategiju
