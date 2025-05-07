@@ -43,7 +43,7 @@ export default function Navbar() {
       >
         <div className="container mx-auto flex justify-between items-center p-4 h-16">
           {/* Logo */}
-          <div className="text-xl font-bold">
+          <div className="flex items-center gap-3 text-xl font-bold">
             <Link href="/">Philatopia</Link>
             <ThemeToggle />
           </div>
