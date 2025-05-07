@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { LogOut } from "lucide-react";
 import { FiArrowRightCircle, FiUserPlus } from "react-icons/fi";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -44,6 +45,7 @@ export default function Navbar() {
           {/* Logo */}
           <div className="text-xl font-bold">
             <Link href="/">Philatopia</Link>
+            <ThemeToggle />
           </div>
 
           {/* Hamburger Icon */}

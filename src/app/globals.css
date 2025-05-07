@@ -6,6 +6,18 @@
   --background: #dee2e6;
   --foreground: #eef0f2;
   --nav-menu: #343a40;
+
+  --card: rgba(255, 255, 255, 0.9);
+  --card-foreground: #1a1a1a;
+  --text: #1a1a1a;
+}
+
+.dark {
+  --background: rgba(0, 0, 0, 0.6); /* black with opacity */
+  --foreground: #ffffff;
+  --text: #f5f5f5;
+  --card: rgba(0, 0, 0, 0.4);
+  --card-foreground: #e5e5e5;
 }
 
 @media (prefers-color-scheme: dark) {

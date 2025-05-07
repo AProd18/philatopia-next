@@ -23,21 +23,21 @@ export default async function Home() {
   return (
     <main className="flex flex-col items-center justify-center pt-10 md:pt-40 pb-10 px-4">
       {/* Announcement Section */}
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-red-100 bg-opacity-90 shadow-lg rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-card text-text backdrop-blur-sm bg-opacity-90 shadow-lg rounded-md">
         <div className="h-60 flex flex-col items-center justify-center p-6">
-          <h2 className="text-xl sm:text-xl md:text-xl font-bold text-red-700 text-center">
+          <h2 className="text-xl sm:text-xl md:text-xl font-bold text-red-700 dark:text-red-300 text-center">
             Application Under Development
           </h2>
         </div>
       </div>
 
       {/* Welcome Section */}
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-white bg-opacity-90 shadow-lg rounded-md">
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 bg-card text-text backdrop-blur-sm bg-opacity-90 shadow-lg rounded-md">
         <div className="h-80 flex flex-col items-center justify-center p-6">
-          <h1 className="text-xl sm:text-3xl md:text-xl font-bold text-gray-700 text-center">
+          <h1 className="text-xl sm:text-3xl md:text-xl font-bold text-card-foreground text-center">
             Welcome to Philatopia
           </h1>
-          <p className="text-sm sm:text-base md:text-base mt-2 text-gray-600 text-center">
+          <p className="text-sm sm:text-base md:text-base mt-2 text-text text-center">
             <strong>Philatopia</strong> is a platform for stamp collectors to
             share, organize, and explore beautiful stamps from around the world.
             Whether you&apos;re a passionate philatelist or just starting your
@@ -53,7 +53,13 @@ export default async function Home() {
       {lastStamp && (
         <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4 space-y-4 xl:space-y-0">
           {/* Last Stamp */}
-          <div className="flex-1 bg-white shadow-lg bg-opacity-90 rounded-md p-4 flex flex-col sm:flex-row items-center gap-4">
+          <div
+            className="flex-1 shadow-lg rounded-md p-4 flex flex-col sm:flex-row items-center gap-4"
+            style={{
+              backgroundColor: "var(--card)",
+              color: "var(--text)",
+            }}
+          >
             <Image
               src={lastStamp.image}
               alt={lastStamp.title || "Recently added stamp"}
@@ -62,11 +68,9 @@ export default async function Home() {
               className="rounded-md shadow object-cover"
             />
             <div>
-              <h3 className="text-l font-semibold text-gray-700">
-                Last Added Stamp
-              </h3>
-              <p className="text-gray-700 font-bold">{lastStamp.title}</p>
-              <p className="text-sm text-gray-500 mt-1">
+              <h3 className="text-l font-semibold">Last Added Stamp</h3>
+              <p className="font-bold">{lastStamp.title}</p>
+              <p className="text-sm mt-1">
                 Posted{" "}
                 {formatDistanceToNow(new Date(lastStamp.createdAt), {
                   addSuffix: true,
@@ -76,11 +80,17 @@ export default async function Home() {
           </div>
 
           {/* Stats */}
-          <div className="flex-1 bg-white shadow-md bg-opacity-90 rounded-md p-6 flex flex-col items-center justify-center">
-            <h3 className="text-xl sm:text-3xl md:text-xl font-semibold text-gray-700 mb-2">
+          <div
+            className="flex-1 shadow-md rounded-md p-6 flex flex-col items-center justify-center"
+            style={{
+              backgroundColor: "var(--card)",
+              color: "var(--text)",
+            }}
+          >
+            <h3 className="text-xl sm:text-3xl md:text-xl font-semibold mb-2">
               Stats
             </h3>
-            <p className="text-gray-600 text-center">
+            <p className="text-center">
               Total Users: <span className="font-bold">{totalUsers}</span> |
               Total Stamps: <span className="font-bold">{totalStamps}</span>
             </p>
