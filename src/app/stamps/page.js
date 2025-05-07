@@ -131,7 +131,7 @@ const PhilatelyGallery = () => {
           {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 flex flex-col h-full"
+              className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 dark:from-gray-800/90 dark:via-gray-700 dark:to-gray-800 flex flex-col h-full border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
@@ -148,23 +148,23 @@ const PhilatelyGallery = () => {
                 </div>
               )}
               <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-600">
+                <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
                   {stamp.name}
                 </h3>
 
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   {getTruncatedText(stamp.description)}
                 </p>
 
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   <span className="font-bold">Year Issued:</span>{" "}
                   {stamp.yearIssued}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p
-                  className="text-sm text-gray-500 mt-auto"
+                  className="text-sm text-gray-500 dark:text-gray-400 mt-auto"
                   onClick={() => setSelectedUser(stamp.user)}
                 >
                   <span className="font-bold">Owner:</span>{" "}
@@ -173,7 +173,7 @@ const PhilatelyGallery = () => {
                   </span>
                 </p>
 
-                <p className="text-xs text-gray-400 mt-1 italic">
+                <p className="text-xs text-gray-400 dark:text-gray-500 mt-1 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>
@@ -186,7 +186,7 @@ const PhilatelyGallery = () => {
           {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
+              className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 dark:from-gray-800/90 dark:via-gray-700 dark:to-gray-800 border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
@@ -203,21 +203,21 @@ const PhilatelyGallery = () => {
                 </div>
               )}
               <div className="flex-grow text-center md:text-left">
-                <h3 className="font-semibold text-lg text-gray-600">
+                <h3 className="font-semibold text-lg text-gray-600 dark:text-gray-200">
                   {stamp.name}
                 </h3>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   {getTruncatedText(stamp.description)}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   <span className="font-bold">Year Issued:</span>{" "}
                   {stamp.yearIssued}
                 </p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-500 dark:text-gray-400">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
                 <p
-                  className="text-sm text-gray-500 mt-auto"
+                  className="text-sm text-gray-500 dark:text-gray-400 mt-auto"
                   onClick={() => setSelectedUser(stamp.user)}
                 >
                   <span className="font-bold">Owner:</span>{" "}
@@ -225,7 +225,7 @@ const PhilatelyGallery = () => {
                     {stamp.user?.name || "Unknown"}
                   </span>
                 </p>
-                <p className="text-xs text-gray-400 italic">
+                <p className="text-xs text-gray-400 dark:text-gray-500 italic">
                   Added on: {new Date(stamp.createdAt).toLocaleDateString()}
                 </p>
               </div>
