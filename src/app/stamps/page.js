@@ -127,11 +127,11 @@ const PhilatelyGallery = () => {
       {filteredStamps.length === 0 ? (
         <p>No stamps found</p>
       ) : viewMode === "grid" ? (
-        <div className="grid justify-center gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 flex flex-col h-full border-gray-300 dark:border-gray-600"
+              className="w-full border rounded-lg overflow-hidden bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 flex flex-col justify-between border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
