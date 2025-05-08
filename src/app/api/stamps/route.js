@@ -13,6 +13,21 @@ export async function POST(request) {
   const userId = formData.get("userId");
   const image = formData.get("image");
 
+  // Count existing stamps for the user
+  const stampCount = await prisma.stamp.count({
+    where: { userId },
+  });
+
+  const MAX_STAMPS = 10;
+
+  if (stampCount >= MAX_STAMPS) {
+    return NextResponse.json({
+      success: false,
+      error:
+        "You have reached the maximum number of stamps allowed. Upgrade to add more.",
+    });
+  }
+
   if (!image) {
     return NextResponse.json({ success: false, error: "Image is required" });
   }

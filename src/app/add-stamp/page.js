@@ -13,12 +13,14 @@ const AddStamp = () => {
   const [image, setImage] = useState(null);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [stampCount, setStampCount] = useState(0);
 
   // Set upload limits: max file size and max image dimensions
   const MAX_SIZE = 1 * 1024 * 1024;
   const MAX_WIDTH = 1000;
   const MAX_HEIGHT = 1000;
   const MAX_DESCRIPTION_LENGTH = 125;
+  const MAX_STAMPS = 10;
 
   useEffect(() => {
     if (error || successMessage) {
@@ -30,6 +32,19 @@ const AddStamp = () => {
       return () => clearTimeout(timeout);
     }
   }, [error, successMessage]);
+
+  useEffect(() => {
+    const fetchStampCount = async () => {
+      if (session?.user?.id) {
+        const res = await fetch(`/api/stamps/count?userId=${session.user.id}`);
+        const data = await res.json();
+        if (data.success) {
+          setStampCount(data.count);
+        }
+      }
+    };
+    fetchStampCount();
+  }, [session]);
 
   const handleDescriptionChange = (e) => {
     const value = e.target.value;
@@ -65,6 +80,11 @@ const AddStamp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (stampCount >= MAX_STAMPS) {
+      setError("You have reached the maximum number of stamps.");
+      return;
+    }
 
     if (!image) {
       setError("Please select a valid image.");
@@ -109,6 +129,14 @@ const AddStamp = () => {
         onSubmit={handleSubmit}
         className="bg-white opacity-90 shadow-lg rounded-lg p-8 w-full max-w-lg"
       >
+        {session && (
+          <div className="mb-4 text-center text-sm text-gray-700">
+            {stampCount}/{MAX_STAMPS} stamps added
+            {stampCount >= MAX_STAMPS && (
+              <p className="text-red-500 mt-1">Upgrade to add more stamps.</p>
+            )}
+          </div>
+        )}
         {/* <h2 className="text-2xl font-bold mb-6 text-gray-800 text-center"></h2> */}
         <div className="mb-4">
           <label
