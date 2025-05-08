@@ -2,14 +2,9 @@
 
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { inter } from "@/components/ui/fonts";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "next-themes";
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-});
 
 export default function RootLayout({ children }) {
   return (
