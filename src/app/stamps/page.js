@@ -147,7 +147,7 @@ const PhilatelyGallery = () => {
                   <span className="text-white">No Image</span>
                 </div>
               )}
-              <div className="p-4 flex flex-col flex-grow">
+              <div className="p-4 flex flex-col flex-grow ">
                 <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
                   {stamp.name}
                 </h3>
