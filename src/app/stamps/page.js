@@ -131,7 +131,7 @@ const PhilatelyGallery = () => {
           {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 dark:from-gray-800/90 dark:via-gray-700 dark:to-gray-800 flex flex-col h-full border-gray-300 dark:border-gray-600"
+              className="max-w-[14rem] w-full border rounded-lg overflow-hidden bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 flex flex-col h-full border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
@@ -186,7 +186,7 @@ const PhilatelyGallery = () => {
           {sortedStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 dark:from-gray-800/90 dark:via-gray-700 dark:to-gray-800 border-gray-300 dark:border-gray-600"
+              className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-6 border p-4 rounded bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
