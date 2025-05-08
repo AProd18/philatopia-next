@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
             <div className="relative min-h-screen flex flex-col">
               {/* Background Image */}
               <div
-                className="absolute inset-0 bg-cover bg-center"
+                className="absolute inset-0 bg-cover bg-center max-md:bg-contain"
                 style={{
                   backgroundImage: "url('/background.jpg')",
                   filter: "brightness(0.8) blur(2px)",

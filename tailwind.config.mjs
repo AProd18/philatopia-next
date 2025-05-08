@@ -16,6 +16,9 @@ export default {
         "card-foreground": "var(--card-foreground)",
         text: "var(--text)",
       },
+      screens: {
+        "max-md": { raw: "(max-width: 765px)" },
+      },
     },
   },
   plugins: [],
