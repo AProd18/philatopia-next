@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Start Here – Getting Into Stamps | Philatopia",
+  description:
+    "Begin your stamp collecting journey with this simple guide covering the basics of philately.",
+};
+
 export default function StartHerePage() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-8">
