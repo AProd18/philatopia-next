@@ -18,9 +18,9 @@ export const metadata = {
     siteName: "Philatopia",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/phila-topia.jpg",
         width: 1200,
-        height: 630,
+        height: 675,
         alt: "Philatopia Stamp Gallery",
       },
     ],
