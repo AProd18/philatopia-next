@@ -31,7 +31,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Philatopia – Explore the World of Stamps",
     description: "Share and explore stamp collections from around the world.",
-    images: ["/og-image.jpg"],
+    images: ["/phila-topia.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
