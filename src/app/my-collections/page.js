@@ -282,12 +282,14 @@ const MyCollections = () => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
           <form
             onSubmit={handleFormSubmit}
-            className="bg-white p-6 rounded shadow-lg"
+            className="bg-white dark:bg-gray-900 text-text dark:text-gray-100 p-6 rounded shadow-lg"
           >
-            <h2 className="text-xl font-bold mb-4 text-gray-600">Edit Stamp</h2>
+            <h2 className="text-xl font-bold mb-4 text-gray-700 dark:text-gray-200">
+              Edit Stamp
+            </h2>
 
             <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
+              className="block text-sm font-semibold mb-2 text-gray-600 dark:text-gray-300"
               htmlFor="name"
             >
               Name
@@ -299,11 +301,11 @@ const MyCollections = () => {
               onChange={(e) =>
                 setFormValues({ ...formValues, name: e.target.value })
               }
-              className="border p-2 w-full mb-4"
+              className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2 w-full mb-4"
             />
 
             <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
+              className="block text-sm font-semibold mb-2 text-gray-600 dark:text-gray-300"
               htmlFor="description"
             >
               Description
@@ -314,14 +316,14 @@ const MyCollections = () => {
               onChange={(e) =>
                 setFormValues({ ...formValues, description: e.target.value })
               }
-              className="border p-2 w-full mb-4"
+              className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2 w-full mb-4"
               maxLength={125}
             />
-            <div className="text-right text-sm text-gray-500">
+            <div className="text-right text-sm text-gray-500 dark:text-gray-400">
               {formValues.description.length}/125
             </div>
             <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
+              className="block text-sm font-semibold mb-2 text-gray-600 dark:text-gray-300"
               htmlFor="yearIssued"
             >
               Year Issued
@@ -333,11 +335,11 @@ const MyCollections = () => {
               onChange={(e) =>
                 setFormValues({ ...formValues, yearIssued: e.target.value })
               }
-              className="border p-2 w-full mb-4"
+              className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2 w-full mb-4"
             />
 
             <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
+              className="block text-sm font-semibold mb-2 text-gray-600 dark:text-gray-300"
               htmlFor="country"
             >
               Country
@@ -349,11 +351,11 @@ const MyCollections = () => {
               onChange={(e) =>
                 setFormValues({ ...formValues, country: e.target.value })
               }
-              className="border p-2 w-full mb-4"
+              className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2 w-full mb-4"
             />
 
             <label
-              className="block text-sm font-semibold mb-2 text-gray-600"
+              className="block text-sm font-semibold mb-2 text-gray-600 dark:text-gray-300"
               htmlFor="image"
             >
               Image:
@@ -365,9 +367,9 @@ const MyCollections = () => {
                 onChange={(e) =>
                   setFormValues({ ...formValues, image: e.target.files[0] })
                 }
-                className="border p-2 w-full"
+                className="border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-2 w-full"
               />
-              <span className="ml-4 text-sm text-gray-500">
+              <span className="ml-4 text-sm text-gray-500 dark:text-gray-300">
                 {formValues.image?.name || "No file chosen"}
               </span>
             </div>
@@ -375,14 +377,14 @@ const MyCollections = () => {
             <div className="flex space-x-2">
               <button
                 type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded"
+                className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow"
               >
                 Save
               </button>
               <button
                 type="button"
                 onClick={() => setEditingStamp(null)}
-                className="bg-gray-500 text-white px-4 py-2 rounded"
+                className="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded shadow"
               >
                 Cancel
               </button>
