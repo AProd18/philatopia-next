@@ -46,15 +46,15 @@ export default function Register() {
 
   return (
     <main className="flex items-center justify-center min-h-screen opacity-90">
-      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-xl font-semibold text-center text-gray-700 mb-6">
+      <div className="w-full max-w-sm bg-[var(--card)] text-[var(--card-foreground)] p-6 rounded-lg shadow-md transition-colors duration-300">
+        <h1 className="text-xl font-semibold text-center mb-6">
           Sign up with a new account
         </h1>
         <form onSubmit={handleRegister} className="flex flex-col space-y-4">
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Name
             </label>
@@ -65,13 +65,13 @@ export default function Register() {
               onChange={(e) => setName(e.target.value)}
               required
               placeholder="Username"
-              className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-gray-300 dark:border-gray-600 rounded-md w-full bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
             <label
               htmlFor="email"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Email
             </label>
@@ -82,13 +82,13 @@ export default function Register() {
               onChange={(e) => setEmail(e.target.value)}
               required
               placeholder="you@example.com"
-              className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-gray-300 dark:border-gray-600 rounded-md w-full bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <div>
             <label
               htmlFor="password"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-gray-300"
             >
               Password
             </label>
@@ -99,7 +99,7 @@ export default function Register() {
               onChange={(e) => setPassword(e.target.value)}
               required
               placeholder="Password"
-              className="p-3 border border-gray-300 rounded-md w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-gray-300 dark:border-gray-600 rounded-md w-full bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
           <button
