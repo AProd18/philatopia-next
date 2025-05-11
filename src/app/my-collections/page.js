@@ -144,7 +144,7 @@ const MyCollections = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70 border rounded-lg overflow-hidden shadow-lg flex flex-col justify-between"
+              className="border rounded-lg overflow-hidden bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 border-gray-300 dark:border-gray-600 flex flex-col justify-between"
             >
               {stamp.image ? (
                 <Image
@@ -160,17 +160,17 @@ const MyCollections = () => {
                 </div>
               )}
               <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-600">
+                <h3 className="text-lg font-semibold text-gray-600 dark:text-gray-200">
                   {stamp.name}
                 </h3>
-                <p className="text-sm text-gray-600 line-clamp-3">
+                <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
                   {stamp.description}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-2">
                   <span className="font-bold">Year Issued:</span>{" "}
                   {stamp.yearIssued}
                 </p>
-                <p className="text-sm text-gray-500 mt-2">
+                <p className="text-sm text-gray-500 dark:text-gray-300 mt-2">
                   <span className="font-bold">Country:</span> {stamp.country}
                 </p>
               </div>
@@ -197,7 +197,7 @@ const MyCollections = () => {
           {filteredStamps.map((stamp) => (
             <div
               key={stamp.id}
-              className="flex items-center space-x-4 border p-4 rounded bg-gradient-to-b from-white/90 via-[#f3f1ed] to-white/70"
+              className="flex items-center space-x-4 border p-4 rounded bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 border-gray-300 dark:border-gray-600"
             >
               {stamp.image ? (
                 <Image
@@ -213,11 +213,13 @@ const MyCollections = () => {
                 </div>
               )}
               <div className="flex-grow">
-                <h3 className="font-semibold text-lg text-gray-600">
+                <h3 className="font-semibold text-lg text-gray-600 dark:text-gray-200">
                   {stamp.name}
                 </h3>
-                <p className="text-sm text-gray-600">{stamp.description}</p>
-                <p className="text-sm text-gray-500">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  {stamp.description}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-300">
                   <span className="font-bold">Year Issued:</span>{" "}
                   {stamp.yearIssued},{" "}
                   <span className="font-bold">Country:</span> {stamp.country}
