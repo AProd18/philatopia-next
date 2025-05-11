@@ -40,11 +40,10 @@ export default function ContactUs() {
 
   return (
     <main className="flex items-center justify-center min-h-screen">
-      <div className="w-full max-w-lg bg-white opacity-90 p-8 rounded-lg shadow-md">
-        {/* <h1 className="text-3xl font-semibold text-center text-blue-600 mb-6"></h1> */}
+      <div className="w-full max-w-lg bg-[var(--card)] text-[var(--card-foreground)] p-8 rounded-lg shadow-md transition-colors duration-300">
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Name
             </label>
             <input
@@ -52,12 +51,12 @@ export default function ContactUs() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Email
             </label>
             <input
@@ -65,12 +64,12 @@ export default function ContactUs() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Subject
             </label>
             <input
@@ -78,32 +77,34 @@ export default function ContactUs() {
               name="subject"
               value={formData.subject}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Message
             </label>
             <textarea
               name="message"
               value={formData.message}
               onChange={handleChange}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="4"
               required
             ></textarea>
           </div>
           <button
             type="submit"
-            className="w-full p-3 bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black rounded-md  focus:outline-none focus:ring-2"
+            className="w-full p-3 bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:hover:bg-gray-600 text-gray-800 dark:text-white hover:text-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             Send Message
           </button>
         </form>
         {status && (
-          <p className="mt-4 text-center text-sm text-gray-600">{status}</p>
+          <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-300">
+            {status}
+          </p>
         )}
       </div>
     </main>
