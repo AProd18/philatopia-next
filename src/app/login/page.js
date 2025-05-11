@@ -40,8 +40,8 @@ export default function Login() {
 
   return (
     <main className="flex items-center justify-center min-h-screen opacity-90">
-      <div className="w-full max-w-sm bg-white p-6 rounded-lg shadow-md">
-        <h1 className="text-xl font-semibold text-center text-gray-700 mb-6">
+      <div className="w-full max-w-sm bg-[var(--card)] text-[var(--card-foreground)] p-6 rounded-lg shadow-md transition-colors duration-300">
+        <h1 className="text-xl font-semibold text-center mb-6">
           Sign in with your email and password
         </h1>
         {!session ? (
@@ -51,7 +51,7 @@ export default function Login() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
             <input
@@ -59,7 +59,7 @@ export default function Login() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="p-3 border border-gray-300 dark:border-gray-600 rounded-md bg-white dark:bg-gray-800 text-black dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
             {error && <p className="text-red-500 text-sm">{error}</p>}
@@ -73,7 +73,7 @@ export default function Login() {
         ) : (
           <div className="text-center mt-4">
             <p className="text-green-600">Welcome, {session.user.name}!</p>
-            <p className="text-gray-600">
+            <p>
               Check out your{" "}
               <a
                 href="/my-collections"
@@ -94,12 +94,12 @@ export default function Login() {
 
         {!session && (
           <div className="mt-4 text-center">
-            <p className="text-gray-600">or</p>
+            <p>or</p>
             <button
               onClick={handleGoogleLogin}
               className="w-full mt-4 p-3 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
             >
-              Sing in with Google
+              Sign in with Google
             </button>
           </div>
         )}
