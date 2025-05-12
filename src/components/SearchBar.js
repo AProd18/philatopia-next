@@ -5,7 +5,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div className="mb-4">
+    <div className="mb-2">
       <input
         type="text"
         onChange={handleInputChange}
