@@ -69,7 +69,7 @@ export default function Profile() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 opacity-90 bg-white rounded-lg shadow-md mt-36">
+    <div className="max-w-2xl mx-auto p-6 bg-card text-text backdrop-blur-sm bg-opacity-90 dark:via-gray-700 dark:to-gray-800 dark:border-gray-600  rounded-lg shadow-md mt-36">
       <div className="mb-6 text-center">
         <div className="relative w-32 h-32 mx-auto">
           {profileImage ? (
@@ -104,7 +104,7 @@ export default function Profile() {
       <div className="mb-6">
         <label
           htmlFor="aboutMe"
-          className="block text-lg font-medium mb-2 text-gray-500"
+          className="block text-lg font-medium mb-2 text-gray-500 dark:text-gray-300"
         >
           About Me
         </label>
@@ -112,11 +112,11 @@ export default function Profile() {
           id="aboutMe"
           value={aboutMe}
           onChange={(e) => setAboutMe(e.target.value.slice(0, 254))}
-          className="w-full p-2 border rounded-lg"
+          className="w-full p-2 opacity-80 border rounded-lg border-gray-300 dark:border-gray-600 dark:bg-gray-800 text-gray-800 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
           rows={4}
           placeholder="Write something about yourself..."
         />
-        <p className="text-sm text-right text-gray-400 mt-1">
+        <p className="text-sm text-right text-gray-400 dark:text-gray-300 mt-1">
           {aboutMe.length}/254 characters
         </p>
         {message && (
