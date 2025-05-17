@@ -27,6 +27,11 @@ export default function HowToSpotValuePage() {
             </a>
           </li>
           <li>
+            <a href="#condition-types" className="hover:underline">
+              Understanding Stamp Conditions
+            </a>
+          </li>
+          <li>
             <a href="#tools" className="hover:underline">
               Tools for Evaluating
             </a>
@@ -75,6 +80,61 @@ export default function HowToSpotValuePage() {
           <li>Used stamps can be valuable if well preserved.</li>
         </ol>
 
+        <h2 id="condition-types" className="text-2xl font-semibold mb-2">
+          Understanding Stamp Conditions: MNH, MH, Used...
+        </h2>
+        <div className="text-lg leading-relaxed mb-6 space-y-4">
+          <p>
+            Stamp condition labels are used worldwide to describe the
+            preservation and gum status of a stamp. Here’s what they mean:
+          </p>
+          <ul className="list-disc list-inside">
+            <li>
+              <strong>MNH (Mint Never Hinged)</strong>: Perfect mint condition
+              with original gum untouched. No hinge marks at all. Most valuable
+              mint category.
+            </li>
+            <li>
+              <strong>MH (Mint Hinged)</strong>: Mint condition but has been
+              mounted with a hinge. Usually a light hinge mark on the back gum.
+            </li>
+            <li>
+              <strong>MLH (Mint Lightly Hinged)</strong>: Similar to MH, but the
+              hinge mark is barely visible — a better condition than regular MH.
+            </li>
+            <li>
+              <strong>MNG (Mint No Gum)</strong>: Mint stamp but without any gum
+              on the back (may be issued without gum or gum is removed).
+            </li>
+            <li>
+              <strong>Used</strong>: Postally cancelled stamp. Value varies
+              greatly based on rarity, cancellation type, and overall
+              preservation.
+            </li>
+            <li>
+              <strong>CTO (Cancelled to Order)</strong>: Cancelled but never
+              actually circulated. Usually has full gum but printed
+              cancellation.
+            </li>
+            <li>
+              <strong>NG (No Gum)</strong>: Stamps with no remaining gum and not
+              necessarily mint.
+            </li>
+            <li>
+              <strong>HR (Hinge Remnant)</strong>: A piece of the old hinge is
+              still attached.
+            </li>
+            <li>
+              <strong>Thinned</strong>: The back paper is damaged, usually from
+              hinge removal — reduces value significantly.
+            </li>
+          </ul>
+          <p>
+            Knowing these distinctions is essential when buying, selling, or
+            appraising stamps. Always inspect the back for clues!
+          </p>
+        </div>
+
         <h2 id="tools" className="text-2xl font-semibold mb-2">
           Tools for Evaluating
         </h2>
@@ -86,11 +146,66 @@ export default function HowToSpotValuePage() {
         <h2 id="final-notes" className="text-2xl font-semibold mb-2">
           Final Notes
         </h2>
-        <ul className="list-disc list-inside text-lg leading-relaxed">
+        <ul className="list-disc list-inside text-lg leading-relaxed mb-4">
           <li>Always verify with a reputable catalog or expert.</li>
           <li>Join forums to share and get feedback on potential finds.</li>
           <li>Keep exploring — the next gem might be in your collection!</li>
         </ul>
+        <div className="mt-4 text-lg">
+          <p className="font-semibold mb-2">Helpful Resources:</p>
+          <ul className="list-disc list-inside text-blue-700 dark:text-blue-300 space-y-1">
+            <li>
+              <a
+                href="https://colnect.com/en/stamps"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Colnect – Worldwide Stamp Catalog
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.stanleygibbons.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Stanley Gibbons – Stamp Collecting Authority
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.amosadvantage.com/scott-catalogs"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Scott Catalogs – Official Site
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.stampcommunity.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Stamp Community Forum
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.philatelicdatabase.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                Philatelic Database – Articles & Guides
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
