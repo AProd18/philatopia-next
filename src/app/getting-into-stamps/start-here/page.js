@@ -1,3 +1,5 @@
+import StampFunFact from "@/components/StampFunFact";
+
 export const metadata = {
   title: "Start Here – Getting Into Stamps | Philatopia",
   description:
@@ -42,11 +44,16 @@ export default function StartHerePage() {
       {/* Main content block */}
       <div className="bg-[color:var(--card)] backdrop-blur-sm rounded-2xl p-6 shadow-lg">
         <h1 className="text-3xl font-bold mb-4">Start Here</h1>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-lg leading-relaxed mb-2">
           Welcome! If you&apos;re new to stamp collecting, this guide will walk
           you through the basics and help you get started on your philatelic
           journey.
         </p>
+
+        {/* Stamp Fun Fact Section */}
+        <div className="mb-4">
+          <StampFunFact />
+        </div>
 
         <h2 id="what-is" className="text-2xl font-semibold mb-2">
           What is Stamp Collecting?
