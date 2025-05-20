@@ -4,6 +4,18 @@ export const metadata = {
   title: "Start Here – Getting Into Stamps | Philatopia",
   description:
     "Begin your stamp collecting journey with this simple guide covering the basics of philately.",
+  keywords: [
+    "stamp collecting",
+    "philately",
+    "how to start stamp collecting",
+    "beginner's guide to philately",
+    "stamp hobby",
+    "postage stamps",
+    "starting a stamp collection",
+    "collecting stamps",
+    "philatelic guide",
+    "Philatopia",
+  ],
 };
 
 export default function StartHerePage() {

@@ -2,6 +2,18 @@ export const metadata = {
   title: "Storing and Tools – Getting Into Stamps | Philatopia",
   description:
     "Learn how to safely store your stamps and which tools can help you build a better collection.",
+  keywords: [
+    "stamp collecting",
+    "stamp storage",
+    "philately tools",
+    "stamp preservation",
+    "stamp albums",
+    "stamp maintenance",
+    "collecting stamps",
+    "stamp tweezers",
+    "stamp storage methods",
+    "stamp care",
+  ],
 };
 
 export default function StoringAndToolsPage() {

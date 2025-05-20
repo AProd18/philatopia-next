@@ -2,6 +2,18 @@ export const metadata = {
   title: "How to Spot Value – Getting Into Stamps | Philatopia",
   description:
     "Learn how to identify valuable stamps in your collection with this practical guide for beginners.",
+  keywords: [
+    "valuable stamps",
+    "stamp collecting tips",
+    "how to spot rare stamps",
+    "stamp value guide",
+    "philately for beginners",
+    "stamp condition MNH MH used",
+    "how to evaluate stamps",
+    "stamp rarity and demand",
+    "stamp collector tools",
+    "how to identify stamp value",
+  ],
 };
 
 export default function HowToSpotValuePage() {
