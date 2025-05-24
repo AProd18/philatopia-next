@@ -41,6 +41,16 @@ export default function ContactUs() {
   return (
     <main className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-lg bg-[var(--card)] text-[var(--card-foreground)] p-8 rounded-lg shadow-md transition-colors duration-300">
+        {/* Intro Text */}
+        <div className="mb-6 text-center">
+          <h2 className="text-2xl font-bold mb-2">Get in Touch</h2>
+          <p className="text-gray-600 dark:text-gray-300 text-sm">
+            Have a question, suggestion, or just want to share your love for
+            stamps? <br />
+            We’d love to hear from you! Fill out the form below and we’ll get
+            back to you as soon as possible.
+          </p>
+        </div>
         <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
