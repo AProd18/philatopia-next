@@ -86,6 +86,13 @@ export default function Profile() {
             </div>
           )}
         </div>
+
+        {session?.user?.email && (
+          <p className="mt-4 text-sm text-gray-600 dark:text-gray-300 italic">
+            {session.user.email}
+          </p>
+        )}
+
         <label
           htmlFor="profileImage"
           className="mt-4 inline-block px-4 py-2  rounded-lg cursor-pointer bg-gray-300 hover:bg-gray-400 text-gray-800 hover:text-black"
@@ -129,11 +136,6 @@ export default function Profile() {
           </p>
         )}
       </div>
-      {session?.user?.email && (
-        <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
-          {session.user.email}
-        </p>
-      )}
 
       <button
         onClick={handleSaveChanges}
