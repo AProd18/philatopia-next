@@ -129,6 +129,11 @@ export default function Profile() {
           </p>
         )}
       </div>
+      {session?.user?.email && (
+        <p className="text-center text-gray-600 dark:text-gray-300 mt-2">
+          {session.user.email}
+        </p>
+      )}
 
       <button
         onClick={handleSaveChanges}
