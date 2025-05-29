@@ -97,6 +97,16 @@ export default async function Home() {
           </div>
         </div>
       )}
+      {/* Trivia / Stamp Fact */}
+      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%]  bg-card rounded shadow p-4">
+        <h3 className="font-semibold text-card-foreground mb-2">
+          Did you know?
+        </h3>
+        <p className="text-sm text-text">
+          The world&apos;s most expensive stamp is the British Guiana 1c
+          magenta, sold for over $9 million.
+        </p>
+      </div>
     </main>
   );
 }
