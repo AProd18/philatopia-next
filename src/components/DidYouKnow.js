@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const facts = [
   <p key="fact1" className="text-sm text-text">
-    The world’s most expensive stamp is the{" "}
+    The world&apos;s most expensive stamp is the{" "}
     <span className="font-semibold">British Guiana 1c magenta</span>, which was
     sold for over <span className="text-red-500 font-semibold">$9 million</span>
     .
@@ -12,8 +12,8 @@ const facts = [
     Only one copy is known to exist, making it a true gem among collectors!
   </p>,
   <p key="fact2" className="text-sm text-text">
-    The <span className="font-semibold">Penny Black</span> was the world’s first
-    stamp, issued in 1840 and featuring{" "}
+    The <span className="font-semibold">Penny Black</span> was the world&apos;s
+    first stamp, issued in 1840 and featuring{" "}
     <span className="text-blue-600 font-semibold">Queen Victoria</span>.
     <br />
     It changed the way people sent mail forever!
@@ -26,7 +26,7 @@ const facts = [
   </p>,
   <p key="fact4" className="text-sm text-text">
     Stamp collecting is called <span className="font-semibold">philately</span>,
-    one of the world’s most beloved hobbies.
+    one of the world&apos;s most beloved hobbies.
     <br />
     There are over{" "}
     <span className="text-green-600 font-semibold">60 million</span> stamp
@@ -57,7 +57,7 @@ export default function StampFact() {
       <h3 className="font-semibold text-card-foreground mb-2 flex items-center gap-2">
         📬 Did you know?
       </h3>
-      <p className="text-sm text-text">{facts[index]}</p>
+      {facts[index]}
     </div>
   );
 }
