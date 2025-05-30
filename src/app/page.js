@@ -4,6 +4,7 @@ import Link from "next/link";
 import prisma from "@/lib/prisma";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
+import DidYouKnow from "../components/DidYouKnow";
 
 export default async function Home() {
   const totalUsers = await prisma.user.count();
@@ -49,6 +50,9 @@ export default async function Home() {
           </p>
         </div>
       </div>
+
+      {/* Trivia / Stamp Fact */}
+      <DidYouKnow />
 
       {lastStamp && (
         <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4 space-y-4 xl:space-y-0">
@@ -97,16 +101,6 @@ export default async function Home() {
           </div>
         </div>
       )}
-      {/* Trivia / Stamp Fact */}
-      <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%]  bg-card rounded shadow p-4">
-        <h3 className="font-semibold text-card-foreground mb-2">
-          Did you know?
-        </h3>
-        <p className="text-sm text-text">
-          The world&apos;s most expensive stamp is the British Guiana 1c
-          magenta, sold for over $9 million.
-        </p>
-      </div>
     </main>
   );
 }
