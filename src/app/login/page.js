@@ -40,8 +40,8 @@ export default function Login() {
 
   return (
     <main className="flex items-center justify-center min-h-screen opacity-90">
-      <div className="w-full max-w-sm bg-[var(--card)] text-[var(--card-foreground)] p-6 rounded-lg shadow-md transition-colors duration-300">
-        <h1 className="text-xl font-semibold text-center mb-6">
+      <div className="w-full max-w-sm bg-[var(--card)] text-[var(--card-foreground)] p-6 rounded-lg shadow-md transition-colors duration-300 ">
+        <h1 className="text-xl font-semibold text-center mb-6 ">
           Sign in with your email and password
         </h1>
         {!session ? (
@@ -71,17 +71,22 @@ export default function Login() {
             </button>
           </form>
         ) : (
-          <div className="text-center mt-4">
-            <p className="text-green-600">Welcome, {session.user.name}!</p>
+          <div className="text-center mt-4 space-y-2">
+            <p className="text-lg text-card-foreground">
+              Welcome,{" "}
+              <span className="font-semibold">{session.user.name}</span>!
+            </p>
             <p>
-              Check out your{" "}
+              We&apos;re glad to have you back. <br />
+              Your
               <a
                 href="/my-collections"
                 className="text-blue-500 underline hover:text-blue-700"
               >
+                {" "}
                 collection
-              </a>
-              !
+              </a>{" "}
+              awaits!
             </p>
             <button
               onClick={handleLogout}
