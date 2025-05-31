@@ -55,7 +55,7 @@ export default async function Home() {
       <DidYouKnow />
 
       {lastStamp && (
-        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4 space-y-4 xl:space-y-0">
+        <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4  xl:space-y-0">
           {/* Last Stamp */}
           <div
             className="flex-1 shadow-lg rounded-md p-4 flex flex-col sm:flex-row items-center gap-4"
@@ -72,7 +72,7 @@ export default async function Home() {
               className="rounded-md shadow object-cover"
             />
             <div>
-              <h3 className="text-l font-semibold">Last Added Stamp</h3>
+              <h3 className="text-md font-semibold">Last Added Stamp</h3>
               <p className="font-bold">{lastStamp.title}</p>
               <p className="text-sm mt-1">
                 Posted{" "}
@@ -91,9 +91,7 @@ export default async function Home() {
               color: "var(--text)",
             }}
           >
-            <h3 className="text-xl sm:text-3xl md:text-xl font-semibold mb-2">
-              Stats
-            </h3>
+            <h3 className="text-lg font-semibold mb-2">Stats</h3>
             <p className="text-center">
               Total Users: <span className="font-bold">{totalUsers}</span> |
               Total Stamps: <span className="font-bold">{totalStamps}</span>

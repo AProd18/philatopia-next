@@ -53,7 +53,7 @@ export default function StampFact() {
   }, []);
 
   return (
-    <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] bg-card rounded shadow p-4 transition-opacity duration-500 ease-in-out mb-6">
+    <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] bg-card rounded shadow p-4 transition-opacity duration-500 ease-in-out mb-5">
       <h3 className="font-semibold text-card-foreground mb-2 flex items-center gap-2">
         📬 Did you know?
       </h3>
