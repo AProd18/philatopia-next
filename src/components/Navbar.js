@@ -6,7 +6,13 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { HiMenu, HiX } from "react-icons/hi";
 import { LogOut } from "lucide-react";
-import { FiArrowRightCircle, FiUserPlus } from "react-icons/fi";
+import {
+  FiArrowRightCircle,
+  FiUserPlus,
+  FiMail,
+  FiHeart,
+} from "react-icons/fi";
+import { BiMessageDetail } from "react-icons/bi";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
@@ -140,11 +146,19 @@ export default function Navbar() {
               </>
             )}
 
-            <Link href="/contact-us" className="nav-link">
-              Contact Us
+            <Link
+              href="/contact-us"
+              className="nav-link flex items-center gap-2 text-m"
+            >
+              <BiMessageDetail className="text-base" />
+              <span>Contact Us</span>
             </Link>
-            <Link href="/donation" className="nav-link">
-              Donation
+            <Link
+              href="/donation"
+              className="nav-link flex items-center gap-2 text-m"
+            >
+              <FiHeart className="text-base" />
+              <span>Donation</span>
             </Link>
           </div>
         </div>
@@ -268,18 +282,20 @@ export default function Navbar() {
           )}
           <Link
             href="/contact-us"
-            className="text-l hover:bg-gray-700/50 px-4  rounded transition"
+            className=" hover:bg-gray-700/50 px-4  rounded transition flex items-center gap-2 text-m"
             onClick={() => setMenuOpen(false)}
           >
-            Contact Us
+            <BiMessageDetail className="text-base" />
+            <span>Contact Us</span>
           </Link>
           <hr className="border-white/10 w-full max-w-xs mx-auto" />
           <Link
             href="/donation"
-            className="text-l hover:bg-gray-700/50 px-4 rounded transition"
+            className=" hover:bg-gray-700/50 px-4 rounded transition flex items-center gap-2 text-m"
             onClick={() => setMenuOpen(false)}
           >
-            Donation
+            <FiHeart className="text-base" />
+            <span>Donation</span>
           </Link>
         </div>
       )}
