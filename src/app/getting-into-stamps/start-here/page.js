@@ -1,5 +1,3 @@
-import StampFunFact from "@/components/StampFunFact";
-
 export const metadata = {
   title: "Start Here – Getting Into Stamps | Philatopia",
   description:
@@ -55,28 +53,30 @@ export default function StartHerePage() {
 
       {/* Main content block */}
       <div className="bg-[color:var(--card)] backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-        <h1 className="text-3xl font-bold mb-4">Start Here</h1>
-        <p className="text-lg leading-relaxed mb-2">
+        <h1 className="text-xl font-bold mb-2">Start Here</h1>
+        <p className="text-md leading-relaxed mb-12">
           Welcome! If you&apos;re new to stamp collecting, this guide will walk
           you through the basics and help you get started on your philatelic
           journey.
         </p>
 
-        {/* Stamp Fun Fact Section */}
-        <div className="mb-4">
-          <StampFunFact />
-        </div>
-
-        <h2 id="what-is" className="text-2xl font-semibold mb-2">
+        <h2 id="what-is" className="text-xl font-semibold mb-2">
           What is Stamp Collecting?
         </h2>
-        <p className="text-lg leading-relaxed mb-6">
-          Stamp collecting, or <strong>philately</strong>, is the hobby of
-          collecting and studying postage stamps and related postal history
-          materials. It&apos;s more than just saving old stamps — it&apos;s
-          about appreciating their stories, designs, and cultural significance.
+        <p className="text-md leading-relaxed mb-4">
+          <strong>Stamp collecting</strong> is the hobby of gathering postage
+          stamps and related postal items, often for enjoyment, education, or
+          investment. It involves finding, organizing, and preserving stamps
+          from various countries and time periods.
         </p>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-4">
+          <strong>Philately</strong>, on the other hand, is the study of postage
+          stamps, their history, production, and cultural context. While many
+          stamp collectors are philatelists, philately goes beyond just
+          collecting — it explores the deeper stories and technical aspects
+          behind the stamps.
+        </p>
+        <p className="text-md leading-relaxed mb-4">
           Philatelists often collect stamps based on specific <em>themes</em>{" "}
           (like birds, space, or sports), <em>countries</em>,{" "}
           <em>historical periods</em>, or even <em>printing errors</em> and rare
@@ -84,7 +84,7 @@ export default function StartHerePage() {
           <strong>envelopes (known as covers)</strong>, or full sets issued
           during specific events.
         </p>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-4">
           The hobby began shortly after the release of the world&apos;s first
           postage stamp — the <strong>Penny Black</strong> — issued in{" "}
           <strong>1840</strong> in Great Britain. It featured Queen Victoria and
@@ -92,42 +92,52 @@ export default function StartHerePage() {
           <strong>John Edward Gray</strong>, a British zoologist who began
           saving stamps in <strong>1841</strong>.
         </p>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-12">
           Since then, stamp collecting has evolved into a global hobby with
           millions of enthusiasts. It combines history, geography, design, and
           storytelling — all through tiny, fascinating windows into the past and
           present.
         </p>
 
-        <h2 id="why-start" className="text-2xl font-semibold mb-2">
+        <h2 id="why-start" className="text-xl font-semibold mb-2">
           Why Start Collecting Stamps?
         </h2>
-        <ul className="list-disc list-inside mb-6 text-lg leading-relaxed">
-          <li>
-            It&apos;s a relaxing and rewarding hobby that encourages
-            mindfulness.
-          </li>
-          <li>
-            You learn about different countries, cultures, events, and famous
-            people.
-          </li>
-          <li>
-            Stamps are miniature works of art, often beautifully designed.
-          </li>
-          <li>
-            You can build a personal collection that reflects your own interests
-            or passions.
-          </li>
-          <li>
-            It connects you to a global community of collectors — both online
-            and offline.
-          </li>
-        </ul>
+        <p className="text-md leading-relaxed mb-4">
+          Stamp collecting is more than just a pastime — it&apos;s a mindful,
+          enriching activity that allows you to slow down and appreciate the
+          details. Whether you&apos;re young or old, it offers a peaceful escape
+          from fast-paced routines while still engaging your curiosity and
+          intellect.
+        </p>
+        <p className="text-md leading-relaxed mb-4">
+          Through stamps, you explore different <strong>countries</strong>,{" "}
+          <strong>cultures</strong>, <strong>historical events</strong>, and{" "}
+          <strong>notable individuals</strong>. Each stamp tells a story,
+          offering insight into the world from unique perspectives.
+        </p>
+        <p className="text-md leading-relaxed mb-4">
+          They are miniature works of art — often intricately designed and
+          historically significant. Collecting them can spark an interest in
+          art, history, geography, or design.
+        </p>
+        <p className="text-md leading-relaxed mb-4">
+          One of the joys of stamp collecting is the ability to create a
+          collection that&apos;s entirely your own. You might focus on themes
+          that resonate with your personal passions — from wildlife and
+          architecture to space exploration or royal history.
+        </p>
+        <p className="text-md leading-relaxed mb-12">
+          Perhaps most importantly, stamp collecting connects you to a global
+          community. Whether through clubs, exhibitions, or online forums,
+          you&apos;ll find others who share your interest and enthusiasm.
+          It&apos;s a hobby that grows with you — offering lifelong learning and
+          lasting enjoyment.
+        </p>
 
-        <h2 id="how-to-begin" className="text-2xl font-semibold mb-2">
+        <h2 id="how-to-begin" className="text-xl font-semibold mb-2">
           How to Begin
         </h2>
-        <ol className="list-decimal list-inside mb-6 text-lg leading-relaxed space-y-2">
+        <ol className="list-decimal list-inside mb-12 text-md leading-relaxed space-y-2">
           <li>
             <strong>Start simple:</strong> Begin by saving stamps from letters
             and packages you receive at home. Ask family and friends to save
@@ -152,14 +162,14 @@ export default function StartHerePage() {
           </li>
         </ol>
 
-        <h2 id="where-to-find" className="text-2xl font-semibold mb-2">
+        <h2 id="where-to-find" className="text-xl font-semibold mb-2">
           Where to Find Stamps
         </h2>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-2">
           Stamps are everywhere once you start looking! Here are some common
           sources:
         </p>
-        <ul className="list-disc list-inside mb-6 text-lg leading-relaxed">
+        <ul className="list-disc list-inside mb-12 text-md leading-relaxed">
           <li>Save stamps from your incoming mail and packages.</li>
           <li>Visit local flea markets, antique shops, or garage sales.</li>
           <li>
@@ -178,10 +188,10 @@ export default function StartHerePage() {
           </li>
         </ul>
 
-        <h2 id="final-tips" className="text-2xl font-semibold mb-2">
+        <h2 id="final-tips" className="text-xl font-semibold mb-2">
           Final Tips
         </h2>
-        <ul className="list-disc list-inside text-lg leading-relaxed">
+        <ul className="list-disc list-inside text-md leading-relaxed">
           <li>
             Handle stamps with care — always use tongs to avoid damage from oils
             on your fingers.
