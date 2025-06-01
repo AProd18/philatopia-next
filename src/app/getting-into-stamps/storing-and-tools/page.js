@@ -50,10 +50,10 @@ export default function StoringAndToolsPage() {
 
       {/* Main content */}
       <div className="bg-[var(--card)] backdrop-blur-sm rounded-2xl p-6 shadow-lg">
-        <h1 className="text-3xl font-bold mb-4 text-[var(--text)]">
+        <h1 className="text-xl font-bold mb-4 text-[var(--text)]">
           Storing and Tools
         </h1>
-        <p className="text-lg text-[var(--text)] leading-relaxed mb-6">
+        <p className="text-md text-[var(--text)] leading-relaxed mb-10">
           Building a stamp collection is just the beginning. To preserve the
           beauty and value of your stamps, proper storage and the right tools
           are essential. Whether you&apos;re a beginner or an experienced
@@ -63,11 +63,11 @@ export default function StoringAndToolsPage() {
 
         <h2
           id="why-store"
-          className="text-2xl font-semibold text-[var(--text)] mb-2"
+          className="text-xl font-semibold text-[var(--text)] mb-2"
         >
           Why Proper Storage Matters
         </h2>
-        <p className="text-lg text-[var(--text)] leading-relaxed mb-6">
+        <p className="text-md text-[var(--text)] leading-relaxed mb-6">
           Stamps are made of paper, which makes them vulnerable to environmental
           factors such as humidity, sunlight, dust, and air pollutants. Even
           minor damage — like curling edges or faded ink — can significantly
@@ -78,11 +78,11 @@ export default function StoringAndToolsPage() {
 
         <h2
           id="basic-tools"
-          className="text-2xl font-semibold text-[var(--text)] mb-2"
+          className="text-xl font-semibold text-[var(--text)] mb-2"
         >
           Basic Tools
         </h2>
-        <ul className="list-disc list-inside text-[var(--text)] mb-6 text-lg leading-relaxed">
+        <ul className="list-disc list-inside text-[var(--text)] mb-10 text-md leading-relaxed">
           <li>
             <strong>Tweezers (stamp tongs):</strong> These prevent the oils and
             dirt from your fingers from damaging stamps. Always choose tweezers
@@ -107,11 +107,11 @@ export default function StoringAndToolsPage() {
 
         <h2
           id="storage-methods"
-          className="text-2xl font-semibold text-[var(--text)] mb-2"
+          className="text-xl font-semibold text-[var(--text)] mb-2"
         >
           Storage Methods
         </h2>
-        <ol className="list-decimal list-inside text-[var(--text)] mb-6 text-lg leading-relaxed">
+        <ol className="list-decimal list-inside text-[var(--text)] mb-10 text-md leading-relaxed">
           <li>
             <strong>Stock books:</strong> These have rows of horizontal pockets
             and are perfect for organizing stamps without adhesives.
@@ -142,11 +142,11 @@ export default function StoringAndToolsPage() {
 
         <h2
           id="maintenance"
-          className="text-2xl font-semibold text-[var(--text)] mb-2"
+          className="text-xl font-semibold text-[var(--text)] mb-2"
         >
           Maintenance Tips
         </h2>
-        <ul className="list-disc list-inside text-[var(--text)] text-lg leading-relaxed">
+        <ul className="list-disc list-inside text-[var(--text)] text-md leading-relaxed">
           <li>
             <strong>Control temperature and humidity:</strong> Store your
             collection in a dry room with stable temperatures. Use silica gel

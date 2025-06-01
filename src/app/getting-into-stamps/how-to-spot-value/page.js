@@ -163,7 +163,7 @@ export default function HowToSpotValuePage() {
           <li>Join forums to share and get feedback on potential finds.</li>
           <li>Keep exploring — the next gem might be in your collection!</li>
         </ul>
-        <div className="mt-4 text-lg">
+        <div className="mt-4 text-md">
           <p className="font-semibold mb-2">Helpful Resources:</p>
           <ul className="list-disc list-inside text-blue-700 dark:text-blue-300 space-y-1">
             <li>
