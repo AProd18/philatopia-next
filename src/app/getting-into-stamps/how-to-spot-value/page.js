@@ -58,47 +58,47 @@ export default function HowToSpotValuePage() {
 
       {/* Main content */}
       <div className="rounded-2xl p-6 shadow-lg bg-[--card] text-[--text] backdrop-blur-sm">
-        <h1 className="text-3xl font-bold mb-4">How to Spot Value</h1>
-        <p className="text-lg leading-relaxed mb-6">
+        <h1 className="text-xl font-bold mb-4">How to Spot Value</h1>
+        <p className="text-md leading-relaxed mb-10">
           Discovering which stamps hold value is part art and part science.
           Here’s how to sharpen your eye and spot valuable finds.
         </p>
 
-        <h2 id="look-for" className="text-2xl font-semibold mb-2">
+        <h2 id="look-for" className="text-xl font-semibold mb-2">
           Key Features to Look For
         </h2>
-        <ul className="list-disc list-inside text-lg leading-relaxed mb-6">
+        <ul className="list-disc list-inside text-md leading-relaxed mb-10">
           <li>Unusual or limited-edition designs</li>
           <li>Errors or misprints</li>
           <li>Historical or political significance</li>
           <li>Classic or old issues no longer in circulation</li>
         </ul>
 
-        <h2 id="rarity" className="text-2xl font-semibold mb-2">
+        <h2 id="rarity" className="text-xl font-semibold mb-2">
           Rarity and Demand
         </h2>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-10">
           A rare stamp doesn’t always equal value—demand plays a huge role.
           Research how many copies exist and if collectors are actively seeking
           it.
         </p>
 
-        <h2 id="condition" className="text-2xl font-semibold mb-2">
+        <h2 id="condition" className="text-xl font-semibold mb-2">
           Condition Matters
         </h2>
-        <ol className="list-decimal list-inside text-lg leading-relaxed mb-6">
+        <ol className="list-decimal list-inside text-md leading-relaxed mb-10">
           <li>Mint condition stamps are the most prized.</li>
           <li>Look for clean edges, centered design, and no creases.</li>
           <li>Used stamps can be valuable if well preserved.</li>
         </ol>
 
-        <h2 id="condition-types" className="text-2xl font-semibold mb-2">
+        <h2 id="condition-types" className="text-xl font-semibold mb-2">
           Understanding Stamp Conditions: MNH, MH, Used...
         </h2>
-        <div className="text-lg leading-relaxed mb-6 space-y-4">
+        <div className="text-md leading-relaxed mb-10 space-y-4">
           <p>
             Stamp condition labels are used worldwide to describe the
-            preservation and gum status of a stamp. Here’s what they mean:
+            preservation and gum status of a stamp. Here&apos;s what they mean:
           </p>
           <ul className="list-disc list-inside">
             <li>
@@ -147,18 +147,18 @@ export default function HowToSpotValuePage() {
           </p>
         </div>
 
-        <h2 id="tools" className="text-2xl font-semibold mb-2">
+        <h2 id="tools" className="text-xl font-semibold mb-2">
           Tools for Evaluating
         </h2>
-        <p className="text-lg leading-relaxed mb-6">
+        <p className="text-md leading-relaxed mb-10">
           A magnifying glass, watermark detector, and catalogues (like Scott or
           Stanley Gibbons) are your best friends when evaluating stamps.
         </p>
 
-        <h2 id="final-notes" className="text-2xl font-semibold mb-2">
+        <h2 id="final-notes" className="text-xl font-semibold mb-2">
           Final Notes
         </h2>
-        <ul className="list-disc list-inside text-lg leading-relaxed mb-4">
+        <ul className="list-disc list-inside text-md leading-relaxed mb-10">
           <li>Always verify with a reputable catalog or expert.</li>
           <li>Join forums to share and get feedback on potential finds.</li>
           <li>Keep exploring — the next gem might be in your collection!</li>

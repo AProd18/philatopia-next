@@ -54,7 +54,7 @@ export default function StartHerePage() {
       {/* Main content block */}
       <div className="bg-[color:var(--card)] backdrop-blur-sm rounded-2xl p-6 shadow-lg">
         <h1 className="text-xl font-bold mb-2">Start Here</h1>
-        <p className="text-md leading-relaxed mb-12">
+        <p className="text-md leading-relaxed mb-10">
           Welcome! If you&apos;re new to stamp collecting, this guide will walk
           you through the basics and help you get started on your philatelic
           journey.
@@ -92,7 +92,7 @@ export default function StartHerePage() {
           <strong>John Edward Gray</strong>, a British zoologist who began
           saving stamps in <strong>1841</strong>.
         </p>
-        <p className="text-md leading-relaxed mb-12">
+        <p className="text-md leading-relaxed mb-10">
           Since then, stamp collecting has evolved into a global hobby with
           millions of enthusiasts. It combines history, geography, design, and
           storytelling — all through tiny, fascinating windows into the past and
@@ -126,7 +126,7 @@ export default function StartHerePage() {
           that resonate with your personal passions — from wildlife and
           architecture to space exploration or royal history.
         </p>
-        <p className="text-md leading-relaxed mb-12">
+        <p className="text-md leading-relaxed mb-10">
           Perhaps most importantly, stamp collecting connects you to a global
           community. Whether through clubs, exhibitions, or online forums,
           you&apos;ll find others who share your interest and enthusiasm.
@@ -137,7 +137,7 @@ export default function StartHerePage() {
         <h2 id="how-to-begin" className="text-xl font-semibold mb-2">
           How to Begin
         </h2>
-        <ol className="list-decimal list-inside mb-12 text-md leading-relaxed space-y-2">
+        <ol className="list-decimal list-inside mb-10 text-md leading-relaxed space-y-2">
           <li>
             <strong>Start simple:</strong> Begin by saving stamps from letters
             and packages you receive at home. Ask family and friends to save
@@ -169,7 +169,7 @@ export default function StartHerePage() {
           Stamps are everywhere once you start looking! Here are some common
           sources:
         </p>
-        <ul className="list-disc list-inside mb-12 text-md leading-relaxed">
+        <ul className="list-disc list-inside mb-10 text-md leading-relaxed">
           <li>Save stamps from your incoming mail and packages.</li>
           <li>Visit local flea markets, antique shops, or garage sales.</li>
           <li>
