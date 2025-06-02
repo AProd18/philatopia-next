@@ -1,3 +1,12 @@
+import {
+  LogOut,
+  Search,
+  BookOpen,
+  Info,
+  Lightbulb,
+  MapPin,
+} from "lucide-react";
+
 export const metadata = {
   title: "Start Here – Getting Into Stamps | Philatopia",
   description:
@@ -60,8 +69,11 @@ export default function StartHerePage() {
           journey.
         </p>
 
-        <h2 id="what-is" className="text-xl font-semibold mb-2">
-          What is Stamp Collecting?
+        <h2
+          id="what-is"
+          className="text-xl font-semibold mb-2 flex items-center gap-2"
+        >
+          <BookOpen size={20} /> What is Stamp Collecting?
         </h2>
         <p className="text-md leading-relaxed mb-4">
           <strong>Stamp collecting</strong> is the hobby of gathering postage
@@ -99,8 +111,11 @@ export default function StartHerePage() {
           present.
         </p>
 
-        <h2 id="why-start" className="text-xl font-semibold mb-2">
-          Why Start Collecting Stamps?
+        <h2
+          id="why-start"
+          className="text-xl font-semibold mb-2 flex items-center gap-2"
+        >
+          <Lightbulb size={20} /> Why Start Collecting Stamps?
         </h2>
         <p className="text-md leading-relaxed mb-4">
           Stamp collecting is more than just a pastime — it&apos;s a mindful,
@@ -134,8 +149,11 @@ export default function StartHerePage() {
           lasting enjoyment.
         </p>
 
-        <h2 id="how-to-begin" className="text-xl font-semibold mb-2">
-          How to Begin
+        <h2
+          id="how-to-begin"
+          className="text-xl font-semibold mb-2 flex items-center gap-2"
+        >
+          <Info size={20} /> How to Begin
         </h2>
         <ol className="list-decimal list-inside mb-10 text-md leading-relaxed space-y-2">
           <li>
@@ -162,8 +180,11 @@ export default function StartHerePage() {
           </li>
         </ol>
 
-        <h2 id="where-to-find" className="text-xl font-semibold mb-2">
-          Where to Find Stamps
+        <h2
+          id="where-to-find"
+          className="text-xl font-semibold mb-2 flex items-center gap-2"
+        >
+          <Search size={20} /> Where to Find Stamps
         </h2>
         <p className="text-md leading-relaxed mb-2">
           Stamps are everywhere once you start looking! Here are some common
@@ -188,8 +209,11 @@ export default function StartHerePage() {
           </li>
         </ul>
 
-        <h2 id="final-tips" className="text-xl font-semibold mb-2">
-          Final Tips
+        <h2
+          id="final-tips"
+          className="text-xl font-semibold mb-2 flex items-center gap-2"
+        >
+          <MapPin size={20} /> Final Tips
         </h2>
         <ul className="list-disc list-inside text-md leading-relaxed">
           <li>
