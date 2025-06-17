@@ -5,7 +5,7 @@ import prisma from "@/lib/prisma";
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import DidYouKnow from "../components/DidYouKnow";
-import StampCharts from "@/components/StampCharts";
+// import StampCharts from "@/components/StampCharts";
 
 export default async function Home() {
   const totalUsers = await prisma.user.count();
@@ -67,12 +67,12 @@ export default async function Home() {
       {/* Trivia / Stamp Fact */}
       <DidYouKnow />
 
-      <StampCharts
+      {/* <StampCharts
         byYear={stampsByYear.map((item) => ({
           year: item.yearIssued,
           count: item._count,
         }))}
-      />
+      /> */}
 
       {lastStamp && (
         <div className="w-full sm:w-[70%] md:w-[60%] lg:w-[50%] xl:w-[50%] mb-5 flex flex-col xl:flex-row gap-4  xl:space-y-0">
